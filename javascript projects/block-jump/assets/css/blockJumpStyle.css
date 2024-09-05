@@ -1,0 +1,58 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Styles for the game container */
+#game1-container {
+    width: 580px;
+    height: 300px;
+    border: 2px solid black;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+/* Styles for the optional start message */
+#start-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    font-family: Arial, sans-serif;
+}
+
+/* Styles for the character element */
+#game1-character {
+    width: 20px;
+    height: 50px;
+    background-color: red;
+    position: absolute;
+    bottom: 0;
+    left: 20px;
+    transition: transform 0.5s cubic-bezier(0.35, 0.91, 0.33, 0.97);
+}
+
+/* Applies the jump animation */
+#game1-character.jump {
+    transform: translateY(-100px);
+}
+
+/* Styles for the block elements */
+.game1-block {
+    width: 20px;
+    height: 20px;
+    background-color: blue;
+    position: absolute;
+    bottom: 0;
+    right: -20px;
+    transform: translateX(0);
+    will-change: transform;
+}
+
+/* Defines the animation for moving blocks */
+@keyframes moveBlock {
+    to { transform: translateX(-520px); }
+}
