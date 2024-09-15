@@ -1,0 +1,180 @@
+.hidden {
+    display: none;
+}
+
+.rsvp__form{
+    display: flex;
+    flex-flow: column;
+    width: 95%;
+    font-size: 0.855em;
+}
+
+.form-group {
+    display: flex;
+    flex-flow: column;
+    padding: 0.4em;
+}
+
+.form-label {
+    padding-bottom: 0.6em;
+}
+
+.text-line {
+    padding: 0.5em;
+    padding-top: 0.8em;
+    width: 100%;
+    height: 2.5em;
+    justify-content: center;
+}
+
+.text-box {
+    height: 5em;
+}
+
+.contact-group {
+    padding-top: 1em;
+}
+
+.first-group {
+    padding-top: 0;
+}
+
+.address-group {
+    padding-top: 0.5em;
+}
+
+.rsvp__form-submit {
+    padding: 0.5em;
+    margin-top: 0.5em;
+    width: 100%;
+    height: 3.5em;
+    justify-content: center;
+    border-radius: 0.7em;
+
+    background-color: transparent;
+    border: 2px solid var(--first-color);
+    color: var(--first-color);
+    transition: 0.3s;
+}
+
+.rsvp__form-submit:hover,
+.rsvp__form-submit:active {
+    background-color: var(--first-color);
+    color: var(--white-color);
+}
+
+.rsvp-responses {
+    padding-top: 2rem;
+    padding: 1rem;
+}
+
+.rsvp-item {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.rsvp-item h3 {
+    margin-top: 0;
+    color: #333;
+}
+
+.rsvp-item p {
+    margin: 0.5rem 0;
+    color: #666;
+}
+
+/* ==== RSVP Check Buttons ==== */
+/* The container */
+.btn-container {
+    display: block;
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* Hide the browser's default radio button */
+  .btn-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  /* Create a custom radio button */
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 15px;
+    width: 15px;
+    background-color: #eee;
+    border-radius: 50%;
+  }
+  
+  /* On mouse-over, add a grey background color */
+  .btn-container:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+  
+  /* When the radio button is checked, add a blue background */
+  .btn-container input:checked ~ .checkmark {
+    background-color: var(--first-color);
+  }
+  
+  /* Create the indicator (the dot/circle - hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the indicator (dot/circle) when checked */
+  .btn-container input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  /* Style the indicator (dot/circle) */
+  .btn-container .checkmark:after {
+        top: 3.9px;
+        left: 3.9px;
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: white;
+  }
+
+  .qtn-box {
+    height: 5em!important;
+  }
+
+  .back-btn {
+    padding: 0.5em 0;
+    top: 2em;
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+    gap: 0.3em;
+  }
+
+.back-btn-text {
+    text-align: center;
+    margin-top: 0.34em;
+    color: var(--first-color);
+}
+
+.back-btn i {
+    font-size: 1.2em;
+    color: var(--first-color);
+}
+
+.dash {
+    text-align: center;
+}

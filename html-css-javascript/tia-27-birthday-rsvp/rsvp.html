@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+   <html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+      <!--=============== REMIXICONS ===============-->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css" crossorigin="">
+
+      <!--=============== SWIPER CSS ===============-->
+      <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+
+      <!--=============== CSS ===============-->
+      <link rel="stylesheet" href="assets/css/style.css">
+      <link rel="stylesheet" href="assets/css/rsvpform.css">
+      <link rel="stylesheet" href="assets/css/media.css">
+
+      <!--=============== Website Icon ===============-->
+      <link rel="icon" type="image/x-icon" href="" />
+
+      <title> Spooky Soiree Invitation </title>
+   </head>
+   <body>
+    
+    <!--==================== MAIN ====================-->
+    <main class="main container">
+         <section class="header header-img border">
+            <img class="header-img web" src="/assets/img/theme/spider-web.png">
+         <div class="header-title invitation shadow">
+            <h2>Spooky</h2>
+            <h1>Soiree</h1>
+         </div>
+         </section>
+         <section class="header-img border-middle">
+            <div class="invitation invitation-body">
+               <p>You’re cordially invited to celebrate Tia’s Spooky Boo-Day!</p>
+            </div>
+         </section>
+      <!---==================== DETAILS ====================-->
+        <section class="header-img border-middle">
+            <div class="invitation invitation-body invitation-body-details">
+                <h2>RSVP</h2>
+                <form class="rsvp__form" id="rsvp-form" action="https://script.google.com/macros/s/AKfycbwhGnQXchTnnmTFZPTzlRTC2ND4Ws9hHwW8kVh1mzzHONDPF6ymd3-gqqcAdNYznpEL/exec" method="POST">
+                    <div class="form-group">
+                        <label for="name" class="form-label">What's your name?</label>
+                        <input class="text-line" type="text" name="user_name" id="name" placeholder="Name" required>
+                    </div>
+                
+                    <div class="form-group">
+                        <label class="form-label">Will you be able to make it?</label>
+                        <div class="rsvp__form-attendance radio-group">
+                            <label class="btn-container radio-item">
+                                <input type="radio" id="attendance1" name="user_attendance" value="yes" required checked="checked">
+                                <span class="checkmark"></span>
+                                Yes, I'll be there!
+                            </label>
+                            <label class="btn-container radio-item">
+                                <input type="radio" id="attendance2" name="user_attendance" value="maybe" required>
+                                <span class="checkmark"></span>
+                                Maybe, still thinking about it.
+                            </label>
+                            <label class="btn-container radio-item">
+                                <input type="radio" id="attendance3" name="user_attendance" value="no" required>
+                                <span class="checkmark"></span>
+                                Can't make it, boo-hoo!
+                            </label>
+                        </div>
+                    </div>
+                
+                    <div id="optional-fields">
+                        <div class="form-group">
+                            <label class="form-label">Any spooky sidekicks?</label>
+                            <div class="rsvp__form-plusone radio-group">
+                                <label class="btn-container radio-item">
+                                    <input type="radio" id="plusone0" name="user_plusone" value="0" required checked="checked">
+                                    <span class="checkmark"></span>
+                                    Just me!
+                                </label>
+                                <label class="btn-container radio-item">
+                                    <input type="radio" id="plusone1" name="user_plusone" value="1" required>
+                                    <span class="checkmark"></span>
+                                    One, a boo-friend.
+                                </label>
+                                <label class="btn-container radio-item">
+                                    <input type="radio" id="plusone2" name="user_plusone" value="2" required>
+                                    <span class="checkmark"></span>
+                                    Two, double double, toil and trouble
+                                </label>
+                            </div>
+                            <textarea class="text-line hidden" id="user_plusone_names" name="user_plusone_names" placeholder="Enter name(s) of your guest(s)"></textarea>
+                        </div>
+                
+                        <div class="form-group">
+                            <label class="form-label">Any dietary restrictions?</label>
+                            <div class="rsvp__form-plusone radio-group">
+                                <label class="btn-container radio-item">
+                                    <input type="radio" id="dietary_yes" name="user_dietary" value="yes">
+                                    <span class="checkmark"></span>
+                                    Yes
+                                </label>
+                                <label class="btn-container radio-item">
+                                    <input type="radio" id="dietary_no" name="user_dietary" value="no" checked="checked">
+                                    <span class="checkmark"></span>
+                                    No.
+                                </label>
+                            </div>
+                            <textarea class="text-line text-box hidden" id="user_dietary_details" name="user_dietary_details" placeholder="Please specify your dietary restrictions"></textarea>
+                        </div>
+                
+                        <div class="form-group">
+                            <label class="form-label">eerie essentials for updates or info</span> <span><br>(only one required)</span>:</label>
+                            <div class="contact-group first-group">
+                                <label class="form-label" for="email">Email Address</label>
+                                <input class="text-line" type="email" name="user_email" id="email" placeholder="Email">
+                            </div>
+                            <div class="contact-group">
+                                <label class="form-label" for="phone">Phone Number</label>
+                                <input class="text-line" type="tel" name="user_phone" id="phone" placeholder="Phone">
+                            </div>
+                        </div>
+                
+                        <div id="contact-error" class="error-message hidden">Please provide either an email address or a phone number.</div>
+                
+                        <div class="form-group address-group">
+                            <label class="form-label">need the haunt address?</label>
+                            <div class="radio-group">
+                                <label class="btn-container radio-item">
+                                    <input type="radio" id="address_yes" name="user_need_address" value="yes">
+                                    <span class="checkmark"></span>
+                                    Yes, please.
+                                </label>
+                                <label class="btn-container radio-item">
+                                    <input type="radio" id="address_no" name="user_need_address" value="no" checked="checked">
+                                    <span class="checkmark"></span>
+                                    No, I have it.
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="name" class="form-label">do you have any questions?</label>
+                            <textarea class="text-line text-box qtn-box" type="text" name="qtn_details" id="qtn_details" placeholder="add any questions here"> </textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label dash">- - - - - - - - - - - - - - - - - - - - - -</label>
+                            <label class="form-label">i also plan to go to fortitude valley on 2nd november. will you attend?</label>
+                            <div class="rsvp__form-attendance radio-group">
+                                <label class="btn-container radio-item">
+                                    <input type="radio" id="clubatt1" name="user_attendance_club" value="yes" required checked="checked">
+                                    <span class="checkmark"></span>
+                                    Yes, I'll be there!
+                                </label>
+                                <label class="btn-container radio-item">
+                                    <input type="radio" id="clubatt2" name="user_attendance_club" value="maybe" required>
+                                    <span class="checkmark"></span>
+                                    Maybe, still thinking about it.
+                                </label>
+                                <label class="btn-container radio-item">
+                                    <input type="radio" id="clubatt3" name="user_attendance_club" value="no" required>
+                                    <span class="checkmark"></span>
+                                    Can't make it, boo-hoo!
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="form-group">
+                        <input type="submit" value="Submit" class="rsvp__form-submit">
+                    </div>
+                </form>
+                <div id="rsvp-message"></div>
+            </div>
+        </section>
+
+        <section class="header-img border-middle">
+            <div class="invitation invitation-body invitation-body-details rsvp-responses">
+                <div id="rsvp-list"></div>
+            </div>
+        </section>
+
+        <section class="header-img border-middle">
+            <a href="/index.html" class="invitation back-btn">
+                <i class="ri-arrow-left-circle-line"></i>
+                <p class="back-btn-text">back</p>
+            </a>
+        </section>
+
+         <!---==================== ENDING NOTES ====================-->
+         <section class="header-img border-middle">
+            <div class="invitation invitation-body invitation-body-bottom">
+               <p>Let's make this a night to die for!</p>
+               <ul>
+                  <li class="bottom-list">Food Provided</li>
+                  <li class="bottom-list">Costumes Encouraged</li>
+                  <li>BYO Drinks</li>
+               </ul>
+            </div>
+         </section>
+      <!---==================== END ====================-->
+         <section class="header-img border-bottom">
+            <div class="invitation invitation-body invitation-right">
+               <div class="wax-seal"></div>
+            </div>
+            <footer class="copyright">
+               <p>&#169;2024 Tia Darvell. All Rights Reserved.</p>
+            </footer>
+         </section>
+   </main>
+
+   <!--=============== MAIN JS ===============-->
+   <script src="/assets/js/main.js"></script>
+
+    <!--=============== EMAIL JS ===============-->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+   </body>
+   </html>
