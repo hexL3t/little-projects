@@ -33,3 +33,5 @@ def passwordCracker(password):
 
 # Call the passwordCracker function with a sample password
 passwordCracker("L3arn2c0D23!!@@..")
+
+#p4S5W0rD.%c74cK3r
