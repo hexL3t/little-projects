@@ -1,0 +1,111 @@
+/* Small Screens */
+@media screen and (max-width: 390px){
+    section,
+    .container{
+        width: 100vw;
+    }
+}
+
+.pwc,
+.og-pass {
+  width: 45%;
+}
+
+/* Larger Screens */
+@media screen and (min-width: 390px){
+
+    .section, .container {
+        width: 90vw;
+    }
+
+    .tabs, .tab-content {
+        width: 100%;
+    }
+    .password-cracker {
+        padding: 1rem;
+    }
+
+    .header-content p {
+        width: 95%;
+    }
+
+    .info-content {
+        flex-direction: column;
+    }
+
+    .right, .left{
+        width: 100%;
+    }
+
+    .pwc, .og-pass, .crack-pass {
+    width: 100%;
+    }
+
+    .pwc_result {
+        flex-flow: column;
+    }
+}
+
+
+@media screen and (max-width: 1024px){
+    :root {
+        /*== Font & Typography ==*/
+        --body-font: "Fira Code", serif;
+        --h1-font-size: 1.6rem;
+        --normal-font-size: 1rem;
+        --small-font-size: .813rem;
+
+        --border-radius: 0.5rem;
+        --z-index: 100;
+    }
+
+    .pw_title {
+        padding-top: 2rem;
+    }
+}
+
+@media screen and (min-width: 1024px){
+    section, .container {
+        min-width: 1024px;
+    }
+
+    .info-content {
+        flex-direction: row;
+    }
+
+    .right {
+        width: 45%;
+    }
+    
+    .left {
+        width: 46%;
+    }
+
+    .pwc-content {
+        flex-flow:column;
+    }
+
+    .pwc_result {
+        flex-flow: row;
+    }
+
+    .og-pass, .crack-pass {
+        width: 50%;
+    }
+}
+
+
+@media screen and (min-width: 1120px){
+    .pwc-content {
+        display: flex;
+        flex-flow: row;
+    }
+
+    .pwc{
+        width: 40%;
+    }
+
+    .tab-container{
+        width: 60%;
+    }
+}
