@@ -1,0 +1,672 @@
+/* -- Google Fonts -- */
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap');
+
+/* -- Variables CSS -- */
+:root {
+    /*== Colors ==*/
+    --white-color: hsl(0, 0%, 100%);
+    --black-color: hsl(0, 0%, 0%);
+
+    --first-color: hsl(220, 100%, 41%);
+    --second-color: hsl(335, 98%, 50%);
+    --third-color: hsl(208, 100%, 6%);
+
+    --blue-color: hsla(220, 100%, 41%, .25);
+    --blue-color-border: hsla(220, 100%, 41%, .75);
+
+    --pink-color: hsla(335, 98%, 50%, .5);
+    --pink-color-border: hsla(335, 98%, 50%, .75);
+
+    --navy-color: hsla(208, 100%, 6%, .40);
+    --navy-color-border: hsla(208, 100%, 6%, .7);
+
+    --white-transparent: hsla(0, 0%, 100%, .8);
+    --empty-bg: hsla(0, 0%, 0%, 0);
+
+    /*== Font & Typography ==*/
+    --body-font: "Fira Code", serif;
+    --h1-font-size: 2rem;
+    --normal-font-size: 1rem;
+    --small-font-size: .813rem;
+
+    --border-radius: 0.5rem;
+    --z-index: 100;
+
+}
+
+/* -- Base Styles -- */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+* {
+    font-family: var(--body-font);
+    text-decoration: none;
+    scroll-behavior: smooth;
+    list-style: none;
+}
+
+html {
+    height: 100%;
+    width: 100%;
+    background: var(--third-color);
+} 
+
+body {
+    overflow: auto;
+    color: var(--white-color);
+    background-image: url("/static/img/hexagonal-bg.jpg");
+    background-size: cover;
+    background-position: center;
+    transition: all 0.1s ease;
+}
+
+a {
+    text-decoration: none;
+    color: var(--white-color);
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+p {
+    word-wrap: break-word; /* Legacy support */
+    overflow-wrap: break-word; /* Modern standard */
+}
+
+section, .container {
+    max-width: 1024px;
+}
+/* -- Layout Styles -- */
+.main {
+    display: grid;
+    place-items: center;
+    height: 100%;
+}
+
+.core {
+  flex-flow: column;
+  padding: 4rem 0;
+} 
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pw_title {
+    font-size: var(--h1-font-size);
+}
+
+.pc_bg {
+  position: absolute;
+  max-width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* -- Password Cracker --- */
+.cracker {
+    width: 90%;
+    padding: 1.7rem 0;
+}
+
+.password-cracker, .info-content {
+    margin-inline: 1.5rem;
+    backdrop-filter: blur(20px);
+}
+
+.password-cracker{
+    padding: 2rem;
+    border: 0.5em solid var(--pink-color);
+    border-radius: var(--border-radius);
+    background-color: var(--navy-color);
+    width: 100%;
+}
+
+
+/* -- Time -- */
+.pwc_time {
+    width: 100%;
+    justify-content: right;
+    padding-right: 0.7rem;
+  }
+
+.progress-number {
+    color: var(--navy-color);
+}
+
+.result-time {
+    transition: 0.3s ease;
+    width: 13.5rem;
+    height: 2rem;
+    background-color: var(--first-color);
+    display: inherit;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .time-taken {
+    display: inherit;
+    align-items: center;
+    justify-content: center;
+    height: 2rem;
+  }
+  
+  .time-taken i {
+    padding: 0.3rem 0.3rem 0.2rem 0.3rem;
+    font-size: 1.5rem;
+    transition: 0.3s ease;
+    background-color: var(--first-color);
+  }
+  
+  .time-taken i:hover,
+  .result-time:hover {
+    background-color: transparent;
+  }
+  
+
+.time-taken:hover::before {
+    position: inherit;
+    content: "time taken";
+    color: var(--white-color);
+    background-color: none;
+    font-size: 0.8rem;
+    font-weight: 400;
+    transition: opacity 0.3s ease;
+    opacity: 1;
+    margin-right: 0.4rem;
+  }
+  
+  .time-taken i:hover::before {
+    background-color: transparent;
+  }
+  
+  .time-taken::before {
+    content: "";
+    opacity: 0;
+  }
+  
+  .flask {
+    transform: scaleX(-1);
+  }
+  
+
+/* -- Header -- */
+nav {
+    width: 100vw;
+    height: 2rem;
+    background-color: var(--first-color);
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    margin-bottom: auto;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+    row-gap: 2rem;
+}
+
+.header-title {
+    width: 100%;
+}
+
+.header-content {
+    width: 90%;
+    gap: 1rem;
+    flex-flow: column;
+}
+
+.header-content p {
+    font-size: 0.8rem;
+    width: 80%;
+}
+
+/* -- Instructions -- */
+.info-content {
+    width: 90%;
+    border: 0.2rem solid var(--blue-color);
+    gap: 2rem;
+    align-items: flex-start;
+    padding: 1.5rem;
+}
+
+.content div{
+    display: flex;
+    flex-direction: row-reverse;
+    column-gap: 1rem
+}
+
+.content-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.list-text{
+    display: grid;
+    font-size: 0.8rem;
+    grid-template-columns: auto auto;
+    grid-gap: 0.5rem;
+    column-gap: 0.5rem;
+    align-self: center;
+}
+
+.bullet {
+   font-size: 1.5rem;
+   align-content: center;
+   padding: 0.3rem;
+}
+
+.left .bullet {
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+/* -- Tabs -- */
+.tabs {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
+
+.tab-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 1.5rem 0 1.3rem;
+    flex-wrap: wrap;
+    transition: margin-left 4s ease-in-out;
+  }
+
+.tab-button {
+    border-radius: var(--border-radius);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    padding: 0.5rem 1.5rem;
+    border: 0.8px solid var(--navy-color);
+    cursor: pointer;
+    font-weight: 500;
+    background-color: var(--blue-color);
+    color: var(--white-color);
+    width: 50%;
+}
+
+.tab-button.active {
+    background-color: var(--pink-color);
+}
+      
+.tab-content {
+    display: none;
+    border: 0.25rem solid var(--pink-color);
+    background-color: var(--navy-color);
+    color: var(--white-color);
+    backdrop-filter: blur(20px);
+    height: 250px;
+    padding: 0.5rem;
+}
+
+
+.tab-title {
+    color: var(--second-color);
+    margin-bottom: 0.6rem;
+    font-weight: 600;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.tab-content ul{
+    height: 190px;
+    overflow-y: auto;
+    overflow-x: auto;
+    scrollbar-width: thin;
+    color: var(--third-color);
+    padding: 0.5rem;
+    background-color: var(--white-transparent);
+  }
+
+.tab-content li {
+    width: fit-content;
+}
+
+.tab-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.tab-content::-webkit-scrollbar-thumb {
+    background-color: var(--pink-color);
+    border-radius: 10px;
+  }
+
+.pwc_result,
+.pwc_time {
+  display: flex;
+  margin-top: 0.25rem;
+}
+
+.pwc,
+.tab-container,
+.result-value,
+.crack-value,
+.result-time {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* -- Result Styles -- */
+.result-value,
+.crack-value,
+.result-time {
+  scrollbar-width: thin;
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+
+.result-value,
+.crack-value {
+  height: 3rem;
+  border: 0.2rem solid var(--third-color);
+  border-radius: var(--border-radius);
+  padding: 0.5rem 1rem;
+}
+
+.result-value {
+  color: var(--third-color) !important;
+  background-color: var(--white-transparent);
+}
+
+.crack-value {
+  color: var(--second-color);
+  background-color: var(--white-color);
+}
+
+.result-value p,
+.crack-value p,
+.tab-content ul {
+  white-space: nowrap;
+}
+
+.tabs,
+.tab-content {
+  width: 95%;
+}
+.password-cracker {
+    margin-inline:  0;
+}
+/* -- Progress and Time Styles -- */
+.progress-number {
+    color: var(--navy-color);
+  }
+  
+  .pwc_time {
+    width: 100%;
+    justify-content: right;
+    padding-right: 0.7rem;
+  }
+  
+  .result-time {
+    transition: 0.3s ease;
+    width: 13.5rem;
+    height: 2rem;
+    background-color: var(--first-color);
+    display: inherit;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .time-taken {
+    display: inherit;
+    align-items: center;
+    justify-content: center;
+    height: 2rem;
+  }
+  
+  .time-taken i {
+    padding: 0.3rem 0.3rem 0.2rem 0.3rem;
+    font-size: 1.5rem;
+    transition: 0.3s ease;
+    background-color: var(--first-color);
+  }
+  
+  .time-taken i:hover,
+  .result-time:hover {
+    background-color: transparent;
+  }
+  
+  .time-taken:hover::before {
+    position: inherit;
+    content: "time taken";
+    color: var(--white-color);
+    background-color: none;
+    font-size: 0.8rem;
+    font-weight: 400;
+    transition: opacity 0.3s ease;
+    opacity: 1;
+    margin-right: 0.4rem;
+  }
+  
+  .time-taken i:hover::before {
+    background-color: transparent;
+  }
+  
+  .time-taken::before {
+    content: "";
+    opacity: 0;
+  }
+  
+  .flask {
+    transform: scaleX(-1);
+  }
+
+/* Form */
+form {
+    width: 100%;
+    margin-right: 0.5rem;
+  }
+
+.pw_inputs {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+  }
+
+form input {
+    padding: 0.5rem;
+    font-size: var(--normal-font-size);
+    font-family: var(--body-font);
+    }
+
+.form-btn {
+    margin-top: 1rem;
+}
+
+/* Cracker Details */
+.crack-pass,
+.og-pass {
+  display: inherit;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 0 0.6rem;
+}
+
+.crack-pass {
+    width: 55%;
+}
+
+.pw_inputs {
+    width: 100%;
+}
+
+/* -- Buttons -- */
+button {
+    padding: 0.5rem 1rem;
+    background-color: var(--pink-color);
+    border: 0.1rem solid var(--pink-color-border);
+    color: var(--white-color);
+    transition: 0.3s ease;
+    cursor: pointer;
+    border-radius: var(--border-radius);
+}
+
+button:hover {
+    background-color: var(--second-color);
+  }
+
+/* Clear Btn */
+#clear-progress-btn,
+.view-more-btn  {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  padding: 0 0;
+  background-color: transparent;
+  color: var(--pink-color);
+  border: none;
+  cursor: pointer;  /* Makes the button interactive */
+  transition: 0.3s ease-in-out;
+}
+
+#clear-progress-btn:hover {
+  color: var(--second-color);  /* Changes color on hover */
+}
+
+#clear-progress-btn i{
+  font-size: 1.6rem;  /* Sets icon size */
+}
+
+#clear-progress-btn:hover::before {
+  content: "clear";  /* Text that appears on hover */
+}
+
+#clear-progress-btn:hover::before,
+.view-more-btn:hover::before {
+  position: inherit;
+  top: 0.3rem;
+  right: 2rem;
+  color: var(--white-color);  /* Text color */
+  font-size: 0.8rem;
+  font-weight: 400;
+  transition: opacity 0.3s ease;
+  opacity: 1;
+}
+
+#clear-progress-btn::before,
+.view-more-btn::before {
+  content: "";  /* Default state is empty */
+  opacity: 0;  /* Invisible by default */
+}
+
+
+/* -- Footer -- */
+.footer {
+    width: 100vw;
+    margin-top: auto;
+    background-color: var(--third-color);
+    color: var(--white-color);
+    padding: 0.5rem 1rem;
+}
+
+.footer p {
+    font-size: 0.6rem;
+    text-align: right;
+}
+
+/* Code */
+.code-container {
+  height: 190px;
+  scrollbar-width: thin;
+  padding: 0.5rem;
+  background-color: var(--white-transparent);
+  color: var(--third-color);
+  overflow-y: auto;
+  overflow-x: auto;
+
+  display: flex;
+  flex-direction: row;
+  white-space: pre; /* Ensures long lines wrap */
+  max-width: 100%; /* Set max-width for confinement */
+  overflow-x: scroll; /* Allow horizontal scroll if needed */
+  user-select: none;
+  font-size: 1rem;
+  transition: all 0.3s ease; /* Smooth transition */
+}
+
+.tab-content ul {
+  flex-direction: column;
+}
+
+.code-container li {
+  display: flex;
+}
+
+#progress-list li .code-lines {
+  padding-left: 0.4rem;
+}
+
+.code-container.expanded {
+  height: 600px; /* Increased size when expanded */
+  overflow: auto; /* Show overflowing content when expanded */
+}
+
+.tab-content.expanded {
+  height: 650px; /* Increased size for tab-content when expanded */
+}
+
+.tab-container.expanded {
+  width: 100%; /* Increased width for tab-container when expanded */
+}
+
+.pwc.expanded{
+  display:none;
+}
+
+.code-lines{
+  font-size: 1rem;
+  padding-right: 0.5rem;
+}
+
+.view-more-btn  {
+  right: 0.5rem;
+  top: 0.5rem;
+}
+
+.view-more-btn:hover::before{
+  content: "expand code";  /* Text that appears on hover */
+  top: 0.1rem;
+  right: 1.5rem;
+  width: 5.5rem;
+}
+
+.view-more-btn.expanded::before {
+  content: "close code";  /* New text when expanded */
+}
+
+.view-more-btn  i{
+  font-size: 1.25rem;  /* Sets icon size */
+}
+
+.view-more-btn:hover {
+  background-color: transparent;
+  color: var(--second-color);  /* Changes color on hover */
+}
+
