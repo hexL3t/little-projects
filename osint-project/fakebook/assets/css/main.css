@@ -1,0 +1,484 @@
+/* Fonts */
+
+/* Variables CSS */
+:root {
+
+    /* Colours */
+    --base-cherry: #FB3C44;
+    --base-grape: #7D74FF;
+    --base-lemon: #F9CF00;
+    --base-lime: #3FBB46;
+    --base-pink: #FA61BA;
+    --base-teal: #14B898;
+    --blue-link: #0064D1;
+    --bottom-sheet-corner-radius: 16px;
+    --button-corner-radius: 8px;
+    --card-background: #FFFFFF;
+    --card-background-flat: #F8F9FB;
+    --card-corner-radius: 8px;
+    --card-large-corner-radius: 8px;
+    --card-small-corner-radius: 8px;
+    --comment-background: #F0F2F5;
+    --comment-bubble: 18px;
+    --comment-threading-lines: #E2E5E9;
+    --dialog-corner-radius: 8px;
+    --disabled-button-background: #E2E5E9;
+    --disabled-icon: #B0B3B8;
+    --disabled-text: #B0B3B8;
+    --divider: #D0D3D7;
+    --divider-on-color: #5C5E62;
+    --event-date: #DD2334;
+    --fb-logo: #0866FF;
+    --fb-wordmark: #0866FF;
+
+    --header-height: 65px;
+
+    --background-color: #fff;
+    --text-color: #1c1e21;
+
+    /* Typography */
+    --body-font: Helvetica,Arial,sans-serif;
+
+     /* FONT SIZE */
+     --button-size: 16px;
+     --regular-font: 12px;
+
+     --h1-size: 22px;
+}
+
+
+/* BASE RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--body-font);
+    text-decoration: none;
+    scroll-behavior: smooth;
+    list-style: none;
+    max-width: 1100px;
+}
+
+html, body {
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    touch-action: manipulation; /* Disables zooming on mobile */
+}
+
+.img {
+    width: 55vw;
+}
+
+h1 {
+    font-size: var(--h1-size);
+}
+
+/* COMMON LAYOUT UTILITIES */
+
+body {
+    background: var(--background-color);
+    color: var(--text-color);
+    direction: ltr;
+    line-height: 1.34;
+}
+
+/* HEADER & NAV */
+nav {
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    background-color: var(--background-color);
+    height: var(--header-height);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.3);
+}
+
+.nav-logo img {
+   width: 45px;
+}
+
+.nav-links,
+nav div  {
+    display: flex;
+    width: 195px;
+    justify-content: space-between;
+}
+
+.main-nav {
+    width: 400px;
+}
+
+nav div {
+    width: 95px;
+}
+
+.nav-links li,
+.search {
+    background-color: red;
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Border */
+.border {
+    height: 1px;
+    width: 98%;
+    background-color: var(--divider-on-color);
+    opacity: 0.3;
+}
+
+/* Buttons */
+.btn {
+    background-color: #5C5E62;
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-weight: 600;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    width: fit-content;
+}
+
+.more-btn,
+.dots-btn {
+    width: 50px;
+}
+
+/* PROFILE PAGE */
+.fakebook-page {
+    position: relative;
+}
+
+/* PROFILE header */
+.fakebook-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-header{
+    margin-top: -90px;
+    display: flex;
+    align-items: flex-end;
+    padding: 10px;
+    justify-content: space-between;
+    padding-bottom: 13px;
+    width: 100vw;
+}
+
+.header-img {
+    background-color: #5C5E62;
+    top: 0;
+    width: 100vw;
+    height: 460px;
+}
+
+.profile-img {
+    width: 200px;
+    height: 200px;
+    background-color: #3FBB46;
+    border: 5px solid white;
+    border-radius: 50%;
+}
+
+
+.profile-title,
+.profile-btns {
+    margin-bottom: 20px;
+}
+
+.profile-title h1 {
+    font-size: 34px;
+    font-weight: 700;
+}
+
+.profile-title p {
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.profile-title {
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+    width: 52vw;
+    margin-left: 10px;
+}
+
+.profile-btns {
+    display:flex;
+    gap: 8px;
+}
+
+/* PROFILE Navigation */
+.profile-nav {
+    width: 100%;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Style the tab */
+.profile-nav {
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.3);
+    padding: 0 10px;
+}
+.tab {
+  overflow: hidden;
+  background-color: #f1f1f1;
+  column-gap: 8px;
+  height: 65px;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  border-bottom: 4px solid transparent;
+  outline: none;
+  cursor: pointer;
+  padding: 0 16px;
+  transition: 0.3s;
+  font-size: 16.5px;
+  font-weight: 600;
+   height: 65px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+    color: var(--blue-link);
+  border-bottom: 4px solid var(--blue-link);
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+
+/* POST CONTENT */
+.post-content {
+    column-gap: 15px;
+}
+
+.left-content, .right-content {
+    display:flex;
+    flex-direction: column;
+    row-gap: 15px;
+}
+
+.left-content {
+    width: 400px;
+    position:sticky;
+}
+
+.right-content {
+    width: 640px;
+}
+
+.profile-section {
+    padding-top: 10px;
+}
+
+.fb-section {
+    padding: 15px;
+    border-radius: 7px;
+    background-color: white;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* PHOTO GRID */
+.photo-grid,
+.friend-grid {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    padding-top: 10px;
+}
+
+.grid {
+    display: grid;
+    gap: 4px;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.profile-photo {
+    width: 120px;
+    height: 120px;
+    background-color: var(--base-teal);
+}
+
+.curv-left-top {
+    border-radius: 10px 0 0 0;
+}
+
+.curv-left-bottom {
+    border-radius: 0 0 0 10px;
+}
+
+.curv-right-top {
+    border-radius: 0 10px 0 0;
+}
+
+.curv-right-bottom {
+     border-radius: 0 0 10px 0;
+}
+
+.fb-section-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.fb-section-title p {
+    font-size: 18px;
+}
+
+.link-text {
+    color: var(--blue-link);
+}
+
+.friend-img {
+    border-radius: 10px;
+    width: 115px;
+    height: 115px;
+}
+
+.friend-grid {
+    gap: 12px;
+}
+
+.friend-name {
+    font-weight: 600;
+    font-size: 14px;
+    padding-top: 4px;
+}
+
+.life-event-item {
+    width: 180px;
+    height: 200px;
+}
+
+/* POST */
+.post-temp {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    justify-content: center;
+    padding: 15px 0;
+}
+.post-header .profile-img{
+    width: 60px;
+    height: 60px;
+}
+
+.post-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+}
+
+.post-info {
+    width: 78%;
+}
+
+.post-info h3{
+   font-size: 17px;
+   font-weight: 600;
+   padding-bottom: 2px;
+}
+
+.post-info p{
+   font-size: 14px;
+   font-weight: 600;
+}
+
+.post-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 15px;
+}
+
+.share-btn {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 15px;
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.share-btn {
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.post-temp .post {
+    margin: 8px 0;
+    height: 500px;
+    width: 100%;
+    background-color: #5C5E62;
+}
+
+.post-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px 10px;
+}
+
+.post-comments:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.emoji {
+    width: 25px;
+    height: 25px;
+    background-color: #7D74FF;
+}
+
+/* Footer */
+footer {
+    font-size: 14px;
+}
+
+.footer-list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 8px;
+    cursor: pointer;
+}
+
+.footer-list li:hover {
+    text-decoration: underline;
+}
+
+.footer-bold {
+    font-weight: 600;
+}
+
+.disclaimer {
+    font-size: 9.5px;
+    padding-top: 4px;
+}

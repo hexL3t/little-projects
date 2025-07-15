@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Fakebook</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/main.css">
+
+    </head>
+    <body>
+        <!-- Header -->
+        <header>
+            <!-- Navigation -->
+             <nav>
+                <div>
+                    <a href="index.html" class="nav-logo">
+                        <img src="assets/logos/Facebook_Logo_Primary.png">
+                    </a>
+                    <div class="search"></div>
+                </div>
+
+                <ul class="nav-links main-nav">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Videos</a></li>
+                    <li><a href="#">MarketPlace</a></li>
+                    <li><a href="#">Groups</a></li>
+                    <li><a href="#">Games</a></li>
+                </ul>
+
+                <ul class="nav-links">
+                    <li><a href="#">menu</a></li>
+                    <li><a href="#">messages</a></li>
+                    <li><a href="#">notifications</a></li>
+                    <li><a href="#">profile</a></li>
+                </ul>
+             </nav>
+        </header>
+
+        <div class="fakebook-page">
+            <section class="fakebook-header">
+                <div class="header-img">
+                </div>
+                <div class="profile-header">
+                    <div class="profile-img"></div>
+                    <div class="profile-title">
+                        <h1>Jessica Brooke Taylor</h1>
+                        <div class="friends-sum">
+                            <p><span>642</span> friends</p>
+                        </div>
+                    </div>
+                    <div class="profile-btns">
+                        <div class="add-btn btn">
+                            Add Friend
+                        </div>
+                        <div class="message-btn btn">
+                            Message
+                        </div>
+                        <div class="more-btn btn">
+                            V
+                        </div>
+                    </div>
+                </div>
+                <div class="border"></div>
+            </section>
+
+            <!-- Tab Links -->
+            <section class="profile-nav">
+                <div class="tab">
+                    <button class="tablinks" onclick="openTab(event, 'posts')" id="defaultOpen">Posts</button>
+                    <button class="tablinks" onclick="openTab(event, 'Paris')">About</button>
+                    <button class="tablinks" onclick="openTab(event, 'Tokyo')">Friends</button>
+                    <button class="tablinks" onclick="openTab(event, 'London')">Photos</button>
+                    <button class="tablinks" onclick="openTab(event, 'Paris')">Videos</button>
+                    <button class="tablinks" onclick="openTab(event, 'Tokyo')">Check-ins</button>
+                    <button class="tablinks" onclick="openTab(event, 'Tokyo')">More</button>
+                </div>
+            </section>
+
+            <section class="profile-section">
+                <div id="posts" class="tabcontent post-content">
+                    <div class="left-content">
+                        <div class="fb-section intro">
+                            <h1>Intro</h1>
+                        </div>
+                        <div class="fb-section photo-sec">
+                            <div class="fb-section-title">
+                                 <h1>Photos</h1>
+                                 <p class="link-text">See all photos</p>
+                            </div>
+                            <div class="photo-grid grid">
+                                <div class="profile-photo curv-left-top"></div>
+                                <div class="profile-photo"></div>
+                                <div class="profile-photo curv-right-top"></div>
+
+                                <div class="profile-photo"></div>
+                                <div class="profile-photo"></div>
+                                <div class="profile-photo"></div>
+                                
+                                <div class="profile-photo curv-left-bottom"></div>
+                                <div class="profile-photo"></div>
+                                <div class="profile-photo curv-right-bottom"></div>
+                            </div>
+                        </div>
+                        <div class="fb-section friends-list">
+                            <div class="fb-section-title">
+                                <div class="title-pair">
+                                    <h1> Friends</h1>
+                                    <p class="title-num">642 friends</p>
+                                </div>
+                                 <p class="link-text">See all friends</p>
+                            </div>
+                            <div class="friend-grid grid">
+                                <div class="friend-item">
+                                    <div class="profile-photo friend-img"></div>
+                                    <p class="friend-name">Name</p>
+                                </div>
+                                <div class="friend-item">
+                                    <div class="profile-photo friend-img"></div>
+                                    <p class="friend-name">Name</p>
+                                </div>
+                                <div class="friend-item">
+                                    <div class="profile-photo friend-img"></div>
+                                    <p class="friend-name">Name</p>
+                                </div>
+
+                                <div class="friend-item">
+                                    <div class="profile-photo friend-img"></div>
+                                    <p class="friend-name">Name</p>
+                                </div>
+                                <div class="friend-item">
+                                    <div class="profile-photo friend-img"></div>
+                                    <p class="friend-name">Name</p>
+                                </div>
+                                <div class="friend-item">
+                                    <div class="profile-photo friend-img"></div>
+                                    <p class="friend-name">Name</p>
+                                </div>
+
+                                <div class="friend-item">
+                                    <div class="profile-photo friend-img"></div>
+                                    <p class="friend-name">Name</p>
+                                </div>
+                                <div class="friend-item">
+                                    <div class="profile-photo friend-img"></div>
+                                    <p class="friend-name">Name</p>
+                                </div>
+                                <div class="friend-item">
+                                    <div class="profile-photo friend-img"></div>
+                                    <p class="friend-name">Name</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="fb-section life-events">
+                            <div class="fb-section-title">
+                                 <h1>Life events</h1>
+                                 <p class="link-text">See all</p>
+                            </div>
+                            <div class="photo-grid grid">
+                                <div class="profile-photo life-event-item"></div>
+                                <div class="profile-photo life-event-item"></div>
+                              </div>
+                        </div>
+                        <footer class="footer">
+                            <ul class="footer-list">
+                                <li class="footer-bold">Privacy</li>
+                                <li class="footer-bold">Terms</li>
+                                <li class="footer-bold">Advertising</li>
+                                <li class="footer-bold">Ad Choices</li>
+                                <li class="footer-bold">Cookies</li>
+                                <li>More</li>
+                            </ul>
+                            <p>&copy; 2025 CyberPathways</p>
+                            <div class="disclaimer">
+                                <p>Built by CyberPathways for OSINT simulation. </p>
+                                <p>Fakebook  are fictional entities created for open-source intelligence (OSINT) training purposes. </p>
+                                <p>They are not affiliated with Meta Platforms, Inc. or any real-world company. </p>
+                                <p>All names, logos, and content are used in parody.</p>
+                            </div>
+                        </footer>
+                    </div>
+                    <div class="right-content">
+                        <div class="fb-section fb-section-title"">
+                            <h1>Posts</h1>
+                            <div class="filters-btn btn">Filters</div>
+                        </div>
+                        <div class="fb-section post-temp">
+                            <div class="post-header">
+                                <div class="profile-img"></div>
+                                <div class="post-info">
+                                    <h3>Jessica Brooke Taylor</h3>
+                                    <p>Month 00 at 00:00 PM</p>
+                                </div>
+                                <div class="more-btn btn">...</div>
+                            </div>
+                            <div class="post">
+
+                            </div>
+                            <div class="post-summary">
+                                <div class="emojis-grp">
+                                    <img class="emoji">
+                                    <img class="emoji">
+                                </div>
+                                <p class="post-comments">22 Comments</p>
+                            </div>
+                            <div class="post-footer">
+                                <div class="share-btn"> 
+                                    <p>Share</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </section>
+                <div id="Paris" class="tabcontent">
+                <h3>Paris</h3>
+                <p>Paris is the capital of France.</p> 
+                </div>
+
+                <div id="Tokyo" class="tabcontent">
+                <h3>Tokyo</h3>
+                <p>Tokyo is the capital of Japan.</p>
+                </div>
+            </section>
+
+        </div>
+
+         <!--==== JS =====-->
+        <script src="assets/js/main.js"></script>
+    </body>
+</html>
