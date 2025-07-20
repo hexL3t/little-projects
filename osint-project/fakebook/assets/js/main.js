@@ -45,3 +45,23 @@ function openProfileTab(evt, tabName) {
 window.onload = function () {
   document.getElementById("defaultOpen")?.click();
 };
+
+const videos = document.querySelectorAll('.fb-style-video');
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    const video = entry.target;
+
+    if (entry.isIntersecting) {
+      video.play();
+    } else {
+      video.pause();
+    }
+  });
+}, {
+  threshold: 0.6  // Play when at least 60% of video is in view
+});
+
+videos.forEach(video => {
+  observer.observe(video);
+});
