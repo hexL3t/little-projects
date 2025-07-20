@@ -361,7 +361,7 @@ nav > div {
 
 /* Grids */
 .grid {
-  display: grid;
+  display: grid!important;
   grid-template-columns: repeat(3, 1fr);
   gap: 4px;
   padding-top: 10px;
@@ -704,13 +704,26 @@ nav > div {
   font-size: 13.5px;
 }
 
+.life-event-post {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 0;
+}
+
+.icon-post {
+  width: 67%;
+}
+
 /* Photo Grid */
 .photo-grid {
   display: flex;
   width: 100%;
   aspect-ratio: 3 / 2; /* maintains consistent shape */
   overflow: hidden;
-  border-radius: 8px; /* optional for rounded corners */
+  border-radius: 16px; /* optional for rounded corners */
 }
 
 .photo-grid-left,
@@ -723,10 +736,12 @@ nav > div {
 .photo-grid-left {
   flex: 1;
   border-right: 1px solid #fff; /* separator line between left and right images */
+  border-left: 4px solid #fff;
 }
 
 .photo-grid-right {
   flex: 1;
+  border-right: 4px solid #fff;
 }
 
 .photo-grid-left img,
