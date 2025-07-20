@@ -39,6 +39,10 @@ h1 {
   font-size: var(--h1-size);
 }
 
+.p-bold {
+  font-weight: 600;
+}
+
 /* Navigation */
 nav {
   position: fixed;
@@ -421,6 +425,13 @@ nav > div {
     width: 80%;
 }
 
+.post-info div {
+  display:flex;
+  justify-content: left;
+  align-items: center;
+  gap: 5px;
+}
+
 .post-info span {
     font-weight: 400;
 }
@@ -453,6 +464,11 @@ nav > div {
   cursor: pointer;
 }
 
+.post-info span:hover{
+  text-align: none;
+  cursor: text;
+}
+
 .words-post{
   margin: 8px;
   padding: 0 10px
@@ -460,6 +476,14 @@ nav > div {
 
 .words-post p {
   font-size: 18px;
+}
+
+.words-post span {
+  color: var(--blue-link);
+}
+
+.words-post span:hover {
+  text-decoration: underline;
 }
 
 .post {
@@ -497,8 +521,77 @@ nav > div {
 }
 
 .emoji {
-  width: 20px;
-  height: 20px;
+  width: 25px;
+  height: 25px;
+  border: 1px solid var(--background-color);
+}
+
+.emojis-grp {
+  gap: 5px;
+}
+
+.emoji-pair {
+  display: flex;
+  position: relative;
+}
+
+.emoji-pair .emoji {
+  margin-left: -7px; /* controls overlap */
+  z-index: 1;
+  background: white;        /* prevents transparency issues */
+}
+
+.emoji-pair .emoji:first-child,
+.emoji-pair .emoji:nth-child(2),
+.emoji-pair .emoji:nth-child(3) {
+  border: 3px solid white!important; /* white border */
+  border-radius: 50%;       /* makes it circular if the images are square */
+}
+
+.emoji-pair .emoji:first-child {
+  margin-left: 0;
+  z-index: 3;
+}
+
+.emoji-pair .emoji:nth-child(2) {
+  z-index: 2;
+}
+
+.emoji-pair .emoji:nth-child(3) {
+  z-index: 1;
+}
+
+.emoji-pair:hover,
+.emoji-count:hover
+{
+  cursor: pointer;
+}
+
+.emoji-pair p:hover {
+  text-decoration: underline;
+}
+
+.emoji-count {
+  color: var(--date-color);
+  font-size: 16px;
+  padding-top: 3px;
+}
+
+.emoji-count:hover{
+  text-decoration: underline;
+}
+
+.emojis-grp,
+.emoji-pair {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.post-info .arrow-right {
+  transform: rotate(-90deg);
+  width: 18px;
 }
 
 .post-comments:hover {
@@ -548,6 +641,26 @@ nav > div {
   margin-right: 8px;
 }
 
+/* Birthday Wishes */
+.wishes {
+  gap: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wishes .post-footer p {
+  color: var(--blue-link);
+}
+
+.wishes .post-footer p:hover{
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.wish-post{
+  width: 97%;
+}
 
 /* Life Event */
 .life-event-item {
@@ -590,6 +703,50 @@ nav > div {
 .life-event-date {
   font-size: 13.5px;
 }
+
+/* Photo Grid */
+.photo-grid {
+  display: flex;
+  width: 100%;
+  aspect-ratio: 3 / 2; /* maintains consistent shape */
+  overflow: hidden;
+  border-radius: 8px; /* optional for rounded corners */
+}
+
+.photo-grid-left,
+.photo-grid-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.photo-grid-left {
+  flex: 1;
+  border-right: 1px solid #fff; /* separator line between left and right images */
+}
+
+.photo-grid-right {
+  flex: 1;
+}
+
+.photo-grid-left img,
+.photo-grid-right img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.photo-grid-right img {
+  flex: 1;
+  border-top: 1px solid #fff; /* separator line between top and bottom images */
+}
+
+/* Optional: small spacing between images */
+.photo-grid-right img:first-child {
+  border-bottom: 2px solid white;
+}
+
 
 /* Footer */
 footer {
