@@ -6,7 +6,9 @@
   --base-lime: #3FBB46;
   --base-pink: #FA61BA;
   --base-teal: #14B898;
-  --blue-link: #0064D1;
+  --blue-link: var(--cyberpathways-red);
+  --cyberpathways-red: #AA002B;
+  --cyberpathways-navy: #00304A;
   --background-color: #fff;
   --text-color: #1c1e21;
   --divider-on-color: #5C5E62;
@@ -27,6 +29,12 @@
 }
 
 body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
   background: var(--background-color);
   color: var(--text-color);
   line-height: 1.34;
@@ -95,6 +103,14 @@ nav > div {
     background-color: rgb(226, 226, 226);
 }
 
+.nav-links .profile-icon{
+  background-color: var(--cyberpathways-red);
+}
+
+.nav-links .profile-icon:hover {
+  background-color: var(--cyberpathways-navy);
+}
+ 
 .nav-links a {
     display:flex;
     justify-content: center;
@@ -263,7 +279,7 @@ nav > div {
   display: flex;
   gap: 8px;
   height: 65px;
-  background-color: #f1f1f1;
+  background-color: var(--background-color);
   color: var(--date-color);
 }
 
@@ -425,6 +441,20 @@ nav > div {
     width: 80%;
 }
 
+.shared-post {
+  width: 95%;
+}
+
+.shared-post-main {
+  display:flex;
+  align-items:center;
+}
+
+.shared-post-main .post-summary,
+.shared-post-main .post-header {
+  width: 100%;
+}
+
 .post-info div {
   display:flex;
   justify-content: left;
@@ -441,10 +471,16 @@ nav > div {
     font-size: 16px;
 }
 
-.post-info p {
+.post-info p,
+.post-info p span {
     font-size: 14px;
     color: var(--date-color);
     gap: 5px;
+}
+
+.post-info p span:hover {
+  text-decoration: underline;
+  cursor:pointer;
 }
 
 .post-info img {
@@ -612,7 +648,8 @@ nav > div {
 .intro {
   display:flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 18px;
+  justify-content: center;
 }
 
 .intro p {
@@ -625,6 +662,10 @@ nav > div {
   align-items: center;
   display: flex;
   gap: 4px;
+}
+
+.intro-line p {
+  text-align: left;
 }
 
 .intro-line span {
@@ -649,8 +690,13 @@ nav > div {
   align-items: center;
 }
 
-.wishes .post-footer p {
-  color: var(--blue-link);
+.wishes .post-header{
+  justify-content: space-between;
+  width: 100%;
+}
+
+.wishes .post-header p {
+  padding-left: 5px;
 }
 
 .wishes .post-footer p:hover{
@@ -678,6 +724,10 @@ nav > div {
     padding: 10px;
 }
 
+.life-event-post span {
+  color: var(--date-color);
+}
+
 .life-event-item:hover {
   cursor:pointer;
   border: 0.5px solid var(--date-color);
@@ -693,6 +743,11 @@ nav > div {
   align-items:center;
   justify-content:center;
   margin-bottom: 10px;
+}
+
+.life-event-icon img {
+  width: 25px!important;
+  height: 25px!important;
 }
 
 .life-event-title {
@@ -717,51 +772,73 @@ nav > div {
   width: 67%;
 }
 
+.ring {
+  height: 67%;
+}
+
 /* Photo Grid */
+/* Container for the image grid */
 .photo-grid {
   display: flex;
   width: 100%;
-  aspect-ratio: 3 / 2; /* maintains consistent shape */
+ /* height: 350px; /* Fixed height for consistent appearance */
   overflow: hidden;
-  border-radius: 16px; /* optional for rounded corners */
+  border-radius: 8px;
+  gap: 4px;
 }
 
+/* Shared layout for left and right panels */
 .photo-grid-left,
 .photo-grid-right {
-  flex: 1;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 
 .photo-grid-left {
-  flex: 1;
-  border-right: 1px solid #fff; /* separator line between left and right images */
-  border-left: 4px solid #fff;
+  flex: 3;
+}
+
+/* Left side gets 2/3 of the space */
+.photo-grid-left.valentines {
+  flex: 2;
 }
 
 .photo-grid-right {
-  flex: 1;
-  border-right: 4px solid #fff;
+  flex: 2;
 }
 
+/* Right side gets 1/3 of the space */
+.photo-grid-right.valentines {
+  flex: 1;
+}
+
+/* Images inside the grid */
+.photo-grid img,
 .photo-grid-left img,
 .photo-grid-right img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
+  border: none;
 }
 
+/* Optional: use this if right column has two stacked images */
 .photo-grid-right img {
   flex: 1;
-  border-top: 1px solid #fff; /* separator line between top and bottom images */
+  border-top: 1px solid white;
 }
 
-/* Optional: small spacing between images */
 .photo-grid-right img:first-child {
   border-bottom: 2px solid white;
 }
 
+/* Remove this — it was causing invalid behavior */
+.two-pic {
+  /* previously had aspect-ratio: 0; which is invalid */
+}
 
 /* Footer */
 footer {

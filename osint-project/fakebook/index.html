@@ -5,1186 +5,2103 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fakebook</title>
   <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="icon" href="assets/img/logos/fakebook-logo.svg" type="image/svg+xml">
+  
 </head>
 <body>
-  <header>
-    <nav>
-      <div class="nav-left">
-        <a href="index.html" class="nav-logo">
-          <img src="assets/img/logos/Facebook_Logo_Primary.png" alt="Fakebook Logo">
-        </a>
-        <div class="search"> 
-            <img class="search-icon" src="assets/img/icons/search.svg" alt="search">
-        </div>
-      </div>
-      <div class="nav-links main-nav">
-        <button class="navlinks active" onclick="openMainTab(event, 'home')" id="defaultOpen">
-        <img class="nav-icons"  src="assets/img/icons/home-outline.svg" 
-            data-icon="assets/img/icons/home-outline.svg"  data-icon-active="assets/img/icons/home-fill.svg" alt="Home">
-        </button>
-        <button class="navlinks">
-          <img class="nav-icons" src="assets/img/icons/video-outline.svg" alt="Videos">
-        </button>
-        <button class="navlinks">
-          <img class="nav-icons" src="assets/img/icons/marketplace-outline.svg" alt="Marketplace">
-        </button>
-        <button class="navlinks">
-          <img class="nav-icons" src="assets/img/icons/groups-outline.svg" alt="Groups">
-        </button>
-        <button class="navlinks">
-          <img class="nav-icons game-icon" src="assets/img/icons/games-outline.svg" alt="Games">
-        </button>
-      </div>
-      <ul class="nav-links">
-        <li><a href="#"><img class="nav-icons" src="assets/img/icons/menu-black.svg" alt="Menu"></a></li>
-        <li><a href="#"><img class="nav-icons" src="assets/img/icons/messages-black.svg" alt="Messages"></a></li>
-        <li><a href="#"><img class="nav-icons" src="assets/img/icons/notification-black.svg" alt="Notifications"></a></li>
-        <li><a href="#">Profile</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <div class="fakebook-page tabcontent" id="home">
-    <section class="fakebook-header">
-      <div class="header-img"></div>
-      <div class="profile-header">
-        <div class="profile-img"></div>
-        <div class="profile-title">
-          <h1>Jessica Brooke Taylor</h1>
-          <div class="friends-sum">
-            <p><span>642</span> friends</p>
+  <div class="container">
+    <header>
+      <nav>
+        <div class="nav-left">
+          <a href="index.html" class="nav-logo">
+            <img src="assets/img/logos/fakebook-logo.svg" alt="Fakebook Logo">
+          </a>
+          <div class="search"> 
+              <img class="search-icon" src="assets/img/icons/search.svg" alt="search">
           </div>
         </div>
-        <div class="profile-btns">
-          <div class="add-btn btn">
-            <img src="assets/img/icons/add-white.svg" class="btn-icon">
-            Add Friend</div>
-          <div class="message-btn btn">
-                <img src="assets/img/icons/messages-black.svg" class="btn-icon">
-            Message</div>
-          <div class="more-btn btn" >
-            <img src="assets/img/icons/arrow-down-s-line.svg">
+        <div class="nav-links main-nav">
+          <button class="navlinks active" onclick="openMainTab(event, 'home')" id="defaultOpen">
+          <img class="nav-icons"  src="assets/img/icons/home-outline.svg" 
+              data-icon="assets/img/icons/home-outline.svg"  data-icon-active="assets/img/icons/home-fill.svg" alt="Home">
+          </button>
+          <button class="navlinks">
+            <img class="nav-icons" src="assets/img/icons/video-outline.svg" alt="Videos">
+          </button>
+          <button class="navlinks">
+            <img class="nav-icons" src="assets/img/icons/marketplace-outline.svg" alt="Marketplace">
+          </button>
+          <button class="navlinks">
+            <img class="nav-icons" src="assets/img/icons/groups-outline.svg" alt="Groups">
+          </button>
+          <button class="navlinks">
+            <img class="nav-icons game-icon" src="assets/img/icons/games-outline.svg" alt="Games">
+          </button>
+        </div>
+        <ul class="nav-links">
+          <li><a href="#"><img class="nav-icons" src="assets/img/icons/menu-black.svg" alt="Menu"></a></li>
+          <li><a href="#"><img class="nav-icons" src="assets/img/icons/messages-black.svg" alt="Messages"></a></li>
+          <li><a href="#"><img class="nav-icons" src="assets/img/icons/notification-black.svg" alt="Notifications"></a></li>
+          <li class="profile-icon"><a href="#"><img class="nav-icons" src="assets/img/icons/cybepathways-icon-white.svg" alt="CyberPathways Icon"></a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="fakebook-page tabcontent" id="home">
+      <section class="fakebook-header">
+        <div class="header-img"></div>
+        <div class="profile-header">
+          <div class="profile-img"></div>
+          <div class="profile-title">
+            <h1>Jessica Brooke Taylor</h1>
+            <div class="friends-sum">
+              <p><span>642</span> friends</p>
+            </div>
+          </div>
+          <div class="profile-btns">
+            <div class="add-btn btn">
+              <img src="assets/img/icons/add-white.svg" class="btn-icon">
+              Add Friend</div>
+            <div class="message-btn btn">
+                  <img src="assets/img/icons/messages-black.svg" class="btn-icon">
+              Message</div>
+            <div class="more-btn btn" >
+              <img src="assets/img/icons/arrow-down-s-line.svg">
+            </div>
           </div>
         </div>
-      </div>
-      <div class="border"></div>
-    </section>
+        <div class="border"></div>
+      </section>
 
-    <section class="profile-nav">
-      <div class="tab">
-        <button class="tablinks active" onclick="openProfileTab(event, 'posts')" id="defaultOpen">Posts</button>
-        <button class="tablinks">About</button>
-        <button class="tablinks">Friends</button>
-        <button class="tablinks">Photos</button>
-        <button class="tablinks">Videos</button>
-        <button class="tablinks">Check-ins</button>
-        <button class="tablinks">More <img src="assets/img/icons/arrow-down-s-fill.svg"></button>
-      </div>
-
-      <div class="btn more-dots">
-        <img src="assets/img/icons/more-fill.svg">
-      </div>
-    </section>
-
-    <section class="profile-section">
-      <div id="posts" class="profile-tabcontent active">
-        <!-- Left Sidebar -->
-        <div class="left-content">
-          <!-- Intro -->
-          <div class="fb-section intro"><h1>Intro</h1>
-            <p>  ✨ Dream big, stay kind, and never <br>stop exploring 🌍 </p>
-              <p> Coffee addict ☕ | Cat mum 🐾 | Proud alum 🎓</p>
-            <div class="intro-line">
-              <img src="assets/img//icons/pronouns-color.svg"> she/her
-            </div>
-            <div class="intro-line">
-              <img src="assets/img//icons/briefcase-4-fill.svg"> Position title at <span>Company</span>
-            </div>
-            <div class="intro-line">
-              <img src="assets/img/icons/education-color.svg"> Studied Degree title at <span>University</span>
-            </div>
-             <div class="intro-line">
-              <img src="assets/img/icons/lives-color.svg"> Lives in <span>City, State, Australia</span>
-            </div>
-            <div class="intro-line">
-              <img src="assets/img/icons/lives-color.svg"> From <span>City, State, Australia</span>
-            </div>
-            <div class="intro-line">
-              <img src="assets/img/icons/heart-3-fill.svg"> In a relationship
-            </div>
-          </div>
-
-          <!-- Photos -->
-          <div class="fb-section photo-sec">
-            <div class="fb-section-title">
-              <h1>Photos</h1>
-              <p class="link-text">See all photos</p>
-            </div>
-            <div class="photo-grid grid">
-              <!-- Photo items -->
-              <div class="profile-photo curv-left-top"></div>
-              <div class="profile-photo"></div>
-              <div class="profile-photo curv-right-top"></div>
-              <div class="profile-photo"></div>
-              <div class="profile-photo"></div>
-              <div class="profile-photo"></div>
-              <div class="profile-photo curv-left-bottom"></div>
-              <div class="profile-photo"></div>
-              <div class="profile-photo curv-right-bottom"></div>
-            </div>
-          </div>
-
-          <!-- Friends -->
-          <div class="fb-section friends-list">
-            <div class="fb-section-title">
-              <div class="title-pair">
-                <h1>Friends</h1>
-                <p class="title-num">642 friends</p>
-              </div>
-              <p class="link-text">See all friends</p>
-            </div>
-            <div class="friend-grid grid">
-              <!-- Friend items -->
-              <div class="friend-item"><div class="profile-photo friend-img"></div><p class="friend-name">Name</p></div>
-              <!-- Repeat friend-item 8 more times -->
-              <div class="friend-item"><div class="profile-photo friend-img"></div><p class="friend-name">Name</p></div>
-              <div class="friend-item"><div class="profile-photo friend-img"></div><p class="friend-name">Name</p></div>
-              <div class="friend-item"><div class="profile-photo friend-img"></div><p class="friend-name">Name</p></div>
-              <div class="friend-item"><div class="profile-photo friend-img"></div><p class="friend-name">Name</p></div>
-              <div class="friend-item"><div class="profile-photo friend-img"></div><p class="friend-name">Name</p></div>
-              <div class="friend-item"><div class="profile-photo friend-img"></div><p class="friend-name">Name</p></div>
-              <div class="friend-item"><div class="profile-photo friend-img"></div><p class="friend-name">Name</p></div>
-              <div class="friend-item"><div class="profile-photo friend-img"></div><p class="friend-name">Name</p></div>
-            </div>
-          </div>
-
-          <!-- Life Events -->
-          <div class="fb-section life-events">
-            <div class="fb-section-title">
-              <h1>Life events</h1>
-              <p class="link-text">See all</p>
-            </div>
-            <div class="photo-grid grid">
-              <div class="profile-photo life-event-item">
-                <div class="life-event-icon">
-                  <img src="assets/img//icons/lives-white.svg">
-                </div>
-                <p class="life-event-title">Moved to Wollongong, New South Wales, Australia</p>
-                <span class="life-event-date">Feburary 2025</span>
-              </div>
-              <div class="profile-photo life-event-item">
-                <div class="life-event-icon">
-                  <img src="assets/img/icons/education-white.svg">
-                </div>
-                <p class="life-event-title">Graduated South Coast University</p>
-                <span class="life-event-date">December 2024</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Footer -->
-          <footer class="footer">
-            <ul class="footer-list">
-              <li class="footer-bold">Privacy</li>
-              <li class="footer-bold">Terms</li>
-              <li class="footer-bold">Advertising</li>
-              <li class="footer-bold">Ad Choices</li>
-              <li class="footer-bold">Cookies</li>
-              <li>More</li>
-            </ul>
-            <p>&copy; 2025 CyberPathways</p>
-            <div class="disclaimer">
-              <p>Built by CyberPathways for OSINT simulation.</p>
-              <p>Fakebook are fictional entities created for open-source intelligence (OSINT) training purposes.</p>
-              <p>They are not affiliated with Meta Platforms, Inc. or any real-world company.</p>
-              <p>All names, logos, and content are used in parody.</p>
-            </div>
-          </footer>
+      <section class="profile-nav">
+        <div class="tab">
+          <button class="tablinks active" onclick="openProfileTab(event, 'posts')" id="defaultOpen">Posts</button>
+          <button class="tablinks">About</button>
+          <button class="tablinks">Friends</button>
+          <button class="tablinks">Photos</button>
+          <button class="tablinks">Videos</button>
+          <button class="tablinks">Check-ins</button>
+          <button class="tablinks">More <img src="assets/img/icons/arrow-down-s-fill.svg"></button>
         </div>
 
-        <!-- Right Sidebar -->
-        <div class="right-content">
-          <div class="fb-section fb-section-title">
-            <h1>Posts</h1>
-            <div class="filters-btn btn">
-                <img src="assets/img/icons/filter-black.svg">
-                Filters</div>
+        <div class="btn more-dots">
+          <img src="assets/img/icons/more-fill.svg">
+        </div>
+      </section>
+
+      <section class="profile-section">
+        <div id="posts" class="profile-tabcontent active">
+          <!-- Left Sidebar -->
+          <div class="left-content">
+            <!-- Intro -->
+            <div class="fb-section intro"><h1>Intro</h1>
+              <p>  ✨ Dream big, stay kind, and never <br>stop exploring 🌍 </p>
+                <p> Coffee addict ☕ | Cat mum 🐾 | Proud alum 🎓</p>
+              <div class="intro-line">
+                <img src="assets/img//icons/pronouns-color.svg"> she/her
+              </div>
+              <div class="intro-line">
+                <img src="assets/img//icons/briefcase-4-fill.svg"><p>Social Media Assitant at <br><span>Shoreline Marketing Co.</span></p>
+              </div>
+              <div class="intro-line">
+                <img src="assets/img/icons/education-color.svg"><p>Studied Bachelor of Communication at <span>South Coast University</span></p>
+              </div>
+              <div class="intro-line">
+                <img src="assets/img/icons/lives-color.svg"><p>Lives in <span>Wollongong, New South Wales, Australia</span></p>
+              </div>
+              <div class="intro-line">
+                <img src="assets/img/icons/lives-color.svg"><p>From <span>Nowra,  New South Wales, Australia</span></p>
+              </div>
+              <div class="intro-line">
+                <img src="assets/img/icons/heart-3-fill.svg"><p>Engaged with <span> Nathan Scott Morgan</span></p>
+              </div>
+            </div>
+
+            <!-- Photos -->
+            <div class="fb-section photo-sec">
+              <div class="fb-section-title">
+                <h1>Photos</h1>
+                <p class="link-text">See all photos</p>
+              </div>
+              <div class="photo-grid grid">
+                <!-- Photo items -->
+                <div class="profile-photo curv-left-top"></div>
+                <div class="profile-photo"></div>
+                <div class="profile-photo curv-right-top"></div>
+                <div class="profile-photo"></div>
+                <div class="profile-photo"></div>
+                <div class="profile-photo"></div>
+                <div class="profile-photo curv-left-bottom"></div>
+                <div class="profile-photo"></div>
+                <div class="profile-photo curv-right-bottom"></div>
+              </div>
+            </div>
+
+            <!-- Friends -->
+            <div class="fb-section friends-list">
+              <div class="fb-section-title">
+                <div class="title-pair">
+                  <h1>Friends</h1>
+                  <p class="title-num">642 friends</p>
+                </div>
+                <p class="link-text">See all friends</p>
+              </div>
+              <div class="friend-grid grid">
+                <!-- Friend items -->
+                <div class="friend-item"><div class="profile-photo friend-img"></div><p class="friend-name">Nathan Scott Morgan</p></div>
+                <!-- Repeat friend-item 8 more times -->
+                <div class="friend-item"><div class="profile-photo friend-img"></div><p class="friend-name">Chloe Nguyen</p></div>
+                <div class="friend-item"><div class="profile-photo friend-img"></div><p class="friend-name">Tyler Jordan Reid</p></div>
+                <div class="friend-item"><div class="profile-photo friend-img"></div><p class="friend-name">Emily Grace Thompson</p></div>
+                <div class="friend-item"><div class="profile-photo friend-img"></div><p class="friend-name">Ava Chen</p></div>
+                <div class="friend-item"><div class="profile-photo friend-img"></div><p class="friend-name">Luke Matthews</p></div>
+                <div class="friend-item"><div class="profile-photo friend-img"></div><p class="friend-name">Isabella Ford</p></div>
+                <div class="friend-item"><div class="profile-photo friend-img"></div><p class="friend-name">Sienna Hamilton</p></div>
+                <div class="friend-item"><div class="profile-photo friend-img"></div><p class="friend-name">Dylan Kapoor</p></div>
+              </div>
+            </div>
+
+            <!-- Life Events -->
+            <div class="fb-section life-events">
+              <div class="fb-section-title">
+                <h1>Life events</h1>
+                <p class="link-text">See all</p>
+              </div>
+              <div class="photo-grid grid">
+                <div class="profile-photo life-event-item">
+                  <div class="life-event-icon">
+                    <img src="assets/img//icons/lives-white.svg">
+                  </div>
+                  <p class="life-event-title">Moved to Wollongong, New South Wales, Australia</p>
+                  <span class="life-event-date">Feburary 2025</span>
+                </div>
+                <div class="profile-photo life-event-item">
+                  <div class="life-event-icon">
+                    <img src="assets/img/icons/education-white.svg">
+                  </div>
+                  <p class="life-event-title">Graduated South Coast University</p>
+                  <span class="life-event-date">December 2024</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Footer -->
+            <footer class="footer">
+              <ul class="footer-list">
+                <li class="footer-bold">Privacy</li>
+                <li class="footer-bold">Terms</li>
+                <li class="footer-bold">Advertising</li>
+                <li class="footer-bold">Ad Choices</li>
+                <li class="footer-bold">Cookies</li>
+                <li>More</li>
+              </ul>
+              <p>&copy; 2025 CyberPathways</p>
+              <div class="disclaimer">
+                <p>Built by CyberPathways for OSINT simulation.</p>
+                <p>Fakebook are fictional entities created for open-source intelligence (OSINT) training purposes.</p>
+                <p>They are not affiliated with Meta Platforms, Inc. or any real-world company.</p>
+                <p>All names, logos, and content are used in parody.</p>
+              </div>
+            </footer>
           </div>
 
-          <!-- POST ONE : Wedding Post-->
-          <div class="fb-section post-temp">
-            <div class="post-header">
-              <div class="profile-img"></div>
-              <div class="post-info">
-                <div>
-                  <h3>Jessica Brooke Taylor</h3> <span>is with </span> <h3>Nathan Scott Morgan</h3>
-                </div>
-                <p>July 20 at 05:00 PM · <img src="assets/img/icons/earth-fill.svg"></p>
-              </div>
-                <div class="btn more-dots">
-                    <img src="assets/img/icons/more-fill.svg">
-                </div>
+          <!-- Right Sidebar -->
+          <div class="right-content">
+            <div class="fb-section fb-section-title">
+              <h1>Posts</h1>
+              <div class="filters-btn btn">
+                  <img src="assets/img/icons/filter-black.svg">
+                  Filters</div>
             </div>
-            <div class="words-post">
-              <p>📅 Save the Date!<br>
-              We’re tying the knot! 💍✨ <br>
-              Can’t wait to celebrate our big day with the people we love most.</p>
-            </div>
-            <div class="post-summary">
-              <div class="emojis-grp">
-                <div class="emoji-pair">
-                  <img src="assets/img/emojis/love.svg" class="emoji">
-                  <img src="assets/img/emojis/emoji-love.svg" class="emoji">
-                  <img src="assets/img/emojis/emoji-shock.svg" class="emoji">
-                </div>
-                  <p class="emoji-count">136</p>
-              </div>
-              <p class="post-comments">18 Comments</p>
-            </div>
-            <div class="post-footer">
-              <div class="share-btn">
-                <img src="assets/img/icons/share-outline.png">
-                <p>Share</p></div>
-            </div>
-          </div>
 
-          <!-- POST TWO : Add Images -->
-          <div class="fb-section post-temp">
-            <div class="post-header">
-              <div class="profile-img"></div>
-              <div class="post-info">
-                <h3>Jessica Brooke Taylor</h3>
-                <p>July 10 at 08:30 PM · <img src="assets/img/icons/earth-fill.svg"></p>
-              </div>
-                <div class="btn more-dots">
-                    <img src="assets/img/icons/more-fill.svg">
+            <!-- POST ONE : Wedding Post-->
+            <div class="fb-section post-temp">
+              <div class="post-header">
+                <div class="profile-img"></div>
+                <div class="post-info">
+                  <div>
+                    <h3>Jessica Brooke Taylor</h3> <span>is with </span> <h3>Nathan Scott Morgan</h3>
+                  </div>
+                   <div>
+                    <p>July 20 at 5:01 PM </p>
+                    <span>·</span> 
+                    <img src="assets/img/icons/earth-fill.svg">
+                  </div>
                 </div>
-            </div>
-            <div class="words-post">
-              <p>Feeling so lucky to have such supportive people in my life.💕💫<br>
-                 Thank you all for the birthday wishes 💕💫</p>
-            </div>
-            <div class="post grid">
-              
-            </div>
-            <div class="post-summary">
-              <div class="emojis-grp">
-                <div class="emoji-pair">
-                  <img src="assets/img/emojis/like.svg" class="emoji">
-                  <img src="assets/img/emojis/love.svg" class="emoji">
-                  <img src="assets/img/emojis/emoji-laugh.svg" class="emoji">
-                </div>
-                  <p class="emoji-count">97</p>
+                  <div class="btn more-dots">
+                      <img src="assets/img/icons/more-fill.svg">
+                  </div>
               </div>
-              <p class="post-comments">9 Comments</p>
-            </div>
-            <div class="post-footer">
-              <div class="share-btn">
-                <img src="assets/img/icons/share-outline.png">
-                <p>Share</p></div>
-            </div>
-          </div>
-
-          <!-- BIRTHDAY WISHES -->
-           <div class="fb-section post-temp wishes">
-            <div class="post-header">
-                <p> 34 friends posted on Jessica Brook Taylor's <span class="p-bold">timeline </span>for her birthday.</p>
-                <div class="btn more-dots">
-                    <img src="assets/img/icons/more-fill.svg">
-                </div>
+              <div class="words-post">
+                <p>📅 Save the Date!<br>
+                We’re tying the knot! 💍✨ <br>
+                Can’t wait to celebrate our big day with the people we love most.</p>
               </div>
-              <!-- Wish One: Emily-->
-               <div class="fb-section post-temp wish-post">
-                  <div class="post-header">
-                    <div class="profile-img"></div>
-                    <div class="post-info">
-                      <div>
-                        <h3>Emily Grace Thompson</h3> 
-                        <img class="arrow-right" src="assets/img/icons/arrow-down-s-fill.svg"> 
-                        <h3>Jessica Brooke Taylor</h3>
-                      </div>
-                      <p>July 9 <img src="assets/img/icons/earth-fill.svg"></p>
-                    </div>
-                    <div class="btn more-dots">
-                        <img src="assets/img/icons/more-fill.svg">
-                    </div>
+              <div class="post-summary">
+                <div class="emojis-grp">
+                  <div class="emoji-pair">
+                    <img src="assets/img/emojis/love.svg" class="emoji">
+                    <img src="assets/img/emojis/emoji-love.svg" class="emoji">
+                    <img src="assets/img/emojis/emoji-shock.svg" class="emoji">
                   </div>
-                <div class="words-post">
-                  Happy birthday Jess! Hope you and Mochi have a meowgical day 😽🎉
-                  </div>
-                <div class="post-summary">
-                  <div class="emojis-grp">
-                    <div class="emoji-pair">
-                      <img src="assets/img/emojis/like.svg" class="emoji">
-                      <img src="assets/img/emojis/love.svg" class="emoji">
-                    </div>
-                    <p>10</p>
-                  </div>
-                  <p class="post-comments">4 Comments</p>
+                    <p class="emoji-count">136</p>
                 </div>
+                <p class="post-comments">18 Comments</p>
               </div>
-               <!-- Wish Two: Tyler-->
-               <div class="fb-section post-temp  wish-post">
-                  <div class="post-header">
-                    <div class="profile-img"></div>
-                    <div class="post-info">
-                      <div>
-                        <h3>Tyler Reid</h3> 
-                        <img class="arrow-right" src="assets/img/icons/arrow-down-s-fill.svg"> 
-                        <h3>Jessica Brooke Taylor</h3>
-                      </div>
-                      <p>July 9  <img src="assets/img/icons/earth-fill.svg"></p>
-                    </div>
-                    <div class="btn more-dots">
-                        <img src="assets/img/icons/more-fill.svg">
-                    </div>
-                  </div>
-                <div class="words-post">
-                  Birthday girl!! 🥳 See you at trivia this week, drinks on me 🍹
-                  </div>
-                <div class="post-summary">
-                  <div class="emojis-grp">
-                    <div class="emoji-pair">
-                      <img src="assets/img/emojis/like.svg" class="emoji">
-                      <img src="assets/img/emojis/love.svg" class="emoji">
-                    </div>
-                    <p>10</p>
-                  </div>
-                  <p class="post-comments">5 Comments</p>
-                </div>
-              </div>
-              <!-- Wish Three: Chloe-->
-               <div class="fb-section post-temp  wish-post">
-                  <div class="post-header">
-                    <div class="profile-img"></div>
-                    <div class="post-info">
-                      <div>
-                        <h3>Chloe Nguyen</h3> 
-                        <img class="arrow-right" src="assets/img/icons/arrow-down-s-fill.svg"> 
-                        <h3>Jessica Brooke Taylor</h3>
-                      </div>
-                      <p>July 9 <img src="assets/img/icons/earth-fill.svg"></p>
-                    </div>
-                    <div class="btn more-dots">
-                        <img src="assets/img/icons/more-fill.svg">
-                    </div>
-                  </div>
-                <div class="words-post">
-                  You deserve all the cake and none of the stress 💕 Love youuuu
-                  </div>
-                <div class="post-summary">
-                  <div class="emojis-grp">
-                    <div class="emoji-pair">
-                      <img src="assets/img/emojis/like.svg" class="emoji">
-                      <img src="assets/img/emojis/love.svg" class="emoji">
-                    </div>
-                    <p>20</p>
-                  </div>
-                  <p class="post-comments">2 Comments</p>
-                </div>
-              </div>
-              <!-- Wish Four: Nathan-->
-               <div class="fb-section post-temp  wish-post">
-                  <div class="post-header">
-                    <div class="profile-img"></div>
-                    <div class="post-info">
-                      <div>
-                        <h3> Nathan Scott Morgan</h3> 
-                        <img class="arrow-right" src="assets/img/icons/arrow-down-s-fill.svg"> 
-                        <h3>Jessica Brooke Taylor</h3>
-                      </div>
-                      <p>July 9 <img src="assets/img/icons/earth-fill.svg"></p>
-                    </div>
-                    <div class="btn more-dots">
-                        <img src="assets/img/icons/more-fill.svg">
-                    </div>
-                  </div>
-                <div class="words-post">
-                  Happy Birthday to the best human I know 💫💛 dinner’s on me tonight — your fave place 😉
-                  </div>
-                <div class="post-summary">
-                  <div class="emojis-grp">
-                    <div class="emoji-pair">
-                      <img src="assets/img/emojis/like.svg" class="emoji">
-                      <img src="assets/img/emojis/love.svg" class="emoji">
-                    </div>
-                    <p>50</p>
-                  </div>
-                  <p class="post-comments">24 Comments</p>
-                </div>
-              </div>
-
               <div class="post-footer">
-                <p>See 30 More</p>
+                <div class="share-btn">
+                  <img src="assets/img/icons/share-outline.png">
+                  <p>Share</p></div>
               </div>
-           </div>
+            </div>
 
-          <!-- POST THREE : Date Night -->
-          <div class="fb-section post-temp">
-            <div class="post-header">
-              <div class="profile-img"></div>
-              <div class="post-info">
-                <div>
-                  <h3>Jessica Brooke Taylor</h3> <span>is with </span> <h3>Nathan Scott Morgan</h3>
+            <!-- POST TWO : Add Images -->
+            <div class="fb-section post-temp">
+              <div class="post-header">
+                <div class="profile-img"></div>
+                <div class="post-info">
+                  <h3>Jessica Brooke Taylor</h3>
+                   <div>
+                    <p>July 10 at 8:32 PM </p>
+                    <span>·</span> 
+                    <img src="assets/img/icons/earth-fill.svg">
+                  </div>
                 </div>
-                <p>June 28 at 06:57 PM · <img src="assets/img/icons/earth-fill.svg"></p>
+                  <div class="btn more-dots">
+                      <img src="assets/img/icons/more-fill.svg">
+                  </div>
               </div>
-                <div class="btn more-dots">
-                    <img src="assets/img/icons/more-fill.svg">
-                </div>
-            </div>
-            <div class="words-post">
-              <p>🍷✨ Date night at the new rooftop wine bar downtown — amazing views, great vibes, and even 
-                better company. Nathan’s terrible jokes almost ruined the sunset, but I laughed anyway. ❤️🌇 
-                <span>#DateNightGoals</span></p>
-            </div>
-            <div class="post">
-              <img src="assets/img/posts/couple-glasses.jpg">
-            </div>
-            <div class="post-summary">
-              <div class="emojis-grp">
-                <div class="emoji-pair">
-                  <img src="assets/img/emojis/like.svg" class="emoji">
-                  <img src="assets/img/emojis/love.svg" class="emoji">
-                </div>
-                <p>47</p>
+              <div class="words-post">
+                <p>Feeling so lucky to have such supportive people in my life.💕💫<br>
+                  Thank you all for the birthday wishes 💕💫</p>
               </div>
-              <p class="post-comments">22 Comments</p>
+              <div class="post grid">
+                
+              </div>
+              <div class="post-summary">
+                <div class="emojis-grp">
+                  <div class="emoji-pair">
+                    <img src="assets/img/emojis/like.svg" class="emoji">
+                    <img src="assets/img/emojis/love.svg" class="emoji">
+                    <img src="assets/img/emojis/emoji-laugh.svg" class="emoji">
+                  </div>
+                    <p class="emoji-count">97</p>
+                </div>
+                <p class="post-comments">9 Comments</p>
+              </div>
+              <div class="post-footer">
+                <div class="share-btn">
+                  <img src="assets/img/icons/share-outline.png">
+                  <p>Share</p></div>
+              </div>
             </div>
-            <div class="post-footer">
-              <div class="share-btn">
-                <img src="assets/img/icons/share-outline.png">
-                <p>Share</p></div>
-            </div>
-          </div>
 
-          <!-- POST FOUR: Relaxing Sunday-->
-          <div class="fb-section post-temp">
-            <div class="post-header">
-              <div class="profile-img"></div>
-              <div class="post-info">
-                <h3>Jessica Brooke Taylor</h3>
-                <p>June 10 at 04:45 PM · <img src="assets/img/icons/earth-fill.svg"></p>
-              </div>
-                <div class="btn more-dots">
-                    <img src="assets/img/icons/more-fill.svg">
+            <!-- BIRTHDAY WISHES -->
+            <div class="fb-section post-temp wishes">
+              <div class="post-header">
+                  <p> 34 friends posted on Jessica Brook Taylor's <span class="p-bold">timeline </span>for her birthday.</p>
+                  <div class="btn more-dots">
+                      <img src="assets/img/icons/more-fill.svg">
+                  </div>
+                </div>
+                <!-- Wish One: Emily-->
+                <div class="fb-section post-temp wish-post">
+                    <div class="post-header">
+                      <div class="profile-img"></div>
+                      <div class="post-info">
+                        <div>
+                          <h3>Emily Grace Thompson</h3> 
+                          <img class="arrow-right" src="assets/img/icons/arrow-down-s-fill.svg"> 
+                          <h3>Jessica Brooke Taylor</h3>
+                        </div>
+                         <div>
+                          <p>July 9 </p>
+                          <span>·</span> 
+                          <img src="assets/img/icons/earth-fill.svg">
+                        </div>
+                      </div>
+                      <div class="btn more-dots">
+                          <img src="assets/img/icons/more-fill.svg">
+                      </div>
+                    </div>
+                  <div class="words-post">
+                    Happy birthday Jess! Hope you and Mochi have a meowgical day 😽🎉
+                    </div>
+                  <div class="post-summary">
+                    <div class="emojis-grp">
+                      <div class="emoji-pair">
+                        <img src="assets/img/emojis/like.svg" class="emoji">
+                        <img src="assets/img/emojis/love.svg" class="emoji">
+                      </div>
+                      <p>10</p>
+                    </div>
+                    <p class="post-comments">4 Comments</p>
+                  </div>
+                </div>
+                <!-- Wish Two: Tyler-->
+                <div class="fb-section post-temp  wish-post">
+                    <div class="post-header">
+                      <div class="profile-img"></div>
+                      <div class="post-info">
+                        <div>
+                          <h3>Tyler Reid</h3> 
+                          <img class="arrow-right" src="assets/img/icons/arrow-down-s-fill.svg"> 
+                          <h3>Jessica Brooke Taylor</h3>
+                        </div>
+                        <div>
+                          <p>July 9 </p>
+                          <span>·</span> 
+                          <img src="assets/img/icons/earth-fill.svg">
+                        </div>
+                      </div>
+                      <div class="btn more-dots">
+                          <img src="assets/img/icons/more-fill.svg">
+                      </div>
+                    </div>
+                  <div class="words-post">
+                    Birthday girl!! 🥳 See you at trivia this week, drinks on me 🍹
+                    </div>
+                  <div class="post-summary">
+                    <div class="emojis-grp">
+                      <div class="emoji-pair">
+                        <img src="assets/img/emojis/like.svg" class="emoji">
+                        <img src="assets/img/emojis/love.svg" class="emoji">
+                      </div>
+                      <p>10</p>
+                    </div>
+                    <p class="post-comments">5 Comments</p>
+                  </div>
+                </div>
+                <!-- Wish Three: Chloe-->
+                <div class="fb-section post-temp  wish-post">
+                    <div class="post-header">
+                      <div class="profile-img"></div>
+                      <div class="post-info">
+                        <div>
+                          <h3>Chloe Nguyen</h3> 
+                          <img class="arrow-right" src="assets/img/icons/arrow-down-s-fill.svg"> 
+                          <h3>Jessica Brooke Taylor</h3>
+                        </div>
+                       <div>
+                          <p>July 9 </p>
+                          <span>·</span> 
+                          <img src="assets/img/icons/earth-fill.svg">
+                        </div>
+                      </div>
+                      <div class="btn more-dots">
+                          <img src="assets/img/icons/more-fill.svg">
+                      </div>
+                    </div>
+                  <div class="words-post">
+                    You deserve all the cake and none of the stress 💕 Love youuuu
+                    </div>
+                  <div class="post-summary">
+                    <div class="emojis-grp">
+                      <div class="emoji-pair">
+                        <img src="assets/img/emojis/like.svg" class="emoji">
+                        <img src="assets/img/emojis/love.svg" class="emoji">
+                      </div>
+                      <p>20</p>
+                    </div>
+                    <p class="post-comments">2 Comments</p>
+                  </div>
+                </div>
+                <!-- Wish Four: Nathan-->
+                <div class="fb-section post-temp  wish-post">
+                    <div class="post-header">
+                      <div class="profile-img"></div>
+                      <div class="post-info">
+                        <div>
+                          <h3> Nathan Scott Morgan</h3> 
+                          <img class="arrow-right" src="assets/img/icons/arrow-down-s-fill.svg"> 
+                          <h3>Jessica Brooke Taylor</h3>
+                        </div>
+                       <div>
+                          <p>July 9 </p>
+                          <span>·</span> 
+                          <img src="assets/img/icons/earth-fill.svg">
+                        </div>
+                      </div>
+                      <div class="btn more-dots">
+                          <img src="assets/img/icons/more-fill.svg">
+                      </div>
+                    </div>
+                  <div class="words-post">
+                    Happy Birthday to the best human I know 💫💛 dinner’s on me tonight — your fave place 😉
+                    </div>
+                  <div class="post-summary">
+                    <div class="emojis-grp">
+                      <div class="emoji-pair">
+                        <img src="assets/img/emojis/like.svg" class="emoji">
+                        <img src="assets/img/emojis/love.svg" class="emoji">
+                      </div>
+                      <p>50</p>
+                    </div>
+                    <p class="post-comments">24 Comments</p>
+                  </div>
+                </div>
+
+                <div class="post-footer">
+                  <p>See 30 More</p>
                 </div>
             </div>
-            <div class="words-post">
-              <p>☀️ Sunday afternoon vibes: curled up with a new book and Mochi demanding all the attention. 
-                Perfect way to recharge before a busy week ahead! 📚🐾 <span>#SelfCareSunday</span></p>
+
+            <!-- POST THREE : Date Night -->
+            <div class="fb-section post-temp">
+              <div class="post-header">
+                <div class="profile-img"></div>
+                <div class="post-info">
+                  <div>
+                    <h3>Jessica Brooke Taylor</h3> <span>is with </span> <h3>Nathan Scott Morgan</h3>
+                  </div>
+                  <div>
+                      <p>June 28 at 6:57 PM </p>
+                      <span>·</span> 
+                      <img src="assets/img/icons/earth-fill.svg">
+                    </div>
+                </div>
+                  <div class="btn more-dots">
+                      <img src="assets/img/icons/more-fill.svg">
+                  </div>
+              </div>
+              <div class="words-post">
+                <p>🍷✨ Date night at the new rooftop wine bar downtown — amazing views, great vibes, and even 
+                  better company. Nathan’s terrible jokes almost ruined the sunset, but I laughed anyway. ❤️🌇 
+                  <span>#DateNightGoals</span></p>
+              </div>
+              <div class="post">
+                <img src="assets/img/posts/couple-glasses.jpg">
+              </div>
+              <div class="post-summary">
+                <div class="emojis-grp">
+                  <div class="emoji-pair">
+                    <img src="assets/img/emojis/like.svg" class="emoji">
+                    <img src="assets/img/emojis/love.svg" class="emoji">
+                  </div>
+                  <p>47</p>
+                </div>
+                <p class="post-comments">22 Comments</p>
+              </div>
+              <div class="post-footer">
+                <div class="share-btn">
+                  <img src="assets/img/icons/share-outline.png">
+                  <p>Share</p></div>
+              </div>
             </div>
-            <div class="post">
-              <img src="assets/img/posts/mochi-couch-sunday.jpg">
+
+            <!-- POST FOUR: Relaxing Sunday-->
+            <div class="fb-section post-temp">
+              <div class="post-header">
+                <div class="profile-img"></div>
+                <div class="post-info">
+                  <h3>Jessica Brooke Taylor</h3>
+                  <div>
+                      <p>June 10 at 4:46 PM </p>
+                      <span>·</span> 
+                      <img src="assets/img/icons/earth-fill.svg">
+                    </div>
+                </div>
+                  <div class="btn more-dots">
+                      <img src="assets/img/icons/more-fill.svg">
+                  </div>
+              </div>
+              <div class="words-post">
+                <p>☀️ Sunday afternoon vibes: curled up with a new book and Mochi demanding all the attention. 
+                  Perfect way to recharge before a busy week ahead! 📚🐾 <span>#SelfCareSunday</span></p>
+              </div>
+              <div class="post">
+                <img src="assets/img/posts/mochi-couch-sunday.jpg">
+              </div>
+              <div class="post-summary">
+                <div class="emojis-grp">
+                    <div class="emoji-pair">
+                      <img src="assets/img/emojis/love.svg" class="emoji">
+                      <img src="assets/img/emojis/emoji-love.svg" class="emoji">
+                      <img src="assets/img/emojis/like.svg" class="emoji">
+                    </div>
+                      <p class="emoji-count">76</p>
+                  </div>
+                <p class="post-comments">10 Comments</p>
+              </div>
+              <div class="post-footer">
+                <div class="share-btn">
+                  <img src="assets/img/icons/share-outline.png">
+                  <p>Share</p></div>
+              </div>
             </div>
-            <div class="post-summary">
+
+            <!-- POST FIVE: Post Vacation w/ images-->
+             <div class="fb-section post-temp wishes">
+              <div class="post-header">
+                  <p> Album <span class="p-bold">New Zealand w/ Bae </span></p>
+                  <div class="btn more-dots">
+                      <img src="assets/img/icons/more-fill.svg">
+                  </div>
+                </div>
+            <div class="fb-section post-temp">
+              <div class="post-header">
+                <div class="profile-img"></div>
+                <div class="post-info">
+                  <div>
+                    <h3>Jessica Brooke Taylor</h3> <span>is with </span> <h3>Nathan Scott Morgan</h3>
+                  </div>
+                   <div>
+                    <p>May 18 at 7:33 PM </p>
+                    <span>·</span>
+                    <img src="assets/img/icons/earth-fill.svg">
+                  </div>
+                </div>
+                  <div class="btn more-dots">
+                      <img src="assets/img/icons/more-fill.svg">
+                  </div>
+              </div>
+              <div class="words-post">
+                <p>Back from Queenstown and already checking flight prices to go again 😂</p>
+              </div>
+              <div class="post photo-grid">
+                <div class="photo-grid-left">
+                  <img src="assets/img/posts/queenstown/queenstown-2.jpg" />
+                </div>
+                <div class="photo-grid-right">
+                  <img src="assets/img/posts/queenstown/queenstown-1.jpg" />
+                  <img src="assets/img/posts/queenstown/queenstown-3.jpg" />
+                </div>
+              </div>
+              <div class="post-summary">
+                <div class="emojis-grp">
+                  <div class="emoji-pair">
+                      <img src="assets/img/emojis/love.svg" class="emoji">
+                      <img src="assets/img/emojis/emoji-shock.svg" class="emoji">
+                      <img src="assets/img/emojis/like.svg" class="emoji">
+                    </div>
+                      <p class="emoji-count">100</p>
+                    </div>
+                <p class="post-comments">12 Comments</p>
+              </div>
+              <div class="post-footer">
+                <div class="share-btn">
+                  <img src="assets/img/icons/share-outline.png">
+                  <p>Share</p></div>
+              </div>
+            </div>
+            </div>
+
+            <!-- POST SIX Vacation Post-->
+            <div class="fb-section post-temp">
+              <div class="post-header">
+                <div class="profile-img"></div>
+                <div class="post-info">
+                  <div>
+                    <h3>Jessica Brooke Taylor</h3> <span>tagged</span> <h3>Nathan Scott Morgan</h3>
+                  </div>
+                   <div>
+                    <p>May 05 at 11:01 AM </p>
+                    <span>·</span> 
+                    <img src="assets/img/icons/earth-fill.svg">
+                  </div>
+                </div>
+                  <div class="btn more-dots">
+                      <img src="assets/img/icons/more-fill.svg">
+                  </div>
+              </div>
+              <div class="words-post">
+                <p>✈️ Queenstown, here we come!! Just booked a little escape with <span>Nathan Scott Morgan</span> — 
+                  give us hot pools, mountain air, and cheesy fondue please 🇳🇿❄️ <span>#LateAutumnVibes</span></p>
+              </div>
+              <div class="post-summary">
+                <div class="emojis-grp">
+                    <div class="emoji-pair">
+                      <img src="assets/img/emojis/love.svg" class="emoji">
+                      <img src="assets/img/emojis/like.svg" class="emoji">
+                    </div>
+                      <p class="emoji-count">12</p>
+                  </div>
+                <p class="post-comments">5 Comments</p>
+              </div>
+              <div class="post-footer">
+                <div class="share-btn">
+                  <img src="assets/img/icons/share-outline.png">
+                  <p>Share</p></div>
+              </div>
+            </div>
+
+            <!-- POST SEVEN: Add Images : Beach Trip-->
+            <div class="fb-section post-temp">
+              <div class="post-header">
+                <div class="profile-img"></div>
+                <div class="post-info">
+                  <div>
+                    <h3>Jessica Brooke Taylor</h3> 
+                    <span>is with </span> <h3>Chloe Nguyen</h3> 
+                    <span>and </span> <h3>Isabella Ford</h3>
+                  </div>
+                   <div>
+                    <p>May 02 at 03:00 PM </p>
+                    <span>·</span> 
+                    <img src="assets/img/icons/earth-fill.svg">
+                  </div>
+                </div>
+                  <div class="btn more-dots">
+                      <img src="assets/img/icons/more-fill.svg">
+                  </div>
+              </div>
+              <div class="words-post">
+                <p>Spontaneous beach trip = best mental health day with the girls! 🌊💛 <span>#SaltAirCuresAll</span></p>
+              </div>
+              <div class="post"></div>
+              <div class="post-summary">
               <div class="emojis-grp">
                   <div class="emoji-pair">
                     <img src="assets/img/emojis/love.svg" class="emoji">
                     <img src="assets/img/emojis/emoji-love.svg" class="emoji">
-                    <img src="assets/img/emojis/like.svg" class="emoji">
                   </div>
-                    <p class="emoji-count">76</p>
+                    <p class="emoji-count">34</p>
                 </div>
-              <p class="post-comments">10 Comments</p>
+                <p class="post-comments">22 Comments</p>
+              </div>
+              <div class="post-footer">
+                <div class="share-btn">
+                  <img src="assets/img/icons/share-outline.png">
+                  <p>Share</p></div>
+              </div>
             </div>
-            <div class="post-footer">
-              <div class="share-btn">
-                <img src="assets/img/icons/share-outline.png">
-                <p>Share</p></div>
-            </div>
-          </div>
 
-          <!-- POST FIVE: Post Vacation w/ images-->
-          <div class="fb-section post-temp">
-            <div class="post-header">
-              <div class="profile-img"></div>
-              <div class="post-info">
-                <div>
-                  <h3>Jessica Brooke Taylor</h3> <span>is with </span> <h3>Nathan Scott Morgan</h3>
+            <!-- POST EIGHT : Banna Bread Post-->
+            <div class="fb-section post-temp">
+              <div class="post-header">
+                <div class="profile-img"></div>
+                <div class="post-info">
+                  <h3>Jessica Brooke Taylor</h3>
+                   <div>
+                    <p>April 18 at 3:21 PM </p>
+                    <span>·</span> 
+                    <img src="assets/img/icons/earth-fill.svg">
+                  </div>
                 </div>
-                <p>May 18 at 7:30 PM · <img src="assets/img/icons/earth-fill.svg"></p>
+                  <div class="btn more-dots">
+                      <img src="assets/img/icons/more-fill.svg">
+                  </div>
               </div>
-                <div class="btn more-dots">
-                    <img src="assets/img/icons/more-fill.svg">
-                </div>
-            </div>
-            <div class="words-post">
-              <p>Back from Queenstown and already checking flight prices to go again 😂</p>
-            </div>
-            <div class="post photo-grid">
-              <div class="photo-grid-left">
-                <img src="assets/img/posts/queenstown/queenstown-2.jpg" />
+              <div class="words-post">
+                <p>Can confirm: stress baking banana bread still works in 2025 🍌🥖 
+                  <span>#MidWeekReset</span></p>
               </div>
-              <div class="photo-grid-right">
-                <img src="assets/img/posts/queenstown/queenstown-1.jpg" />
-                <img src="assets/img/posts/queenstown/queenstown-3.jpg" />
-              </div>
-            </div>
-            <div class="post-summary">
-              <div class="emojis-grp">
-                <div class="emoji-pair">
+              <div class="post-summary">
+                <div class="emojis-grp">
+                  <div class="emoji-pair">
                     <img src="assets/img/emojis/love.svg" class="emoji">
-                    <img src="assets/img/emojis/emoji-shock.svg" class="emoji">
+                    <img src="assets/img/emojis/emoji-laugh.svg" class="emoji">
                     <img src="assets/img/emojis/like.svg" class="emoji">
                   </div>
-                    <p class="emoji-count">100</p>
-                  </div>
-              <p class="post-comments">12 Comments</p>
-            </div>
-            <div class="post-footer">
-              <div class="share-btn">
-                <img src="assets/img/icons/share-outline.png">
-                <p>Share</p></div>
-            </div>
-          </div>
-
-          <!-- POST SIX Vacation Post-->
-          <div class="fb-section post-temp">
-            <div class="post-header">
-              <div class="profile-img"></div>
-              <div class="post-info">
-                <div>
-                  <h3>Jessica Brooke Taylor</h3> <span>tagged</span> <h3>Nathan Scott Morgan</h3>
+                    <p class="emoji-count">201</p>
                 </div>
-                <p>May 05 at 11:00 AM · <img src="assets/img/icons/earth-fill.svg"></p>
+                <p class="post-comments">23 Comments</p>
               </div>
-                <div class="btn more-dots">
-                    <img src="assets/img/icons/more-fill.svg">
+              <div class="post-footer">
+                <div class="share-btn">
+                  <img src="assets/img/icons/share-outline.png">
+                  <p>Share</p></div>
+              </div>
+            </div>
+
+            <!-- Melbourne Weekend Album Highlights -->
+             <div class="fb-section post-temp wishes">
+              <div class="post-header">
+                  <p> Album <span class="p-bold">Melbourne Girl's Trip! </span></p>
+                  <div class="btn more-dots">
+                      <img src="assets/img/icons/more-fill.svg">
+                  </div>
                 </div>
+               <!-- POST NINE : Melbourne Post-->
+              <div class="fb-section post-temp">
+                <div class="post-header">
+                  <div class="profile-img"></div>
+                  <div class="post-info">
+                    <div>
+                      <h3>Jessica Brooke Taylor</h3> <span>is with </span> <h3>Chloe Nguyen</h3> <span>and </span> <h3>Isabella Ford</h3>
+                    </div>
+                    <div>
+                      <p>April 03 at 10:05 AM </p>
+                      <span>·</span> 
+                      <img src="assets/img/icons/earth-fill.svg">
+                    </div>
+                  </div>
+                    <div class="btn more-dots">
+                        <img src="assets/img/icons/more-fill.svg">
+                    </div>
+                </div>
+                <div class="words-post">
+                  <p>Weekend in Melbourne with the girls = sore feet, full heart 💕 
+                  (And yes, I’m already planning the next trip 😂)</p>
+                </div>
+                <div class="post photo-grid">
+                <div class="photo-grid-left">
+                  <img src="assets/img/posts/melbourne/girls-breakfast.jpg" />
+                </div>
+                <div class="photo-grid-right">
+                  <img src="assets/img/posts/melbourne/flinder-station.jpg" />
+                  <img src="assets/img/posts/melbourne/melbourne-trip-1.jpg" />
+                </div>
+              </div>
+                <div class="post-summary">
+                  <div class="emojis-grp">
+                    <div class="emoji-pair">
+                      <img src="assets/img/emojis/love.svg" class="emoji">
+                      <img src="assets/img/emojis/emoji-love.svg" class="emoji">
+                      <img src="assets/img/emojis/like.svg" class="emoji">
+                    </div>
+                      <p class="emoji-count">140</p>
+                  </div>
+                  <p class="post-comments">17 Comments</p>
+                </div>
+                <div class="post-footer">
+                  <div class="share-btn">
+                    <img src="assets/img/icons/share-outline.png">
+                    <p>Share</p></div>
+                </div>
+              </div>
             </div>
-            <div class="words-post">
-              <p>✈️ Queenstown, here we come!! Just booked a little escape with <span>Nathan Scott Morgan</span> — 
-                give us hot pools, mountain air, and cheesy fondue please 🇳🇿❄️ <span>#LateAutumnVibes</span></p>
+
+            <!-- POST TEN : Adulting Fail-->
+            <div class="fb-section post-temp">
+              <div class="post-header">
+                <div class="profile-img"></div>
+                <div class="post-info">
+                  <h3>Jessica Brooke Taylor</h3>
+                  <div>
+                    <p>March 30 at 08:02 PM</p>
+                    <span>·</span> 
+                    <img src="assets/img/icons/earth-fill.svg">
+                  </div>
+                </div>
+                  <div class="btn more-dots">
+                      <img src="assets/img/icons/more-fill.svg">
+                  </div>
+              </div>
+              <div class="words-post">
+                <p>What even is a “quiet weekend” anymore? Two events, 
+                  a flat tire, and somehow I still didn’t finish laundry 😂 <span>#AdultingFail</span></p>
+              </div>
+              <div class="post-summary">
+                <div class="emojis-grp">
+                  <div class="emoji-pair">
+                    <img src="assets/img/emojis/emoji-laugh.svg" class="emoji">
+                    <img src="assets/img/emojis/love.svg" class="emoji">
+                    <img src="assets/img/emojis/like.svg" class="emoji">
+                  </div>
+                    <p class="emoji-count">154</p>
+                </div>
+                <p class="post-comments">29 Comments</p>
+              </div>
+              <div class="post-footer">
+                <div class="share-btn">
+                  <img src="assets/img/icons/share-outline.png">
+                  <p>Share</p></div>
+              </div>
             </div>
-            <div class="post-summary">
+
+            <!-- POST ELEVEN : Location Pin-->
+            <div class="fb-section post-temp">
+              <div class="post-header">
+                <div class="profile-img"></div>
+                <div class="post-info">
+                  <div>
+                    <h3>Emily Grace Thompson</h3> 
+                    <span>is with </span> <h3>Jessica Brooke Taylor</h3> 
+                  </div>
+                  <div>
+                    <span>at </span><h3>Lee & Me Café</h3>
+                  </div>
+                  <div>
+                    <p>March 20 at 11:30 AM </p>
+                    <span>·</span> 
+                    <p>Wollongong, NSW </p>
+                    <img src="assets/img/icons/earth-fill.svg">
+                  </div>
+                  
+                </div>
+                  <div class="btn more-dots">
+                      <img src="assets/img/icons/more-fill.svg">
+                  </div>
+              </div>
+              <div class="words-post">
+                <p>
+                  Brunch with this gem 💎 So proud of everything you’re doing <span>Jessica Brooke Taylor</span>.
+                </p>
+              </div>
+              <div class="post">
+                <img src="assets/img/posts/emily-bestie-post.jpg">
+              </div>
+              <div class="post-summary">
+                <div class="emojis-grp">
+                  <div class="emoji-pair">
+                    <img src="assets/img/emojis/like.svg" class="emoji">
+                    <img src="assets/img/emojis/love.svg" class="emoji">
+                  </div>
+                    <p class="emoji-count">43</p>
+                </div>
+                <p class="post-comments">18 Comments</p>
+              </div>
+              <div class="post-footer">
+                <div class="share-btn">
+                  <img src="assets/img/icons/share-outline.png">
+                  <p>Share</p></div>
+              </div>
+            </div>
+
+            <!-- POST TWELVE: Monday Coffee-->
+            <div class="fb-section post-temp">
+              <div class="post-header">
+                <div class="profile-img"></div>
+                <div class="post-info">
+                  <h3>Jessica Brooke Taylor</h3>
+                  <div>
+                      <p>March 16 at 7:45 AM </p>
+                      <span>·</span> 
+                      <p>Wollongong, NSW</p>
+                      <img src="assets/img/icons/earth-fill.svg">
+                    </div>
+                </div>
+                  <div class="btn more-dots">
+                      <img src="assets/img/icons/more-fill.svg">
+                  </div>
+              </div>
+              <div class="words-post">
+                <p>Some days just need an extra-large iced coffee and good music. 
+                  🎶☕ <span>#MondayMood</span></p>
+              </div>
+              <div class="post">
+                <img src="assets/img/posts/cafe-coffee-earbuds.jpg">
+              </div>
+              <div class="post-summary">
+                <div class="emojis-grp">
+                  <div class="emoji-pair">
+                    <img src="assets/img/emojis/like.svg" class="emoji">
+                    <img src="assets/img/emojis/love.svg" class="emoji">
+                  </div>
+                    <p class="emoji-count">49</p>
+                </div>
+                <p class="post-comments">8 Comments</p>
+              </div>
+              <div class="post-footer">
+                <div class="share-btn">
+                  <img src="assets/img/icons/share-outline.png">
+                  <p>Share</p></div>
+              </div>
+            </div>
+
+            <!-- POST THIRTEEN : Anniversary Post -->
+            <div class="fb-section post-temp">
+              <div class="post-header">
+                <div class="profile-img"></div>
+                <div class="post-info">
+                  <div>
+                    <h3>Jessica Brooke Taylor</h3> <span>is with </span> <h3>Nathan Scott Morgan</h3>
+                  </div>
+                    <div>
+                      <p>March 14 at 9:21 AM </p>
+                      <span>·</span>
+                      <img src="assets/img/icons/earth-fill.svg">
+                    </div>
+                </div>
+                  <div class="btn more-dots">
+                      <img src="assets/img/icons/more-fill.svg">
+                  </div>
+              </div>
+              <div class="words-post">
+                <p> Two years with this goofball <span>Nathan Scott Morgan</span> 💕 wouldn’t change a thing. 
+                  Here’s to more Netflix marathons and burnt pancakes. 
+                </p>
+              </div>
+              <div class="video-post">
+                <video
+                      src="assets/img/posts/anniversary-vid.mp4"
+                      autoplay
+                      muted
+                      playsinline
+                      loop
+                      class="fb-style-video"
+                      ></video>
+
+              </div>
+              <div class="post-summary">
               <div class="emojis-grp">
                   <div class="emoji-pair">
                     <img src="assets/img/emojis/love.svg" class="emoji">
                     <img src="assets/img/emojis/like.svg" class="emoji">
+                    <img src="assets/img/emojis/emoji-love.svg" class="emoji">
                   </div>
-                    <p class="emoji-count">12</p>
+                    <p class="emoji-count">143</p>
                 </div>
-              <p class="post-comments">5 Comments</p>
-            </div>
-            <div class="post-footer">
-              <div class="share-btn">
-                <img src="assets/img/icons/share-outline.png">
-                <p>Share</p></div>
-            </div>
-          </div>
-
-          <!-- POST SEVEN: Add Images : Beach Trip-->
-          <div class="fb-section post-temp">
-            <div class="post-header">
-              <div class="profile-img"></div>
-              <div class="post-info">
-                <div>
-                  <h3>Jessica Brooke Taylor</h3> <span>is with </span> <h3>Chloe Nguyen</h3> <span>and </span> <h3>Isabella Ford</h3>
-                </div>
-                <p>May 02 at 03:00 PM · <img src="assets/img/icons/earth-fill.svg"></p>
+                <p class="post-comments">180 Comments</p>
               </div>
-                <div class="btn more-dots">
-                    <img src="assets/img/icons/more-fill.svg">
-                </div>
-            </div>
-            <div class="words-post">
-              <p>Spontaneous beach trip = best mental health day with the girls! 🌊💛 <span>#SaltAirCuresAll</span></p>
-            </div>
-            <div class="post"></div>
-            <div class="post-summary">
-             <div class="emojis-grp">
-                <div class="emoji-pair">
-                  <img src="assets/img/emojis/love.svg" class="emoji">
-                  <img src="assets/img/emojis/emoji-love.svg" class="emoji">
-                </div>
-                  <p class="emoji-count">34</p>
+              <div class="post-footer">
+                <div class="share-btn">
+                  <img src="assets/img/icons/share-outline.png">
+                  <p>Share</p></div>
               </div>
-              <p class="post-comments">22 Comments</p>
             </div>
-            <div class="post-footer">
-              <div class="share-btn">
-                <img src="assets/img/icons/share-outline.png">
-                <p>Share</p></div>
-            </div>
-          </div>
-
-          <!-- POST EIGHT : Banna Bread Post-->
-          <div class="fb-section post-temp">
-            <div class="post-header">
-              <div class="profile-img"></div>
-              <div class="post-info">
-                <h3>Jessica Brooke Taylor</h3>
-                <p>April 18 at 3:21 PM · <img src="assets/img/icons/earth-fill.svg"></p>
-              </div>
-                <div class="btn more-dots">
-                    <img src="assets/img/icons/more-fill.svg">
-                </div>
-            </div>
-            <div class="words-post">
-              <p>Can confirm: stress baking banana bread still works in 2025 🍌🥖 
-                <span>#MidWeekReset</span></p>
-            </div>
-            <div class="post-summary">
-              <div class="emojis-grp">
-                <div class="emoji-pair">
-                  <img src="assets/img/emojis/love.svg" class="emoji">
-                  <img src="assets/img/emojis/emoji-laugh.svg" class="emoji">
-                  <img src="assets/img/emojis/like.svg" class="emoji">
-                </div>
-                  <p class="emoji-count">201</p>
-              </div>
-              <p class="post-comments">23 Comments</p>
-            </div>
-            <div class="post-footer">
-              <div class="share-btn">
-                <img src="assets/img/icons/share-outline.png">
-                <p>Share</p></div>
-            </div>
-          </div>
-
-          <!-- Melbourne Weekend Album Highlights -->
-
-          <!-- POST NINE : Melbourne Post-->
-          <div class="fb-section post-temp">
-            <div class="post-header">
-              <div class="profile-img"></div>
-              <div class="post-info">
-                <div>
-                 <h3>Jessica Brooke Taylor</h3> 
-                 <span>is with </span> <h3>Chloe Nguyen</h3> 
-                 <span>and </span> <h3>Isabella Ford</h3>
-                </div>
-                 <p>April 03 at 10:05 AM · <img src="assets/img/icons/earth-fill.svg"></p>
-              </div>
-                <div class="btn more-dots">
-                    <img src="assets/img/icons/more-fill.svg">
-                </div>
-            </div>
-            <div class="words-post">
-              <p>Weekend in Melbourne with the girls = sore feet, full heart 💕 
-              (And yes, I’m already planning the next trip 😂)</p>
-            </div>
-            <div class="post-summary">
-              <div class="emojis-grp">
-                <div class="emoji-pair">
-                  <img src="assets/img/emojis/love.svg" class="emoji">
-                  <img src="assets/img/emojis/emoji-love.svg" class="emoji">
-                  <img src="assets/img/emojis/like.svg" class="emoji">
-                </div>
-                  <p class="emoji-count">140</p>
-              </div>
-              <p class="post-comments">17 Comments</p>
-            </div>
-            <div class="post-footer">
-              <div class="share-btn">
-                <img src="assets/img/icons/share-outline.png">
-                <p>Share</p></div>
-            </div>
-          </div>
-
-          <!-- POST TEN : Adulting Fail-->
-          <div class="fb-section post-temp">
-            <div class="post-header">
-              <div class="profile-img"></div>
-              <div class="post-info">
-                <h3>Jessica Brooke Taylor</h3>
-                <p>March 30 at 08:02 PM · <img src="assets/img/icons/earth-fill.svg"></p>
-              </div>
-                <div class="btn more-dots">
-                    <img src="assets/img/icons/more-fill.svg">
-                </div>
-            </div>
-            <div class="words-post">
-              <p>What even is a “quiet weekend” anymore? Two events, 
-                a flat tire, and somehow I still didn’t finish laundry 😂 <span>#AdultingFail</span></p>
-            </div>
-            <div class="post-summary">
-              <div class="emojis-grp">
-                <div class="emoji-pair">
-                  <img src="assets/img/emojis/emoji-laugh.svg" class="emoji">
-                  <img src="assets/img/emojis/love.svg" class="emoji">
-                  <img src="assets/img/emojis/like.svg" class="emoji">
-                </div>
-                  <p class="emoji-count">154</p>
-              </div>
-              <p class="post-comments">29 Comments</p>
-            </div>
-            <div class="post-footer">
-              <div class="share-btn">
-                <img src="assets/img/icons/share-outline.png">
-                <p>Share</p></div>
-            </div>
-          </div>
-
-          <!-- POST ELEVEN : Location Pin-->
-          <div class="fb-section post-temp">
-            <div class="post-header">
-              <div class="profile-img"></div>
-              <div class="post-info">
-                <div>
-                   <h3>Emily Grace Thompson</h3> 
-                   <span>is with </span> <h3>Jessica Brooke Taylor</h3> 
-                </div>
-                <div>
-                   <span>at </span><h3>Lee & Me Café</h3>
-                </div>
-                <p>March 20 at 11:30 AM · <span>Wollongong, NSW</span> <img src="assets/img/icons/earth-fill.svg"></p>
-              </div>
-                <div class="btn more-dots">
-                    <img src="assets/img/icons/more-fill.svg">
-                </div>
-            </div>
-            <div class="words-post">
-              <p>
-                Brunch with this gem 💎 So proud of everything you’re doing <span>Jessica Brooke Taylor</span>.
-              </p>
-            </div>
-            <div class="post">
-              <img src="assets/img/posts/emily-bestie-post.jpg">
-            </div>
-            <div class="post-summary">
-              <div class="emojis-grp">
-                <div class="emoji-pair">
-                  <img src="assets/img/emojis/like.svg" class="emoji">
-                  <img src="assets/img/emojis/love.svg" class="emoji">
-                </div>
-                  <p class="emoji-count">43</p>
-              </div>
-              <p class="post-comments">18 Comments</p>
-            </div>
-            <div class="post-footer">
-              <div class="share-btn">
-                <img src="assets/img/icons/share-outline.png">
-                <p>Share</p></div>
-            </div>
-          </div>
-
-          <!-- POST TWELVE: Monday Coffee-->
-          <div class="fb-section post-temp">
-            <div class="post-header">
-              <div class="profile-img"></div>
-              <div class="post-info">
-                <h3>Jessica Brooke Taylor</h3>
-                <p>March 16 at 7:45 AM · Wollongong, NSW<img src="assets/img/icons/earth-fill.svg"></p>
-              </div>
-                <div class="btn more-dots">
-                    <img src="assets/img/icons/more-fill.svg">
-                </div>
-            </div>
-            <div class="words-post">
-              <p>Some days just need an extra-large iced coffee and good music. 
-                🎶☕ <span>#MondayMood</span></p>
-            </div>
-            <div class="post">
-              <img src="assets/img/posts/cafe-coffee-earbuds.jpg">
-            </div>
-            <div class="post-summary">
-              <div class="emojis-grp">
-                <div class="emoji-pair">
-                  <img src="assets/img/emojis/like.svg" class="emoji">
-                  <img src="assets/img/emojis/love.svg" class="emoji">
-                </div>
-                  <p class="emoji-count">49</p>
-              </div>
-              <p class="post-comments">8 Comments</p>
-            </div>
-            <div class="post-footer">
-              <div class="share-btn">
-                <img src="assets/img/icons/share-outline.png">
-                <p>Share</p></div>
-            </div>
-          </div>
-
-          <!-- POST THIRTEEN : Anniversary Post -->
-          <div class="fb-section post-temp">
-            <div class="post-header">
-              <div class="profile-img"></div>
-              <div class="post-info">
-                <div>
-                  <h3>Jessica Brooke Taylor</h3> <span>is with </span> <h3>Nathan Scott Morgan</h3>
-                </div>
-                  <p>March 14 at 9:00 PM · <img src="assets/img/icons/earth-fill.svg"></p>
-              </div>
-                <div class="btn more-dots">
-                    <img src="assets/img/icons/more-fill.svg">
-                </div>
-            </div>
-            <div class="words-post">
-              <p> Two years with this goofball <span>Nathan Scott Morgan</span> 💕 wouldn’t change a thing. 
-                Here’s to more Netflix marathons and burnt pancakes. 
-              </p>
-            </div>
-            <div class="video-post">
-              <video
-                    src="assets/img/posts/anniversary-vid.mp4"
-                    autoplay
-                    muted
-                    playsinline
-                    loop
-                    class="fb-style-video"
-                    ></video>
-
-            </div>
-            <div class="post-summary">
-             <div class="emojis-grp">
-                <div class="emoji-pair">
-                  <img src="assets/img/emojis/love.svg" class="emoji">
-                  <img src="assets/img/emojis/like.svg" class="emoji">
-                  <img src="assets/img/emojis/emoji0-love.svg" class="emoji">
-                </div>
-                  <p class="emoji-count">143</p>
-              </div>
-              <p class="post-comments">180 Comments</p>
-            </div>
-            <div class="post-footer">
-              <div class="share-btn">
-                <img src="assets/img/icons/share-outline.png">
-                <p>Share</p></div>
-            </div>
-          </div>
-          
-          <!-- POST FOURTEEN: New Job Post-->
-          <div class="fb-section post-temp">
-            <div class="post-header">
-              <div class="profile-img"></div>
-              <div class="post-info">
-                <h3>Jessica Brooke Taylor</h3>
-                <p>March 03 at 08:05 AM · Wollongong, NSW <img src="assets/img/icons/earth-fill.svg"></p>
-              </div>
-                <div class="btn more-dots">
-                    <img src="assets/img/icons/more-fill.svg">
-                </div>
-            </div>
-            <div class="words-post">
-              <p>New beginnings and diving into storytelling! 
-                Excited to craft content that inspires and connects. Wish me luck 🤞/p>
-            </div>
-            <div class="post">
-              <img src="assets/img/posts/new-job.jpg">
-            </div>
-            <div class="post-summary">
-              <div class="emojis-grp">
-                <div class="emoji-pair">
-                  <img src="assets/img/emojis/like.svg" class="emoji">
-                  <img src="assets/img/emojis/love.svg" class="emoji">
-                </div>
-                  <p class="emoji-count">47</p>
-              </div>
-              <p class="post-comments">20 Comments</p>
-            </div>
-            <div class="post-footer">
-              <div class="share-btn">
-                <img src="assets/img/icons/share-outline.png">
-                <p>Share</p></div>
-            </div>
-          </div>
-
-          <!-- LIFE EVENT: NEW JOB -->
-          <div class="fb-section post-temp">
-            <div class="post-header">
-              <div class="profile-img"></div>
-              <div class="post-info">
-                <h3>Jessica Brooke Taylor</h3>
-                <p>March 03 at 08:05 AM · Wollongong, NSW <img src="assets/img/icons/earth-fill.svg"></p>
-              </div>
-                <div class="btn more-dots">
-                    <img src="assets/img/icons/more-fill.svg">
-                </div>
-            </div>
-            <div class="life-event-post words-post">
-                <div class="life-event-icon">
-                  <img class="icon-post" src="assets/img/icons/briefcase-4-white.svg">
-                </div>
-                <h1>Started New Job at New Job</h1>
-                <p>Month 00, 2020 — Position Title</p>
-                <span>Wollongong, New South Wales, Australia</span>
-            </div>
-            <div class="post-summary">
-              <div class="emojis-grp">
-                <div class="emoji-pair">
-                  <img src="assets/img/emojis/like.svg" class="emoji">
-                  <img src="assets/img/emojis/love.svg" class="emoji">
-                </div>
-                  <p class="emoji-count">125</p>
-              </div>
-              <p class="post-comments">20 Comments</p>
-            </div>
-            <div class="post-footer">
-              <div class="share-btn">
-                <img src="assets/img/icons/share-outline.png">
-                <p>Share</p></div>
-            </div>
-          </div>
-
-          <!-- POST FIFTEEN-->
-          <div class="fb-section post-temp">
-            <div class="post-header">
-              <div class="profile-img"></div>
-              <div class="post-info">
-                <div>
-                    <h3>Jessica Brooke Taylor</h3> 
-                   <span>is with </span> <h3>Nathan Scott Morgan</h3> 
-                </div>
-                <div>
-                   <span>at </span><h3>Wollongong, NSW</h3>
-                </div>
-                <p>Month 00 at 00:00 PM · Wollongong, NSW <img src="assets/img/icons/earth-fill.svg"></p>
-              </div>
-                <div class="btn more-dots">
-                    <img src="assets/img/icons/more-fill.svg">
-                </div>
-            </div>
-            <div class="words-post">
-              <p>Officially Wollongong residents! Between unpacking chaos and <span>Nathan</span>’s epic 
-                box mountain collapse, we’re starting to feel right at home. 
-                🏙️ Any local food recs to keep us fueled through this madness?</p>
-            </div>
-            <div class="post">
-              <img src="assets/img/posts/moving.jpg">
-            </div>
-            <div class="post-summary">
-              <div class="emojis-grp">
-                <div class="emoji-pair">
-                  <img src="assets/img/emojis/like.svg" class="emoji">
-                  <img src="assets/img/emojis/love.svg" class="emoji">
-                </div>
-                  <p class="emoji-count">43</p>
-              </div>
-              <p class="post-comments">18 Comments</p>
-            </div>
-            <div class="post-footer">
-              <div class="share-btn">
-                <img src="assets/img/icons/share-outline.png">
-                <p>Share</p></div>
-            </div>
-          </div>
-
-          <!-- LIFE EVENT: MOVED TO WOLLONGONG -->
+            
+            <!-- POST FOURTEEN: New Job Post-->
             <div class="fb-section post-temp">
-            <div class="post-header">
-              <div class="profile-img"></div>
-              <div class="post-info">
-                <h3>Jessica Brooke Taylor</h3>
-                <p>March 03 at 08:05 AM · Wollongong, NSW <img src="assets/img/icons/earth-fill.svg"></p>
+              <div class="post-header">
+                <div class="profile-img"></div>
+                <div class="post-info">
+                  <h3>Jessica Brooke Taylor</h3>
+                  <div>
+                      <p>March 3 at 8:05 AM </p>
+                      <span>·</span> 
+                      <p>Wollongong, NSW</p>
+                      <img src="assets/img/icons/earth-fill.svg">
+                    </div>
+                </div>
+                  <div class="btn more-dots">
+                      <img src="assets/img/icons/more-fill.svg">
+                  </div>
               </div>
-                <div class="btn more-dots">
-                    <img src="assets/img/icons/more-fill.svg">
+              <div class="words-post">
+                <p>New beginnings and diving into storytelling! 
+                  Excited to craft content that inspires and connects. Wish me luck 🤞/p>
+              </div>
+              <div class="post">
+                <img src="assets/img/posts/new-job.jpg">
+              </div>
+              <div class="post-summary">
+                <div class="emojis-grp">
+                  <div class="emoji-pair">
+                    <img src="assets/img/emojis/like.svg" class="emoji">
+                    <img src="assets/img/emojis/love.svg" class="emoji">
+                  </div>
+                    <p class="emoji-count">47</p>
+                </div>
+                <p class="post-comments">20 Comments</p>
+              </div>
+              <div class="post-footer">
+                <div class="share-btn">
+                  <img src="assets/img/icons/share-outline.png">
+                  <p>Share</p></div>
+              </div>
+            </div>
+
+            <!-- LIFE EVENT: NEW JOB -->
+            <div class="fb-section post-temp">
+              <div class="post-header">
+                <div class="profile-img"></div>
+                <div class="post-info">
+                  <h3>Jessica Brooke Taylor</h3>
+                  <div>
+                      <p>March 3 at 8:05 AM </p>
+                      <span>·</span> 
+                      <p>Wollongong, NSW</p>
+                      <img src="assets/img/icons/earth-fill.svg">
+                    </div>
+                </div>
+                  <div class="btn more-dots">
+                      <img src="assets/img/icons/more-fill.svg">
+                  </div>
+              </div>
+              <div class="life-event-post words-post">
+                  <div class="life-event-icon">
+                    <img class="icon-post" src="assets/img/icons/briefcase-4-white.svg">
+                  </div>
+                  <h1>Started New Job at Shoreline Marketing Co.</h1>
+                  <p>March 3 — Social Media Assistant</p>
+                  <span>Wollongong, New South Wales, Australia</span>
+              </div>
+              <div class="post-summary">
+                <div class="emojis-grp">
+                  <div class="emoji-pair">
+                    <img src="assets/img/emojis/like.svg" class="emoji">
+                    <img src="assets/img/emojis/love.svg" class="emoji">
+                  </div>
+                    <p class="emoji-count">125</p>
+                </div>
+                <p class="post-comments">20 Comments</p>
+              </div>
+              <div class="post-footer">
+                <div class="share-btn">
+                  <img src="assets/img/icons/share-outline.png">
+                  <p>Share</p></div>
+              </div>
+            </div>
+
+            <!-- POST FIFTEEN: Moving House Post-->
+            <div class="fb-section post-temp">
+              <div class="post-header">
+                <div class="profile-img"></div>
+                <div class="post-info">
+                  <div>
+                      <h3>Jessica Brooke Taylor</h3> 
+                    <span>is with </span> <h3>Nathan Scott Morgan</h3> 
+                  </div>
+                  <div>
+                    <span>at </span><h3>Wollongong, NSW</h3>
+                  </div>
+                  <div>
+                      <p>Feburary 28 at 6:32 PM </p>
+                      <span>·</span> 
+                      <p>Wollongong, NSW</p>
+                      <img src="assets/img/icons/earth-fill.svg">
+                    </div>
+                </div>
+                  <div class="btn more-dots">
+                      <img src="assets/img/icons/more-fill.svg">
+                  </div>
+              </div>
+              <div class="words-post">
+                <p>Officially Wollongong residents! Between unpacking chaos and <span>Nathan</span>’s epic 
+                  box mountain collapse, we’re starting to feel right at home. 
+                  🏙️ Any local food recs to keep us fueled through this madness?</p>
+              </div>
+              <div class="post">
+                <img src="assets/img/posts/moving.jpg">
+              </div>
+              <div class="post-summary">
+                <div class="emojis-grp">
+                  <div class="emoji-pair">
+                    <img src="assets/img/emojis/like.svg" class="emoji">
+                    <img src="assets/img/emojis/love.svg" class="emoji">
+                  </div>
+                    <p class="emoji-count">43</p>
+                </div>
+                <p class="post-comments">18 Comments</p>
+              </div>
+              <div class="post-footer">
+                <div class="share-btn">
+                  <img src="assets/img/icons/share-outline.png">
+                  <p>Share</p></div>
+              </div>
+            </div>
+
+            <!-- LIFE EVENT: MOVED TO WOLLONGONG -->
+              <div class="fb-section post-temp">
+              <div class="post-header">
+                <div class="profile-img"></div>
+                <div class="post-info">
+                  <h3>Jessica Brooke Taylor</h3>
+                  <div>
+                      <p>Feburary 28 at 6:32 PM </p>
+                      <span>·</span> 
+                      <p>Wollongong, NSW</p>
+                      <img src="assets/img/icons/earth-fill.svg">
+                    </div>
+                </div>
+                  <div class="btn more-dots">
+                      <img src="assets/img/icons/more-fill.svg">
+                  </div>
+              </div>
+              <div class="life-event-post words-post">
+                  <div class="life-event-icon">
+                    <img class="icon-post" src="assets/img/icons/lives-white.svg">
+                  </div>
+                  <h1>Moved to Wollongong, New South Wales</h1>
+                  <p>Feburary 28, 2025</p>
+                  <span>Wollongong, New South Wales, Australia</span>
+              </div>
+              <div class="post-summary">
+                <div class="emojis-grp">
+                  <div class="emoji-pair">
+                    <img src="assets/img/emojis/like.svg" class="emoji">
+                    <img src="assets/img/emojis/love.svg" class="emoji">
+                  </div>
+                    <p class="emoji-count">125</p>
+                </div>
+                <p class="post-comments">20 Comments</p>
+              </div>
+              <div class="post-footer">
+                <div class="share-btn">
+                  <img src="assets/img/icons/share-outline.png">
+                  <p>Share</p></div>
+              </div>
+            </div>
+
+            <!-- POST SIXTEEN :  Leaving Job-->
+            <div class="fb-section post-temp">
+              <div class="post-header">
+                <div class="profile-img"></div>
+                <div class="post-info">
+                  <h3>Jessica Brooke Taylor</h3>
+                  <div>
+                      <p>Feburary 21 at 4:16 PM </p>
+                      <span>·</span>
+                      <img src="assets/img/icons/earth-fill.svg">
+                    </div>
+                </div>
+                  <div class="btn more-dots">
+                      <img src="assets/img/icons/more-fill.svg">
+                  </div>
+              </div>
+              <div class="words-post">
+                <p>Love the team at <span>Bean & Brew</span> so much — sad to go but excited for what’s next!</p>
+              </div>
+              <div class="post-summary">
+                <div class="emojis-grp">
+                  <div class="emoji-pair">
+                    <img src="assets/img/emojis/like.svg" class="emoji">
+                    <img src="assets/img/emojis/love.svg" class="emoji">
+                  </div>
+                    <p class="emoji-count">43</p>
+                </div>
+                <p class="post-comments">18 Comments</p>
+              </div>
+              <div class="post-footer">
+                <div class="share-btn">
+                  <img src="assets/img/icons/share-outline.png">
+                  <p>Share</p></div>
+              </div>
+            </div>
+
+            <!-- POST SEVENTEEN: LIFE EVENT : Leaving JOB-->
+            <div class="fb-section post-temp">
+              <div class="post-header">
+                <div class="profile-img"></div>
+                <div class="post-info">
+                  <h3>Jessica Brooke Taylor</h3>
+                  <div>
+                      <p>Feburary 21 at 4:16 PM </p>
+                      <span>·</span>
+                      <img src="assets/img/icons/earth-fill.svg">
+                    </div>
+                </div>
+                  <div class="btn more-dots">
+                      <img src="assets/img/icons/more-fill.svg">
+                  </div>
+              </div>
+              <div class="life-event-post words-post">
+                  <div class="life-event-icon">
+                    <img class="icon-post" src="assets/img/icons/briefcase-4-white.svg">
+                  </div>
+                  <h1>Left Job at Bean & Brew</h1>
+                  <p>Feburary 21, 2025 — Barista</p>
+                  <span>Nowra, New South Wales, Australia</span>
+              </div>
+              <div class="post-summary">
+                <div class="emojis-grp">
+                  <div class="emoji-pair">
+                    <img src="assets/img/emojis/like.svg" class="emoji">
+                    <img src="assets/img/emojis/love.svg" class="emoji">
+                  </div>
+                    <p class="emoji-count">125</p>
+                </div>
+                <p class="post-comments">20 Comments</p>
+              </div>
+              <div class="post-footer">
+                <div class="share-btn">
+                  <img src="assets/img/icons/share-outline.png">
+                  <p>Share</p></div>
+              </div>
+            </div>
+
+            <!-- POST SEVENTEEN: Valentines Day-->
+            <div class="fb-section post-temp">
+              <div class="post-header">
+                <div class="profile-img"></div>
+                <div class="post-info">
+                  <div>
+                    <h3>Nathan Scott Morgan</h3>
+                      <span>is with </span> <h3>Jessica Brooke Taylor</h3> 
+                  </div>
+                  <div>
+                    <span>at </span><h3>Dagwood Bar + Kitchen</h3>
+                  </div>
+                  <div>
+                    <p>Feburary 14 at 8:11 PM </p>
+                    <span>·</span> 
+                    <img src="assets/img/icons/earth-fill.svg">
+                  </div>
+                </div>
+                  <div class="btn more-dots">
+                      <img src="assets/img/icons/more-fill.svg">
+                  </div>
+              </div>
+              <div class="words-post">
+              <p>Valentine’s Day dinner with the best human <span>Jessica Brooke Taylor</span>❤️</p>
+              </div>
+              <div class="post photo-grid two-pic">
+                <div class="photo-grid-left valentines">
+                  <img src="assets/img/posts/valentines/valentines-day.jpg">
+                </div>
+                <div class="photo-grid-right valentines">
+                  <img src="assets/img/posts/valentines/valentines-2.jpg">
+                </div>
+              </div>
+              <div class="post-summary">
+              <div class="emojis-grp">
+                  <div class="emoji-pair">
+                    <img src="assets/img/emojis/like.svg" class="emoji">
+                    <img src="assets/img/emojis/love.svg" class="emoji">
+                  </div>
+                    <p class="emoji-count">43</p>
+                </div>
+                <p class="post-comments">18 Comments</p>
+              </div>
+              <div class="post-footer">
+                <div class="share-btn">
+                  <img src="assets/img/icons/share-outline.png">
+                  <p>Share</p></div>
+              </div>
+            </div>
+
+            <!-- 2024 -->
+            <!-- BIRTHDAY WISHES 2024-->
+             <div class="fb-section post-temp wishes">
+              <div class="post-header">
+                  <p> 30 friends posted on Jessica Brook Taylor's <span class="p-bold">timeline </span>for her birthday.</p>
+                  <div class="btn more-dots">
+                      <img src="assets/img/icons/more-fill.svg">
+                  </div>
+                </div>
+                <!-- Wish One: Ava Chen-->
+                <div class="fb-section post-temp wish-post">
+                    <div class="post-header">
+                      <div class="profile-img"></div>
+                      <div class="post-info">
+                        <div>
+                          <h3>Ava Chen</h3> 
+                          <img class="arrow-right" src="assets/img/icons/arrow-down-s-fill.svg"> 
+                          <h3>Jessica Brooke Taylor</h3>
+                        </div>
+                         <div>
+                          <p>July 9, 2024 </p>
+                          <span>·</span> 
+                          <img src="assets/img/icons/earth-fill.svg">
+                        </div>
+                      </div>
+                      <div class="btn more-dots">
+                          <img src="assets/img/icons/more-fill.svg">
+                      </div>
+                    </div>
+                  <div class="words-post">
+                    Happy Birthday babe!! 🎉 Hope you get spoiled rotten 🎁❤️
+                    </div>
+                  <div class="post-summary">
+                    <div class="emojis-grp">
+                      <div class="emoji-pair">
+                        <img src="assets/img/emojis/like.svg" class="emoji">
+                        <img src="assets/img/emojis/love.svg" class="emoji">
+                      </div>
+                      <p>10</p>
+                    </div>
+                    <p class="post-comments">4 Comments</p>
+                  </div>
+                </div>
+                <!-- Wish Two: Tyler-->
+                <div class="fb-section post-temp  wish-post">
+                    <div class="post-header">
+                      <div class="profile-img"></div>
+                      <div class="post-info">
+                        <div>
+                          <h3>Tyler Reid</h3> 
+                          <img class="arrow-right" src="assets/img/icons/arrow-down-s-fill.svg"> 
+                          <h3>Jessica Brooke Taylor</h3>
+                        </div>
+                        <div>
+                          <p>July 9, 2024 </p>
+                          <span>·</span> 
+                          <img src="assets/img/icons/earth-fill.svg">
+                        </div>
+                      </div>
+                      <div class="btn more-dots">
+                          <img src="assets/img/icons/more-fill.svg">
+                      </div>
+                    </div>
+                  <div class="words-post">
+                    Happy bday Jess! Party at yours this weekend? 😉
+                    </div>
+                  <div class="post-summary">
+                    <div class="emojis-grp">
+                      <div class="emoji-pair">
+                        <img src="assets/img/emojis/like.svg" class="emoji">
+                        <img src="assets/img/emojis/love.svg" class="emoji">
+                      </div>
+                      <p>10</p>
+                    </div>
+                    <p class="post-comments">5 Comments</p>
+                  </div>
+                </div>
+                <!-- Wish Three: Chloe-->
+                <div class="fb-section post-temp  wish-post">
+                    <div class="post-header">
+                      <div class="profile-img"></div>
+                      <div class="post-info">
+                        <div>
+                          <h3>Chloe Nguyen</h3> 
+                          <img class="arrow-right" src="assets/img/icons/arrow-down-s-fill.svg"> 
+                          <h3>Jessica Brooke Taylor</h3>
+                        </div>
+                       <div>
+                          <p>July 9, 2024 </p>
+                          <span>·</span> 
+                          <img src="assets/img/icons/earth-fill.svg">
+                        </div>
+                      </div>
+                      <div class="btn more-dots">
+                          <img src="assets/img/icons/more-fill.svg">
+                      </div>
+                    </div>
+                  <div class="words-post">
+                   Wishing my coffee soulmate the best day ever 🥳☕ Love ya xx
+                    </div>
+                  <div class="post-summary">
+                    <div class="emojis-grp">
+                      <div class="emoji-pair">
+                        <img src="assets/img/emojis/like.svg" class="emoji">
+                        <img src="assets/img/emojis/love.svg" class="emoji">
+                      </div>
+                      <p>20</p>
+                    </div>
+                    <p class="post-comments">2 Comments</p>
+                  </div>
+                </div>
+
+                <div class="post-footer">
+                  <p>See 27 More</p>
                 </div>
             </div>
+
+            <!-- POST EIGHTEEN : Graduated University Post-->
+            <div class="fb-section post-temp">
+              <div class="post-header">
+                <div class="profile-img"></div>
+                <div class="post-info">
+                  <h3>Jessica Brooke Taylor</h3>
+                  <div>
+                    <p>December 16, 2024 at 9:06 AM</p>
+                    <span>·</span> 
+                    <img src="assets/img/icons/earth-fill.svg">
+                  </div>
+                </div>
+                  <div class="btn more-dots">
+                      <img src="assets/img/icons/more-fill.svg">
+                  </div>
+              </div>
+              <div class="words-post">
+                <p>
+                  Graduated from South Coast University 🎓 So proud of the journey!
+                </p>
+              </div>
+              <div class="post">
+                <img src="assets/img/posts/graduation.jpg">
+              </div>
+              <div class="post-summary">
+                <div class="emojis-grp">
+                  <div class="emoji-pair">
+                    <img src="assets/img/emojis/like.svg" class="emoji">
+                    <img src="assets/img/emojis/love.svg" class="emoji">
+                  </div>
+                    <p class="emoji-count">43</p>
+                </div>
+                <p class="post-comments">18 Comments</p>
+              </div>
+              <div class="post-footer">
+                <div class="share-btn">
+                  <img src="assets/img/icons/share-outline.png">
+                  <p>Share</p></div>
+              </div>
+            </div>
+
+            <!-- LIFE EVENT : Graduated University Post-->
+            <div class="fb-section post-temp">
+              <div class="post-header">
+                <div class="profile-img"></div>
+                  <div class="post-info">
+                    <h3>Jessica Brooke Taylor</h3>
+                    <div>
+                      <p>December 16, 2024 at 9:06 AM</p>
+                      <span>·</span> 
+                      <img src="assets/img/icons/earth-fill.svg">
+                    </div>
+                  </div>
+                  <div class="btn more-dots">
+                      <img src="assets/img/icons/more-fill.svg">
+                  </div>
+              </div>
             <div class="life-event-post words-post">
                 <div class="life-event-icon">
-                  <img class="icon-post" src="assets/img/icons/lives-white.svg">
+                    <img class="icon-post" src="assets/img/icons/education-white.svg">
                 </div>
-                <h1>Moved to Wollongong, New South Wales</h1>
-                <p>Month 03, 2025</p>
-                <span>Wollongong, New South Wales, Australia</span>
+                  <h1>Graduated from South Coast University</h1>
+                  <p>December 16, 2024</p>
+                  <span>College — Bachelor of Communication, majoring in Digital Media</span>
             </div>
-            <div class="post-summary">
-              <div class="emojis-grp">
-                <div class="emoji-pair">
-                  <img src="assets/img/emojis/like.svg" class="emoji">
-                  <img src="assets/img/emojis/love.svg" class="emoji">
+              <div class="post-summary">
+                <div class="emojis-grp">
+                  <div class="emoji-pair">
+                    <img src="assets/img/emojis/like.svg" class="emoji">
+                    <img src="assets/img/emojis/love.svg" class="emoji">
+                  </div>
+                    <p class="emoji-count">43</p>
                 </div>
-                  <p class="emoji-count">125</p>
+                <p class="post-comments">18 Comments</p>
               </div>
-              <p class="post-comments">20 Comments</p>
-            </div>
-            <div class="post-footer">
-              <div class="share-btn">
-                <img src="assets/img/icons/share-outline.png">
-                <p>Share</p></div>
-            </div>
-          </div>
-
-
-          <!-- POST SIXTEEN-->
-          <div class="fb-section post-temp">
-            <div class="post-header">
-              <div class="profile-img"></div>
-              <div class="post-info">
-                <h3>Jessica Brooke Taylor</h3>
-                <p>Feburary 21 at 04:35 PM · <img src="assets/img/icons/earth-fill.svg"></p>
+              <div class="post-footer">
+                <div class="share-btn">
+                  <img src="assets/img/icons/share-outline.png">
+                  <p>Share</p></div>
               </div>
+            </div>
+
+            <!-- POST NINETEEN : Adopting Mochi-->
+            <div class="fb-section post-temp">
+              <div class="post-header">
+                <div class="profile-img"></div>
+                <div class="post-info">
+                  <div>
+                  <h3>Jessica Brooke Taylor</h3>
+                  <span>is with </span> <h3>Nathan Scott Morgan</h3> 
+                  </div>
+                  <div>
+                    <p>November 6, 2024 at 11:08 AM</p>
+                    <span>·</span> 
+                    <img src="assets/img/icons/earth-fill.svg">
+                  </div>
+                </div>
+                  <div class="btn more-dots">
+                      <img src="assets/img/icons/more-fill.svg">
+                  </div>
+              </div>
+              <div class="words-post">
+                <p>
+                  Mochi has entered the chat 🐾 Already ruling the apartment.
+                </p>
+              </div>
+             <div class="post photo-grid">
+              <div class="photo-grid-left mochi">
+                <img src="assets/img/posts/mochi/mochi-1.jpg" alt="Mochi 1">
+              </div>
+              <div class="photo-grid-right mochi">
+                <img src="assets/img/posts/mochi/mochI-2.jpg" >
+              </div>
+            </div>
+
+              <div class="post-summary">
+                <div class="emojis-grp">
+                  <div class="emoji-pair">
+                    <img src="assets/img/emojis/like.svg" class="emoji">
+                    <img src="assets/img/emojis/love.svg" class="emoji">
+                  </div>
+                    <p class="emoji-count">43</p>
+                </div>
+                <p class="post-comments">18 Comments</p>
+              </div>
+              <div class="post-footer">
+                <div class="share-btn">
+                  <img src="assets/img/icons/share-outline.png">
+                  <p>Share</p></div>
+              </div>
+            </div>
+
+            <!-- POST TWENTY : Engagement -->
+            <div class="fb-section post-temp">
+              <div class="post-header">
+                <div class="profile-img"></div>
+                <div class="post-info">
+                  <div>
+                  <h3>Jessica Brooke Taylor</h3>
+                  <span>is with </span> <h3>Nathan Scott Morgan</h3> 
+                  </div>
+                  <div>
+                    <p>November 6, 2024 at 11:08 AM</p>
+                    <span>·</span> 
+                    <img src="assets/img/icons/earth-fill.svg">
+                  </div>
+                </div>
+                  <div class="btn more-dots">
+                      <img src="assets/img/icons/more-fill.svg">
+                  </div>
+              </div>
+              <div class="words-post">
+                <p>
+                  Nathan asked, and I said YES! Here's to forever ❤️
+                </p>
+              </div>
+              <div class="post photo-grid two-pic">
+                 <div class="photo-grid-left">
+                <img src="assets/img/posts/engagement/engagement.jpg">
+                </div>
+                 <div class="photo-grid-right">
+                <img src="assets/img/posts/engagement/engagement.2.jpg">
+                </div>
+              </div>
+              <div class="post-summary">
+                <div class="emojis-grp">
+                  <div class="emoji-pair">
+                    <img src="assets/img/emojis/like.svg" class="emoji">
+                    <img src="assets/img/emojis/love.svg" class="emoji">
+                  </div>
+                    <p class="emoji-count">43</p>
+                </div>
+                <p class="post-comments">18 Comments</p>
+              </div>
+              <div class="post-footer">
+                <div class="share-btn">
+                  <img src="assets/img/icons/share-outline.png">
+                  <p>Share</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- POST TWENTY-ONE: LIFE EVENT : Engagement -->
+            <div class="fb-section post-temp">
+              <div class="post-header">
+                <div class="profile-img"></div>
+                <div class="post-info">
+                  <div>
+                    <h3>Jessica Brooke Taylor</h3> <span>is with </span> <h3>Nathan Scott Morgan</h3>
+                  </div>
+                  <div>
+                      <p>Feburary 21, 2024 at 4:16 PM </p>
+                      <span>·</span>
+                      <img src="assets/img/icons/earth-fill.svg">
+                    </div>
+                </div>
+                  <div class="btn more-dots">
+                      <img src="assets/img/icons/more-fill.svg">
+                  </div>
+              </div>
+              <div class="life-event-post words-post">
+                  <div class="life-event-icon">
+                    <img class="icon-post ring" src="assets/img/icons/engagement-white.svg">
+                  </div>
+                  <h1>Got Engaged to Nathan Scott Morgan</h1>
+                  <p>Feburary 21, 2025</p>
+              </div>
+              <div class="post-summary">
+                <div class="emojis-grp">
+                  <div class="emoji-pair">
+                    <img src="assets/img/emojis/like.svg" class="emoji">
+                    <img src="assets/img/emojis/love.svg" class="emoji">
+                  </div>
+                    <p class="emoji-count">203</p>
+                </div>
+                <p class="post-comments">120 Comments</p>
+              </div>
+              <div class="post-footer">
+                <div class="share-btn">
+                  <img src="assets/img/icons/share-outline.png">
+                  <p>Share</p></div>
+              </div>
+            </div>
+
+           <!-- POST TWENTY-TWO: Shared Post-->
+             <div class="fb-section post-temp shared-post-main">
+              <div class="post-header">
+                <div class="profile-img"></div>
+                <div class="post-info">
+                  <div>
+                    <h3>Jessica Brooke Taylor</h3>
+                  </div>
+                   <div>
+                    <p>Feburary 18, 2024 at 3:12 PM </p>
+                    <span>·</span>
+                    <img src="assets/img/icons/earth-fill.svg">
+                  </div>
+                </div>
                 <div class="btn more-dots">
-                    <img src="assets/img/icons/more-fill.svg">
+                        <img src="assets/img/icons/more-fill.svg">
                 </div>
-            </div>
-            <div class="words-post">
-              <p>Love the team at <span>Bean & Brew</span> so much — sad to go but excited for what’s next!</p>
-            </div>
-            <div class="post-summary">
-              <div class="emojis-grp">
-                <div class="emoji-pair">
-                  <img src="assets/img/emojis/like.svg" class="emoji">
-                  <img src="assets/img/emojis/love.svg" class="emoji">
-                </div>
-                  <p class="emoji-count">43</p>
               </div>
-              <p class="post-comments">18 Comments</p>
-            </div>
-            <div class="post-footer">
-              <div class="share-btn">
-                <img src="assets/img/icons/share-outline.png">
-                <p>Share</p></div>
-            </div>
-          </div>
+              <div class="words-post">
+                 Thinking of getting a fur baby 🐱 any tips?
+              </div>
 
-           <div class="fb-section post-temp">
-            <div class="post-header">
-              <div class="profile-img"></div>
-              <div class="post-info">
-                <h3>Jessica Brooke Taylor</h3>
-                <p>March 03 at 08:05 AM · Wollongong, NSW <img src="assets/img/icons/earth-fill.svg"></p>
+              <div class="fb-section post-temp shared-post">
+                <div class="post-header">
+                  <div class="profile-img"></div>
+                  <div class="post-info">
+                    <div>
+                      <h3>RSPCA Australia</h3>
+                    </div>
+                    <div>
+                      <p>Feburary 3 at 10:00 PAM </p>
+                      <span>·</span>
+                      <img src="assets/img/icons/earth-fill.svg">
+                    </div>
+                  </div>
+                    <div class="btn more-dots">
+                        <img src="assets/img/icons/more-fill.svg">
+                    </div>
+                </div>
+                <div class="words-post">
+                  <p>Adopt, don’t shop 🐾 #FosterCare</p>
+                </div>
+                <div class="post photo-grid">
+                    <img src="assets/img/posts/rspca.jpeg" />
+                </div>
+                <div class="post-summary">
+                <div class="emojis-grp">
+                  <div class="emoji-pair">
+                    <img src="assets/img/emojis/like.svg" class="emoji">
+                    <img src="assets/img/emojis/love.svg" class="emoji">
+                  </div>
+                    <p class="emoji-count">443</p>
+                </div>
+                <p class="post-comments">180 Comments</p>
               </div>
+              <div class="post-footer">
+                <div class="share-btn">
+                  <img src="assets/img/icons/share-outline.png">
+                  <p>Share</p>
+                </div>
+              </div>
+              </div>
+              
+              <div class="post-summary">
+                <div class="emojis-grp">
+                  <div class="emoji-pair">
+                    <img src="assets/img/emojis/like.svg" class="emoji">
+                    <img src="assets/img/emojis/love.svg" class="emoji">
+                  </div>
+                    <p class="emoji-count">43</p>
+                </div>
+                <p class="post-comments">18 Comments</p>
+              </div>
+              <div class="post-footer">
+                <div class="share-btn">
+                  <img src="assets/img/icons/share-outline.png">
+                  <p>Share</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- POST TWENTY-TWO: Shared Post-->
+             <div class="fb-section post-temp shared-post-main">
+              <div class="post-header">
+                <div class="profile-img"></div>
+                <div class="post-info">
+                  <div>
+                    <h3>Jessica Brooke Taylor</h3>
+                  </div>
+                   <div>
+                    <p>October 18, 2024 at 5:35 PM </p>
+                    <span>·</span>
+                    <img src="assets/img/icons/earth-fill.svg">
+                  </div>
+                </div>
                 <div class="btn more-dots">
-                    <img src="assets/img/icons/more-fill.svg">
+                        <img src="assets/img/icons/more-fill.svg">
                 </div>
-            </div>
-            <div class="life-event-post words-post">
-                <div class="life-event-icon">
-                  <img class="icon-post" src="assets/img/icons/briefcase-4-white.svg">
-                </div>
-                <h1>Left Job at Bean & Brew</h1>
-                <p>MFeburary 21, 2025 — Barista</p>
-                <span>Wollongong, New South Wales, Australia</span>
-            </div>
-            <div class="post-summary">
-              <div class="emojis-grp">
-                <div class="emoji-pair">
-                  <img src="assets/img/emojis/like.svg" class="emoji">
-                  <img src="assets/img/emojis/love.svg" class="emoji">
-                </div>
-                  <p class="emoji-count">125</p>
               </div>
-              <p class="post-comments">20 Comments</p>
-            </div>
-            <div class="post-footer">
-              <div class="share-btn">
-                <img src="assets/img/icons/share-outline.png">
-                <p>Share</p></div>
-            </div>
-          </div>
-
-
-          <!-- POST SEVENTEEN: TAGGED POST-->
-          <div class="fb-section post-temp">
-            <div class="post-header">
-              <div class="profile-img"></div>
-              <div class="post-info">
-                <h3>Nathan Scott Morgan</h3>
-                <p>Feburary 14 at 08:11 PM · <img src="assets/img/icons/earth-fill.svg"></p>
+              <div class="words-post">
+                  Send help — I’m officially buried alive under deadlines and sticky notes. 
+                  If anyone wants to rescue me with coffee and snacks, let’s meet at Bean & Blossom! I’ll owe you forever (and maybe my sanity)! ☕🆘😂
               </div>
-                <div class="btn more-dots">
-                    <img src="assets/img/icons/more-fill.svg">
-                </div>
-            </div>
-            <div class="words-post">
-            <p>Valentine’s Day dinner with the best human <span>Jessica Brooke Taylor</span>❤️</p>
-            <p>📍 Dagwood Bar + Kitchen</p></div>
-            <div class="post">
-              <img src="assets/img/posts/valentines/valentines-day.jpg">
-              <img src="assets/img/posts/valentines/valentines-2.jpg">
-            </div>
-            <div class="post-summary">
-             <div class="emojis-grp">
-                <div class="emoji-pair">
-                  <img src="assets/img/emojis/like.svg" class="emoji">
-                  <img src="assets/img/emojis/love.svg" class="emoji">
-                </div>
-                  <p class="emoji-count">43</p>
-              </div>
-              <p class="post-comments">18 Comments</p>
-            </div>
-            <div class="post-footer">
-              <div class="share-btn">
-                <img src="assets/img/icons/share-outline.png">
-                <p>Share</p></div>
-            </div>
-          </div>
 
-          <!-- BIRTHDAY WISHES-->
-
-          <!-- POST EIGHTEEN-->
-          <div class="fb-section post-temp">
-            <div class="post-header">
-              <div class="profile-img"></div>
-              <div class="post-info">
-                <h3>Jessica Brooke Taylor</h3>
-                <p>December 16 at 9:06 AM · <img src="assets/img/icons/earth-fill.svg"></p>
-              </div>
-                <div class="btn more-dots">
-                    <img src="assets/img/icons/more-fill.svg">
+              <div class="fb-section post-temp shared-post">
+                <div class="post-header">
+                  <div class="profile-img"></div>
+                  <div class="post-info">
+                    <div>
+                      <h3> South Coast Uni</h3>
+                    </div>
+                    <div>
+                      <p>October 16 at 7:33 PM </p>
+                      <span>·</span>
+                      <img src="assets/img/icons/earth-fill.svg">
+                    </div>
+                  </div>
+                    <div class="btn more-dots">
+                        <img src="assets/img/icons/more-fill.svg">
+                    </div>
                 </div>
-            </div>
-            <div class="words-post">
-              <p>
-                Graduated from South Coast University 🎓 So proud of the journey!
-              </p>
-            </div>
-            <div class="post">
-              <img src="assets/img/posts/graduation.jpg">
-            </div>
-            <div class="post-summary">
-              <div class="emojis-grp">
-                <div class="emoji-pair">
-                  <img src="assets/img/emojis/like.svg" class="emoji">
-                  <img src="assets/img/emojis/love.svg" class="emoji">
+                <div class="words-post">
+                  <p>Week 13 got me like…</p>
                 </div>
-                  <p class="emoji-count">43</p>
-              </div>
-              <p class="post-comments">18 Comments</p>
-            </div>
-            <div class="post-footer">
-              <div class="share-btn">
-                <img src="assets/img/icons/share-outline.png">
-                <p>Share</p></div>
-            </div>
-          </div>
-
-          <!-- POST ONE-->
-          <div class="fb-section post-temp">
-            <div class="post-header">
-              <div class="profile-img"></div>
-              <div class="post-info">
-                <h3>Jessica Brooke Taylor</h3>
-                <p>Month 00 at 00:00 PM · <img src="assets/img/icons/earth-fill.svg"></p>
-              </div>
-                <div class="btn more-dots">
-                    <img src="assets/img/icons/more-fill.svg">
+                <div class="post photo-grid">
+                    <img src="assets/img/posts/week-13-gotmelike.jpg" />
                 </div>
-            </div>
-            <div class="post"></div>
-            <div class="post-summary">
-              <div class="emojis-grp">
-                <div class="emoji-pair">
-                  <img src="assets/img/emojis/like.svg" class="emoji">
-                  <img src="assets/img/emojis/love.svg" class="emoji">
+                <div class="post-summary">
+                <div class="emojis-grp">
+                  <div class="emoji-pair">
+                    <img src="assets/img/emojis/like.svg" class="emoji">
+                    <img src="assets/img/emojis/love.svg" class="emoji">
+                  </div>
+                    <p class="emoji-count">43</p>
                 </div>
-                  <p class="emoji-count">43</p>
+                <p class="post-comments">18 Comments</p>
               </div>
-              <p class="post-comments">18 Comments</p>
+              <div class="post-footer">
+                <div class="share-btn">
+                  <img src="assets/img/icons/share-outline.png">
+                  <p>Share</p>
+                </div>
+              </div>
+              </div>
+              
+              <div class="post-summary">
+                <div class="emojis-grp">
+                  <div class="emoji-pair">
+                    <img src="assets/img/emojis/like.svg" class="emoji">
+                    <img src="assets/img/emojis/love.svg" class="emoji">
+                  </div>
+                    <p class="emoji-count">43</p>
+                </div>
+                <p class="post-comments">18 Comments</p>
+              </div>
+              <div class="post-footer">
+                <div class="share-btn">
+                  <img src="assets/img/icons/share-outline.png">
+                  <p>Share</p>
+                </div>
+              </div>
             </div>
-            <div class="post-footer">
-              <div class="share-btn">
-                <img src="assets/img/icons/share-outline.png">
-                <p>Share</p></div>
+
+            <!-- 2023 -->
+            <!-- POST SEVENTEEN: LIFE EVENT : Starting Job-->
+            <div class="fb-section post-temp">
+              <div class="post-header">
+                <div class="profile-img"></div>
+                <div class="post-info">
+                  <h3>Jessica Brooke Taylor</h3>
+                  <div>
+                      <p>Feburary 15, 2023 at 8:05 AM </p>
+                      <span>·</span>
+                      <img src="assets/img/icons/earth-fill.svg">
+                    </div>
+                </div>
+                  <div class="btn more-dots">
+                      <img src="assets/img/icons/more-fill.svg">
+                  </div>
+              </div>
+              <div class="words-post">
+                <p>☕Living the barista dream one oat latte at a time.</p>
+                </div>
+              <div class="post-summary">
+                <div class="emojis-grp">
+                  <div class="emoji-pair">
+                    <img src="assets/img/emojis/like.svg" class="emoji">
+                    <img src="assets/img/emojis/love.svg" class="emoji">
+                  </div>
+                    <p class="emoji-count">55</p>
+                </div>
+                <p class="post-comments">5 Comments</p>
+              </div>
+              <div class="post-footer">
+                <div class="share-btn">
+                  <img src="assets/img/icons/share-outline.png">
+                  <p>Share</p></div>
+              </div>
             </div>
-          </div>
+ 
+            <!-- LIFE EVENT: NEW JOB -->
+            <div class="fb-section post-temp">
+              <div class="post-header">
+                <div class="profile-img"></div>
+                <div class="post-info">
+                  <h3>Jessica Brooke Taylor</h3>
+                  <div>
+                      <p>Feburary 15, 2023 at 8:05 AM </p>
+                      <span>·</span> 
+                      <p>Nowra, NSW</p>
+                      <img src="assets/img/icons/earth-fill.svg">
+                    </div>
+                </div>
+                  <div class="btn more-dots">
+                      <img src="assets/img/icons/more-fill.svg">
+                  </div>
+              </div>
+              <div class="life-event-post words-post">
+                  <div class="life-event-icon">
+                    <img class="icon-post" src="assets/img/icons/briefcase-4-white.svg">
+                  </div>
+                  <h1>Started New Job at Bean & Brew</h1>
+                  <p>Feburary 15, 2023 — Barista</p>
+                  <span>Nowra, New South Wales, Australia</span>
+              </div>
+              <div class="post-summary">
+                <div class="emojis-grp">
+                  <div class="emoji-pair">
+                    <img src="assets/img/emojis/like.svg" class="emoji">
+                    <img src="assets/img/emojis/love.svg" class="emoji">
+                  </div>
+                    <p class="emoji-count">125</p>
+                </div>
+                <p class="post-comments">20 Comments</p>
+              </div>
+              <div class="post-footer">
+                <div class="share-btn">
+                  <img src="assets/img/icons/share-outline.png">
+                  <p>Share</p></div>
+              </div>
+            </div>
+            
+             <!-- POST SEVENTEEN: LIFE EVENT : Leaving JOB-->
+            <div class="fb-section post-temp">
+              <div class="post-header">
+                <div class="profile-img"></div>
+                <div class="post-info">
+                  <h3>Jessica Brooke Taylor</h3>
+                  <div>
+                      <p>January 31, 2023 at 5:16 PM </p>
+                      <span>·</span>
+                      <img src="assets/img/icons/earth-fill.svg">
+                    </div>
+                </div>
+                  <div class="btn more-dots">
+                      <img src="assets/img/icons/more-fill.svg">
+                  </div>
+              </div>
+              <div class="words-post">
+                <p>Grateful for the friends and lessons. Onward and upward!</p>
+                </div>
+              <div class="post-summary">
+                <div class="emojis-grp">
+                  <div class="emoji-pair">
+                    <img src="assets/img/emojis/like.svg" class="emoji">
+                    <img src="assets/img/emojis/love.svg" class="emoji">
+                  </div>
+                    <p class="emoji-count">125</p>
+                </div>
+                <p class="post-comments">20 Comments</p>
+              </div>
+              <div class="post-footer">
+                <div class="share-btn">
+                  <img src="assets/img/icons/share-outline.png">
+                  <p>Share</p></div>
+              </div>
+            </div>
 
-        </div>
-      </div>
+            <!-- POST SEVENTEEN: LIFE EVENT : Leaving JOB-->
+            <div class="fb-section post-temp">
+              <div class="post-header">
+                <div class="profile-img"></div>
+                <div class="post-info">
+                  <h3>Jessica Brooke Taylor</h3>
+                  <div>
+                      <p>January 31, 2023 at 5:16 PM </p>
+                      <span>·</span>
+                      <img src="assets/img/icons/earth-fill.svg">
+                    </div>
+                </div>
+                  <div class="btn more-dots">
+                      <img src="assets/img/icons/more-fill.svg">
+                  </div>
+              </div>
+              <div class="life-event-post words-post">
+                  <div class="life-event-icon">
+                    <img class="icon-post" src="assets/img/icons/briefcase-4-white.svg">
+                  </div>
+                  <h1>Left Job at SunnyMart</h1>
+                  <p>January 31, 2025 — Cashier</p>
+                  <span>Nowra, New South Wales, Australia</span>
+              </div>
+              <div class="post-summary">
+                <div class="emojis-grp">
+                  <div class="emoji-pair">
+                    <img src="assets/img/emojis/like.svg" class="emoji">
+                    <img src="assets/img/emojis/love.svg" class="emoji">
+                  </div>
+                    <p class="emoji-count">125</p>
+                </div>
+                <p class="post-comments">20 Comments</p>
+              </div>
+              <div class="post-footer">
+                <div class="share-btn">
+                  <img src="assets/img/icons/share-outline.png">
+                  <p>Share</p></div>
+              </div>
+            </div>
 
-      <!-- Other Tabs -->
-      <div id="about" class="tabcontent"><h3>About</h3><p>About content...</p></div>
-      <div id="friends" class="tabcontent"><h3>Friends</h3><p>Friends content...</p></div>
-      <div id="photos" class="tabcontent"><h3>Photos</h3><p>Photos content...</p></div>
-      <div id="videos" class="tabcontent"><h3>Videos</h3><p>Videos content...</p></div>
-      <div id="checkins" class="tabcontent"><h3>Check-ins</h3><p>Check-ins content...</p></div>
-      <div id="more" class="tabcontent"><h3>More</h3><p>More content...</p></div>
-    </section>
+            <!-- 2021 -->
+             <!-- Written Dropped Coffee and Uni Subission -->
+            <div class="fb-section post-temp">
+              <div class="post-header">
+                <div class="profile-img"></div>
+                <div class="post-info">
+                  <h3>Jessica Brooke Taylor</h3>
+                  <div>
+                      <p>May 1, 2021 at 1:32 PM </p>
+                      <span>·</span>
+                      <img src="assets/img/icons/earth-fill.svg">
+                    </div>
+                </div>
+                  <div class="btn more-dots">
+                      <img src="assets/img/icons/more-fill.svg">
+                  </div>
+              </div>
+              <div class="words-post">
+                <p>💬 Accidentally submitted my assignment to the wrong portal. Again. Send help. <span>#UniLife</span></p>
+                </div>
+              <div class="post-summary">
+                <div class="emojis-grp">
+                  <div class="emoji-pair">
+                    <img src="assets/img/emojis/like.svg" class="emoji">
+                    <img src="assets/img/emojis/emoji-laugh.svg" class="emoji">
+                  </div>
+                    <p class="emoji-count">22</p>
+                </div>
+                <p class="post-comments">13 Comments</p>
+              </div>
+              <div class="post-footer">
+                <div class="share-btn">
+                  <img src="assets/img/icons/share-outline.png">
+                  <p>Share</p></div>
+              </div>
+            </div>
+             <!-- Written Coffee Post -->
+            <div class="fb-section post-temp">
+              <div class="post-header">
+                <div class="profile-img"></div>
+                <div class="post-info">
+                  <h3>Jessica Brooke Taylor</h3>
+                  <div>
+                      <p>Feburary 10, 2021 at 10:04 AM </p>
+                      <span>·</span>
+                      <img src="assets/img/icons/earth-fill.svg">
+                    </div>
+                </div>
+                  <div class="btn more-dots">
+                      <img src="assets/img/icons/more-fill.svg">
+                  </div>
+              </div>
+              <div class="words-post">
+                <p>Just discovered oat lattes. Am I late to this? Obsessed. ☕🌱</p>
+                </div>
+              <div class="post-summary">
+                <div class="emojis-grp">
+                  <div class="emoji-pair">
+                    <img src="assets/img/emojis/like.svg" class="emoji">
+                    <img src="assets/img/emojis/love.svg" class="emoji">
+                    <img src="assets/img/emojis/emoji-laugh.svg" class="emoji">
+                  </div>
+                    <p class="emoji-count">18</p>
+                </div>
+                <p class="post-comments">3 Comments</p>
+              </div>
+              <div class="post-footer">
+                <div class="share-btn">
+                  <img src="assets/img/icons/share-outline.png">
+                  <p>Share</p></div>
+              </div>
+            </div>
+            <!-- First day of Uni-->
+            <div class="fb-section post-temp">
+              <div class="post-header">
+                <div class="profile-img"></div>
+                <div class="post-info">
+                  <h3>Jessica Brooke Taylor</h3>
+                  <div>
+                      <p>January 20, 2021 at 8:32 AM </p>
+                      <span>·</span>
+                      <img src="assets/img/icons/earth-fill.svg">
+                    </div>
+                </div>
+                  <div class="btn more-dots">
+                      <img src="assets/img/icons/more-fill.svg">
+                  </div>
+              </div>
+              <div class="words-post">
+                <p>📚 First day at South Coast Uni — already lost twice and spilled coffee once. Off to a great start 😅</p>
+                </div>
+              <div class="post-summary">
+                <div class="emojis-grp">
+                  <div class="emoji-pair">
+                    <img src="assets/img/emojis/like.svg" class="emoji">
+                    <img src="assets/img/emojis/love.svg" class="emoji">
+                    <img src="assets/img/emojis/emoji-laugh.svg" class="emoji">
+                  </div>
+                    <p class="emoji-count">39</p>
+                </div>
+                <p class="post-comments">10 Comments</p>
+              </div>
+              <div class="post-footer">
+                <div class="share-btn">
+                  <img src="assets/img/icons/share-outline.png">
+                  <p>Share</p></div>
+              </div>
+            </div>
+
+            <!-- 2020 -->
+            <!-- LIFE EVENT : Graduate HighSchool Post-->
+            <div class="fb-section post-temp">
+              <div class="post-header">
+                <div class="profile-img"></div>
+                <div class="post-info">
+                  <h3>Jessica Brooke Taylor</h3>
+                  <div>
+                      <p>December 20, 2020 at 7:32 PM </p>
+                      <span>·</span>
+                      <img src="assets/img/icons/earth-fill.svg">
+                    </div>
+                </div>
+                  <div class="btn more-dots">
+                      <img src="assets/img/icons/more-fill.svg">
+                  </div>
+              </div>
+              <div class="words-post">
+                <p>So long, lockers and late bells. Ready for the next chapter!</p>
+                </div>
+                <div class="post">
+                  <img src="assets/img/posts/highschool-grad.jpg" alt="highschool grad">
+                </div>
+              <div class="post-summary">
+                <div class="emojis-grp">
+                  <div class="emoji-pair">
+                    <img src="assets/img/emojis/like.svg" class="emoji">
+                    <img src="assets/img/emojis/love.svg" class="emoji">
+                  </div>
+                    <p class="emoji-count">125</p>
+                </div>
+                <p class="post-comments">20 Comments</p>
+              </div>
+              <div class="post-footer">
+                <div class="share-btn">
+                  <img src="assets/img/icons/share-outline.png">
+                  <p>Share</p></div>
+              </div>
+            </div>
+
+            <!-- LIFE EVENT : Leaving Highschool-->
+            <div class="fb-section post-temp">
+              <div class="post-header">
+                <div class="profile-img"></div>
+                <div class="post-info">
+                  <h3>Jessica Brooke Taylor</h3>
+                  <div>
+                      <p>December 20, 2020 at 3:16 PM </p>
+                      <span>·</span>
+                      <img src="assets/img/icons/earth-fill.svg">
+                    </div>
+                </div>
+                  <div class="btn more-dots">
+                      <img src="assets/img/icons/more-fill.svg">
+                  </div>
+              </div>
+              <div class="life-event-post words-post">
+                  <div class="life-event-icon">
+                    <img class="icon-post" src="assets/img/icons/education-white.svg">
+                  </div>
+                  <h1>Graduated from Riverview High School</h1>
+                  <p>December 20, 2020</p>
+                  <span>Nowra, New South Wales, Australia</span>
+              </div>
+              <div class="post-summary">
+                <div class="emojis-grp">
+                  <div class="emoji-pair">
+                    <img src="assets/img/emojis/like.svg" class="emoji">
+                    <img src="assets/img/emojis/love.svg" class="emoji">
+                  </div>
+                    <p class="emoji-count">200</p>
+                </div>
+                <p class="post-comments">210 Comments</p>
+              </div>
+              <div class="post-footer">
+                <div class="share-btn">
+                  <img src="assets/img/icons/share-outline.png">
+                  <p>Share</p></div>
+              </div>
+            </div>
+
+        <!-- Other Tabs -->
+        <div id="about" class="tabcontent"><h3>About</h3><p>About content...</p></div>
+        <div id="friends" class="tabcontent"><h3>Friends</h3><p>Friends content...</p></div>
+        <div id="photos" class="tabcontent"><h3>Photos</h3><p>Photos content...</p></div>
+        <div id="videos" class="tabcontent"><h3>Videos</h3><p>Videos content...</p></div>
+        <div id="checkins" class="tabcontent"><h3>Check-ins</h3><p>Check-ins content...</p></div>
+        <div id="more" class="tabcontent"><h3>More</h3><p>More content...</p></div>
+      </section>
+    </div>
   </div>
-
   <script src="assets/js/main.js"></script>
 </body>
 </html>
