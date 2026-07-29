@@ -1,0 +1,301 @@
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700&display=swap");
+
+:root {
+  /* ==== pulled straight from Tia's site vars ==== */
+  --first-color: hsl(266, 60%, 62%);
+  --white-color: hsl(0, 0%, 100%);
+  --text-color: hsl(0, 10%, 86%);
+  --border-color: hsl(0, 0%, 39%);
+  --body-color: hsl(0, 0%, 0%);
+  --container-color: hsla(0, 0%, 2%, 0.8);
+
+  /* widow-specific */
+  --widow-black: hsl(0, 0%, 6%);
+  --flesh: #e8a978;
+  --lightflesh: #f4c79a;
+
+  /* lighter page background so the dark widow pops */
+  --page-bg: hsl(265, 26%, 18%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background: var(--page-bg);
+  overflow: hidden;
+  font-family: "Work Sans", sans-serif;
+}
+
+.container {
+  position: relative;
+  width: 70vmin;
+  height: 70vmin;
+  overflow: hidden;
+}
+
+/* ==== ARMS ==== */
+.arm {
+  position: absolute;
+  width: 10vmin;
+  height: 40vmin;
+  background: var(--flesh);
+  top: 50vmin;
+  transform: rotate(15deg);
+  z-index: 2;
+}
+
+.arm-left {
+  left: 3vmin;
+  animation: close-left 2s ease-in-out infinite;
+}
+
+.arm-right {
+  transform: rotate(-15deg);
+  right: 3vmin;
+  animation: close-right 2s ease-in-out infinite;
+}
+
+/* ==== HANDS ==== */
+
+.hand {
+  position: absolute;
+  width: 10vmin;
+  height: 45vmin;
+  background: var(--flesh);
+  bottom: 30vmin;
+  border-radius: 3vmin;
+}
+
+.hand-left {
+  box-shadow: 1vmin -1vmin var(--lightflesh);
+  transform: rotate(-15deg);
+  left: -3vmin;
+}
+
+.hand-right {
+  box-shadow: -1vmin -1vmin var(--lightflesh);
+  transform: rotate(15deg);
+  right: -3vmin;
+}
+
+/* ==== SILK THREAD ==== */
+.thread {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 1px;
+  height: 24.5vmin;
+  background: linear-gradient(to bottom, transparent, hsla(266, 60%, 62%, 0.5));
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+/* ==== SPIDER ==== */
+.spider {
+  position: absolute;
+  width: 20vmin;
+  height: 20vmin;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: shake 1.5s linear infinite;
+  z-index: 1;
+}
+
+.abdomen {
+  position: absolute;
+  width: 9vmin;
+  height: 10vmin;
+  background: var(--widow-black);
+  left: 5.5vmin;
+  top: 7vmin;
+  border-radius: 50% 50% 45% 45% / 55% 55% 45% 45%;
+  box-shadow: 0 0 1.5vmin hsla(266, 60%, 62%, 0.25);
+}
+
+/* purple hourglass marking, in place of the ladybug's red */
+.hourglass {
+  position: absolute;
+  left: 50%;
+  top: 2vmin;
+  transform: translateX(-50%);
+  width: 2.6vmin;
+  height: 6.5vmin;
+}
+.hourglass::before,
+.hourglass::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-left: 1.3vmin solid transparent;
+  border-right: 1.3vmin solid transparent;
+}
+.hourglass::before {
+  top: 0;
+  border-top: 3.2vmin solid var(--first-color);
+  transform: translateX(-50%);
+  opacity: 0.9;
+}
+.hourglass::after {
+  bottom: 0;
+  border-bottom: 3.2vmin solid var(--first-color);
+  transform: translateX(-50%);
+  opacity: 0.9;
+}
+
+.cephalothorax {
+  position: absolute;
+  width: 6vmin;
+  height: 6vmin;
+  background: var(--widow-black);
+  left: 7vmin;
+  top: 2vmin;
+  border-radius: 50%;
+  z-index: 4;
+  box-shadow: 0 0 1vmin hsla(266, 60%, 62%, 0.25);
+}
+
+.eye {
+  position: absolute;
+  width: 0.9vmin;
+  height: 0.9vmin;
+  background: var(--first-color);
+  border-radius: 50%;
+  box-shadow: 0 0 0.6vmin var(--first-color);
+  z-index: 5;
+}
+.eye-1 {
+  top: 1.6vmin;
+  left: 1.7vmin;
+}
+.eye-2 {
+  top: 1.6vmin;
+  left: 3.2vmin;
+}
+.eye-3 {
+  top: 2.6vmin;
+  left: 1.2vmin;
+}
+.eye-4 {
+  top: 2.6vmin;
+  left: 3.8vmin;
+}
+
+/* ==== LEGS (8 total, arced like the original) ==== */
+.leg {
+  position: absolute;
+  width: 7vmin;      /* was 4vmin — bigger box = longer arc */
+  height: 7vmin;      /* was 4vmin */
+  border: 0.4vmin solid var(--widow-black); /* thinner = spindlier */
+  border-radius: 50%;
+  border-color: transparent transparent var(--widow-black) transparent;
+  left: -4vmin;
+}
+
+.leg::after {
+  position: absolute;
+  content: "";
+  width: 0.6vmin;
+  height: 0.6vmin;
+  border-radius: 50%;
+  background: var(--first-color);
+  box-shadow: 0 0 0.5vmin var(--first-color);
+  top: 5.2vmin;
+  left: 0.5vmin;
+}
+
+.right1,
+.right2,
+.right3,
+.right4 {
+  left: 6.5vmin;
+  transform: scaleX(-1); /* only the left/right mirror stays — no scaleY */
+}
+
+.left1,
+.right1 {
+  top: 2vmin;
+}
+.left2,
+.right2 {
+  top: 0vmin;
+}
+.left3,
+.right3 {
+  top: -2vmin;
+}
+.left4,
+.right4 {
+  top: -4vmin;
+}
+
+.spider-flip {
+  position: absolute;
+  inset: 0;              /* same as top:0; right:0; bottom:0; left:0; */
+  transform: scaleY(-1);
+  transform-origin: center;
+}
+
+/* ==== TERMINAL CAPTION, matches Tia's home__terminal style ==== */
+.caption {
+  margin-top: 2rem;
+  border-top: 0.5px solid var(--border-color);
+  padding-top: 1rem;
+  font-family: monospace;      /* drop "Work Sans" so it stays fixed-width */
+  font-size: 0.8rem;           /* matches .home__terminal exactly */
+  text-align: left;
+  width: 70vmin;
+}
+.caption .prompt {
+  color: var(--first-color);
+}
+.caption .output {
+  color: var(--text-color);    /* use the theme variable, not a hardcoded gray */
+  margin-top: 2px;
+}
+
+/* ==== ANIMATIONS ==== */
+@keyframes shake {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  25% {
+    transform: translate(-50%, -50%) rotate(8deg);
+  }
+  75% {
+    transform: translate(-50%, -50%) rotate(-8deg);
+  }
+}
+
+@keyframes close-left {
+  0%,
+  100% {
+    transform: translateX(0) rotate(15deg);
+  }
+  50% {
+    transform: translateX(16vmin) rotate(15deg);
+  }
+}
+
+@keyframes close-right {
+  0%,
+  100% {
+    transform: translateX(0) rotate(-15deg);
+  }
+  50% {
+    transform: translateX(-16vmin) rotate(-15deg);
+  }
+}
