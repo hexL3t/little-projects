@@ -1,0 +1,522 @@
+    *,
+*::after,
+*::before{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+ 
+:root{
+    /* ==== recolored for botanically-accurate "black" dahlias ====
+       Real dahlias can't produce true black pigment — the illusion
+       comes from a dense concentration of anthocyanins (red/purple
+       pigment) that reads near-black in shadow but reveals deep
+       crimson, plum, or dark red in direct light (varies by variety).
+       Three real varieties are used here: Arabian Night (crimson-
+       maroon, broad flat petals, flower-pp--1), Karma Choc (chocolate-
+       plum, narrow petals, flower-pp--2), and Black Jack (large spiky
+       blooms, intensely dark with minimal color reveal, flower-pp--3). */
+    --color-bg: linear-gradient(to top,#0d0208,#6e6e6e);
+    --color-glass:linear-gradient(to left,#2b0a18,#1a0610);
+    --color-water:linear-gradient(to left,#3a0f1f,#220814);
+ 
+    /* ==== petal sizing — one place to tune the whole layered look ====
+       Narrower width relative to height reads as the spikier, denser
+       "Black Jack"-style dahlia rather than a soft rounded bloom. */
+    --petal-outer-w: 3vmin;
+    --petal-outer-h: 15vmin;
+    --petal-mid-w: 2.2vmin;
+    --petal-mid-h: 10.5vmin;
+    --petal-inner-w: 1.6vmin;
+    --petal-inner-h: 6.5vmin;
+ 
+    /* the base "cup" petal (leaf--1) — bigger than the rings since
+       it anchors the flower's face, but scaled down from its old
+       10vmin/12vmin so it doesn't loom over the now-narrow rings */
+    --petal-base-w: 4.5vmin;
+    --petal-base-h: 8vmin;
+ 
+    /* Arabian Night is explicitly "broad, flat petals" — wider and
+       shorter than the default narrow/spiky rings, applied to
+       flower-pp--1 only. Karma Choc keeps the default narrow sizing
+       (flower-pp--2), since only its color was specified, not its
+       shape. */
+    --petal-outer-w-broad: 4.6vmin;
+    --petal-outer-h-broad: 12vmin;
+    --petal-mid-w-broad: 3.4vmin;
+    --petal-mid-h-broad: 8.5vmin;
+    --petal-inner-w-broad: 2.4vmin;
+    --petal-inner-h-broad: 5.2vmin;
+ 
+    /* Black Jack: "large spiky blooms" — narrower and longer than
+       even the default, for flower-pp--3, so it reads as visibly
+       more extreme/spiky than Karma Choc's narrow-but-moderate look */
+    --petal-outer-w-spiky: 2.4vmin;
+    --petal-outer-h-spiky: 17vmin;
+    --petal-mid-w-spiky: 1.8vmin;
+    --petal-mid-h-spiky: 12vmin;
+    --petal-inner-w-spiky: 1.3vmin;
+    --petal-inner-h-spiky: 7.5vmin;
+}
+ 
+body{
+    background-image:var(--color-bg);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    overflow: hidden;
+}
+ 
+.flower{
+    position: relative;
+}
+ 
+.dahlia-stage{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40vmin;
+}
+ 
+.caption{
+    margin-top: 1.5rem;
+    border-top: 0.5px solid rgba(255, 255, 255, 0.15);
+    padding-top: 1rem;
+    font-family: monospace;
+    font-size: 0.8rem;
+    text-align: left;
+    align-self: flex-start;
+}
+.caption .prompt{
+    color: hsl(266, 60%, 62%);
+}
+.caption .output{
+    color: hsl(0, 0%, 64%);
+    margin-top: 2px;
+}
+ 
+.flower__glass{
+    width:20vmin;
+    height: 30vmin;
+    background-image: var(--color-glass);
+    clip-path: polygon(0 0, 100% 0, 85% 100%, 15% 100%);
+    opacity: .8;
+    position: relative;
+}
+ 
+.flower__glass::after{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: #180a12;
+    width: 100%;
+    height: 2vmin;
+}
+ 
+.flower__glass::before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-image: var(--color-water);
+    width: 100%;
+    height: 15vmin;
+}
+ 
+.flower-pp{
+    position: absolute;
+    left: 45%;
+    bottom: 2vmin;
+}
+ 
+.flower-pp--2{
+    left: 50%;
+    bottom: 5%;
+    transform-origin: 10% left;
+    transform: rotate(20deg);
+}
+ 
+.flower-pp--3{
+    left: 30%;
+    bottom: 5%;
+    transform-origin: 10% left;
+    transform: rotate(-10deg);
+}
+ 
+.flower-pp--3 .flower_l{
+    height: 45vmin;
+    position: relative;
+}
+ 
+.flower-pp--3 .flower_l::after{
+    content: '';
+    position: absolute;
+    left:0;
+    top: 0;
+    width: 6vmin;
+    height: 6vmin;
+    transform: translate(-69%,-30%) rotate(-5deg);
+    border-radius:10vmin 10vmin 0 0;
+    border: 2vmin solid  #24332a;
+    border-bottom: transparent;
+    border-left: transparent;
+}
+ 
+.flower-pp--3 .flower_l::before{
+    content: '';
+    position: absolute;
+    left:-40%;
+    top: -1%;
+    width: 6vmin;
+    height: 2vmin;
+    transform-origin: right;
+    transform: translate(-100%,-80%) rotate(-20deg);
+    background-color: #24332a;
+    border-radius: 2vmin;
+}
+ 
+.flower-pp--3 .flower_l{
+    background-image: linear-gradient(to top, #6b3f8a 15%, #14251a, #0d1712);
+}
+ 
+ 
+.flower-pp--2 .flower_l{
+    height: 45vmin;
+}
+ 
+.flower-pp--2 .f{
+    transform: translateX(-50%) rotate(20deg);
+}
+ 
+.flower-pp--3 .f{
+    transform: translate(-350%,-50%) rotate(-120deg);
+}
+ 
+/* ==== PETAL ANGLES ====
+   Each ring's angles are named once here instead of being repeated
+   as inline styles on every flower. All three flowers share the same
+   outer--N / mid--N / inner--N classes (that's what makes them
+   "reusable" — the angle values live in exactly one place). Want to
+   change how a petal is angled? Edit it here and every flower using
+   that class updates together. Want to add another petal to a ring?
+   Add one more numbered class here, then one more <div> referencing
+   it in the HTML — no new CSS rule needed elsewhere. */
+.outer--1  { --angle:-85deg; }
+.outer--2  { --angle:-70deg; }
+.outer--3  { --angle:-55deg; }
+.outer--4  { --angle:-40deg; }
+.outer--5  { --angle:-25deg; }
+.outer--6  { --angle:-10deg; }
+.outer--7  { --angle:10deg;  }
+.outer--8  { --angle:25deg;  }
+.outer--9  { --angle:40deg;  }
+.outer--10 { --angle:55deg;  }
+.outer--11 { --angle:70deg;  }
+.outer--12 { --angle:85deg;  }
+ 
+.mid--1  { --angle:-67.5deg; }
+.mid--2  { --angle:-52.5deg; }
+.mid--3  { --angle:-37.5deg; }
+.mid--4  { --angle:-22.5deg; }
+.mid--5  { --angle:-7.5deg;  }
+.mid--6  { --angle:7.5deg;   }
+.mid--7  { --angle:22.5deg;  }
+.mid--8  { --angle:37.5deg;  }
+.mid--9  { --angle:52.5deg;  }
+.mid--10 { --angle:67.5deg;  }
+ 
+.inner--1 { --angle:-40deg; }
+.inner--2 { --angle:-24deg; }
+.inner--3 { --angle:-8deg;  }
+.inner--4 { --angle:8deg;   }
+.inner--5 { --angle:24deg;  }
+.inner--6 { --angle:40deg;  }
+ 
+/* ==== RING SYSTEM ====
+   Each ring is one shared class; every petal in it just sets its own
+   --angle inline. This base .leaf rule MUST come before .leaf--outer/
+   mid/inner below: both have identical specificity (one class), so
+   whichever is declared later in the file wins any overlapping
+   property on a tie. Putting the ring rules after this one lets them
+   correctly override transform/animation; the reverse ordering is
+   what caused petals to sit unrotated with no visible opening. */
+.leaf{
+    position: absolute;
+    left: 50%;
+    bottom: 2vmin;
+    transform: translateX(-50%);
+    clip-path: ellipse(50% 50% at 50% 50%);
+    transform-origin: center bottom;
+    animation: bloom-cup 10s infinite;
+}
+ 
+.leaf--outer{
+    width: var(--petal-outer-w);
+    height: var(--petal-outer-h);
+    transform: translateX(-50%) rotate(var(--angle));
+    animation: bloom-outer 10s infinite;
+    background-image: linear-gradient(to bottom, #6b0f1e ,#3a0a12, #120306 99%);
+}
+ 
+.leaf--mid{
+    width: var(--petal-mid-w);
+    height: var(--petal-mid-h);
+    bottom: 2.4vmin;
+    z-index: 2;
+    transform: translateX(-50%) rotate(var(--angle));
+    animation: bloom-mid 10s infinite;
+    background-image: linear-gradient(to bottom, #8a1626, #55101c, #1a0508 99%);
+}
+ 
+.leaf--inner{
+    width: var(--petal-inner-w);
+    height: var(--petal-inner-h);
+    bottom: 2.8vmin;
+    z-index: 3;
+    transform-origin: bottom center;
+    animation: bloom-inner 10s infinite;
+    background-image: linear-gradient(to bottom, #a82c3e, #6b1420, #200609 99%);
+    box-shadow: 0 0 0.6vmin hsla(350, 60%, 30%, 0.5);
+}
+ 
+/* Arabian Night's broad, flat petals — flower-pp--1 only */
+.flower-pp--1 .leaf--outer{
+    width: var(--petal-outer-w-broad);
+    height: var(--petal-outer-h-broad);
+}
+.flower-pp--1 .leaf--mid{
+    width: var(--petal-mid-w-broad);
+    height: var(--petal-mid-h-broad);
+}
+.flower-pp--1 .leaf--inner{
+    width: var(--petal-inner-w-broad);
+    height: var(--petal-inner-h-broad);
+}
+ 
+/* Black Jack's large, spiky petals — flower-pp--3 */
+.flower-pp--3 .leaf--outer{
+    width: var(--petal-outer-w-spiky);
+    height: var(--petal-outer-h-spiky);
+}
+.flower-pp--3 .leaf--mid{
+    width: var(--petal-mid-w-spiky);
+    height: var(--petal-mid-h-spiky);
+}
+.flower-pp--3 .leaf--inner{
+    width: var(--petal-inner-w-spiky);
+    height: var(--petal-inner-h-spiky);
+}
+ 
+/* flower-pp--2: Karma Choc — velvety chocolate-plum, narrow default petal sizing */
+.flower-pp--2 .leaf--outer{
+    background-image: linear-gradient(to bottom, #3a2018 ,#1f120d, #0d0605 99%);
+}
+.flower-pp--2 .leaf--mid{
+    background-image: linear-gradient(to bottom, #55342a, #2f1a14, #140a08 99%);
+}
+.flower-pp--2 .leaf--inner{
+    background-image: linear-gradient(to bottom, #7a4a3a, #4a2a1f, #1f100b 99%);
+    box-shadow: 0 0 0.6vmin hsla(20, 40%, 30%, 0.5);
+}
+ 
+/* flower-pp--3: Black Jack — large, spiky, intensely dark; unlike
+   Arabian Night this one stays close to black even at its brightest
+   point, only hinting at dark red rather than opening into crimson */
+.flower-pp--3 .leaf--outer{
+    background-image: linear-gradient(to bottom, #1a0508, #0d0303, #030101 99%);
+}
+.flower-pp--3 .leaf--mid{
+    background-image: linear-gradient(to bottom, #2a0a10, #150506, #050202 99%);
+}
+.flower-pp--3 .leaf--inner{
+    background-image: linear-gradient(to bottom, #4a121c, #240a0e, #0a0303 99%);
+    box-shadow: 0 0 0.4vmin hsla(350, 50%, 15%, 0.4);
+}
+ 
+.flower-pp--3 .leaf--1{
+    width: var(--petal-base-w);
+    height: var(--petal-base-h);
+    bottom: 2vmin;
+    background-color: #1f0609;
+}
+ 
+.flower-pp--2 .leaf--1{
+    width: var(--petal-base-w);
+    height: var(--petal-base-h);
+    bottom: 2vmin;
+    background-color: #4a2a1f;
+}
+ 
+.flower-pp--2 .f .leaf--8{
+    width: 10vmin;
+    height: 9vmin;
+    bottom: 3vmin;
+    left: -30%;
+    transform: rotate(-50deg);
+    background-image: linear-gradient(to left bottom, #3a2018 ,#1f120d, #0d0605 98%);
+}
+ 
+.flower-pp--3 .f .leaf--8{
+    width: 10vmin;
+    height: 9vmin;
+    left: -10% !important;
+    background-image: linear-gradient(to left bottom, #1a0508 ,#0d0303, #030101 98%);
+}
+ 
+.flower_l{
+    width: 2vmin;
+    height: 56vmin;
+    background-image: linear-gradient(to left top,#6b3f8a 20%,#14251a,#0d1712);
+    border-radius: 4vmin;
+}
+ 
+.f{
+    position: absolute;
+    top: 1vmin;
+    left: 50%;
+    transform: translateX(-50%) rotate(-10deg);
+    width: 2vmin;
+    height: 2vmin;
+}
+ 
+.leaf--1{
+    width: var(--petal-base-w);
+    height: var(--petal-base-h);
+    bottom: 3vmin;
+    border-radius: 50% 50% 50% 50% / 80% 80% 20% 20%;
+    background-color: #5c0f1c;
+    background-image: none;
+    animation: bloom-cup 10s infinite;
+}
+ 
+.leaf--8{
+    width: 13vmin;
+    height: 11vmin;
+    bottom: 6vmin;
+    left: -30%;
+    border-radius: none;
+    clip-path: none;
+    border-radius: 10vmin 2vmin 10vmin 2vmin;
+    transform: rotate(-55deg);
+    background-image: linear-gradient(to left bottom, #6b0f1e ,#3a0a12,#120306 98%);
+}
+ 
+.flower__fall-down--yellow{
+    animation: fall-yellow 10s infinite;
+}
+ 
+.flower__fall-down--pink{
+    animation: fall-pink 10s infinite;
+}
+ 
+.flower__fall-down--purple{
+    bottom: 4vmin;
+    animation: fall-purple 10s infinite;
+}
+ 
+ 
+/* ==== LOOPING CYCLE ====
+   Everything below shares one 10s timeline (see the "animation: ...
+   10s infinite" declarations on .leaf--outer/mid/inner/1 and the
+   flower__fall-down--* classes above) so bloom-opening and the
+   falling petal stay in sync every time the cycle repeats:
+ 
+     0%          closed bud, invisible
+     ~3-5%       fades in
+     18-33%      rings finish opening (outer first, then mid, then
+                 inner — same stagger as before, just as percentages
+                 of one shared timeline instead of separate delays)
+     15-90%      the falling petal plays through its own multi-stage
+                 fall (unique per flower/variety, same relative
+                 shape as the original one-shot version, just
+                 rescaled to fit inside this window)
+     88-96%      everything fades out together
+     100%        back to closed bud, identical to 0% — the loop
+                 wraps with no visible jump */
+ 
+@keyframes bloom-outer {
+    0%   { transform: translateX(-50%) rotate(0deg); opacity: 0; }
+    3%   { opacity: 1; }
+    20%  { transform: translateX(-50%) rotate(var(--angle)); opacity: 1; }
+    88%  { transform: translateX(-50%) rotate(var(--angle)); opacity: 1; }
+    95%  { opacity: 0; }
+    100% { transform: translateX(-50%) rotate(0deg); opacity: 0; }
+}
+ 
+@keyframes bloom-mid {
+    0%   { transform: translateX(-50%) rotate(0deg); opacity: 0; }
+    3%   { opacity: 1; }
+    27%  { transform: translateX(-50%) rotate(var(--angle)); opacity: 1; }
+    88%  { transform: translateX(-50%) rotate(var(--angle)); opacity: 1; }
+    95%  { opacity: 0; }
+    100% { transform: translateX(-50%) rotate(0deg); opacity: 0; }
+}
+ 
+/* Inner ring mixes rotate AND scale on the same element, so (as
+   before) both states spell out rotate(var(--angle)) explicitly
+   rather than leaving it to interpolate between mismatched
+   transform lists. */
+@keyframes bloom-inner {
+    0%   { transform: translateX(-50%) rotate(var(--angle)) scale(0); opacity: 0; }
+    33%  { transform: translateX(-50%) rotate(var(--angle)) scale(1); opacity: 1; }
+    88%  { transform: translateX(-50%) rotate(var(--angle)) scale(1); opacity: 1; }
+    95%  { opacity: 0; }
+    100% { transform: translateX(-50%) rotate(var(--angle)) scale(0); opacity: 0; }
+}
+ 
+@keyframes bloom-cup {
+    0%   { transform: translateX(-50%) scale(0); opacity: 0; }
+    18%  { transform: translateX(-50%) scale(1); opacity: 1; }
+    88%  { transform: translateX(-50%) scale(1); opacity: 1; }
+    95%  { opacity: 0; }
+    100% { transform: translateX(-50%) scale(0); opacity: 0; }
+}
+ 
+/* flower-pp--1 (Arabian Night): the widest/slowest fall, matching
+   its original 8s duration relative to the others */
+@keyframes fall-yellow {
+    0%   { transform: rotate(-55deg); opacity: 0; }
+    5%   { opacity: 1; }
+    15%  { transform: rotate(-55deg); }
+    52%  { bottom: 3vmin; transform: rotateX(-100deg); }
+    85%  { transform: translate(2vmin,70vmin) rotate(150deg); }
+    90%  { opacity: 1; }
+    96%  { opacity: 0; }
+    100% { transform: rotate(-55deg); opacity: 0; }
+}
+ 
+/* flower-pp--2 (Karma Choc): the shortest/fastest fall, matching
+   its original 5s duration — lands and settles earlier in the cycle */
+@keyframes fall-pink {
+    0%   { transform: rotate(-55deg); opacity: 0; }
+    5%   { opacity: 1; }
+    15%  { transform: rotate(-55deg); }
+    40%  { transform: rotateX(-100deg); }
+    65%  { transform: translate(2vmin,28vmin); }
+    88%  { transform: translate(2vmin,28vmin); opacity: 1; }
+    95%  { opacity: 0; }
+    100% { transform: rotate(-55deg); opacity: 0; }
+}
+ 
+/* flower-pp--3 (Black Jack): the multi-stage tumble into a resting
+   3D tilt. The original had a second, always-running "wobble"
+   animation layered on top once it landed — folded in here as a
+   few extra stops (78-90%) instead of a separate infinite
+   animation, since everything now shares one loop already. */
+@keyframes fall-purple {
+    0%   { transform: rotate(-50deg); opacity: 0; }
+    5%   { opacity: 1; }
+    16%  { transform: rotate(-50deg); }
+    36%  { bottom: 1vmin; transform: rotateX(-100deg); perspective: 0px; }
+    55%  { perspective: 0px; transform: translate(-30vmin,2vmin) rotate(90deg); }
+    70%  { perspective: 0px; transform: translate(-34vmin,-2vmin); }
+    78%  { transform-origin: center; transform: translate(-34vmin,-2vmin) rotateY(-80deg) rotateX(35deg); }
+    82%  { transform-origin: center; transform: translate(-34.4vmin,-2vmin) rotateY(-84deg) rotateX(35deg); }
+    86%  { transform-origin: center; transform: translate(-32vmin,-4.2vmin) rotateY(-80deg) rotateX(35deg); }
+    90%  { transform-origin: center; transform: translate(-36vmin,1.1vmin) rotateY(-80deg) rotateX(35deg); opacity: 1; }
+    96%  { opacity: 0; }
+    100% { transform: rotate(-50deg); opacity: 0; }
+}
+ 

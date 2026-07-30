@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dahlia Vase</title>
+    <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body>
+    <div class="dahlia-stage">
+        <div class="flower">
+            <!-- ====================================================================
+         Three flowers below share an identical petal structure: leaf--1
+         (center cup) → 12 outer petals → 10 middle petals → 6 inner petals
+         → leaf--8 (the one that falls). Only two things differ per flower:
+         1. The flower-pp--N class, which drives all color/size overrides
+            (see the CSS "flower-pp--N" sections further down).
+         2. The flower__fall-down--{colour} class on leaf--8, which picks
+            which falling-petal keyframe animation it uses.
+         The angle of each numbered petal (outer--1, mid--3, etc.) is
+         defined once in the "PETAL ANGLES" CSS block above — not repeated
+         here — so all three flowers stay in sync automatically.
+    ==================================================================== -->
+            <div class="flower-pp flower-pp--1">
+                <div class="flower_l"></div>
+                <div class="f">
+                    <div class="leaf leaf--1"></div>
+                    <!-- outer ring: 12 petals -->
+                    <div class="leaf leaf--outer outer--1"></div>
+                    <div class="leaf leaf--outer outer--2"></div>
+                    <div class="leaf leaf--outer outer--3"></div>
+                    <div class="leaf leaf--outer outer--4"></div>
+                    <div class="leaf leaf--outer outer--5"></div>
+                    <div class="leaf leaf--outer outer--6"></div>
+                    <div class="leaf leaf--outer outer--7"></div>
+                    <div class="leaf leaf--outer outer--8"></div>
+                    <div class="leaf leaf--outer outer--9"></div>
+                    <div class="leaf leaf--outer outer--10"></div>
+                    <div class="leaf leaf--outer outer--11"></div>
+                    <div class="leaf leaf--outer outer--12"></div>
+                    <!-- middle ring: 10 petals -->
+                    <div class="leaf leaf--mid mid--1"></div>
+                    <div class="leaf leaf--mid mid--2"></div>
+                    <div class="leaf leaf--mid mid--3"></div>
+                    <div class="leaf leaf--mid mid--4"></div>
+                    <div class="leaf leaf--mid mid--5"></div>
+                    <div class="leaf leaf--mid mid--6"></div>
+                    <div class="leaf leaf--mid mid--7"></div>
+                    <div class="leaf leaf--mid mid--8"></div>
+                    <div class="leaf leaf--mid mid--9"></div>
+                    <div class="leaf leaf--mid mid--10"></div>
+                    <!-- inner ring: 6 petals -->
+                    <div class="leaf leaf--inner inner--1"></div>
+                    <div class="leaf leaf--inner inner--2"></div>
+                    <div class="leaf leaf--inner inner--3"></div>
+                    <div class="leaf leaf--inner inner--4"></div>
+                    <div class="leaf leaf--inner inner--5"></div>
+                    <div class="leaf leaf--inner inner--6"></div>
+                    <div class="leaf leaf--8 flower__fall-down--yellow"></div>
+                </div>
+            </div>
+
+            <div class="flower-pp flower-pp--2">
+                <div class="flower_l"></div>
+                <div class="f">
+                    <div class="leaf leaf--1"></div>
+                    <!-- outer ring: 12 petals -->
+                    <div class="leaf leaf--outer outer--1"></div>
+                    <div class="leaf leaf--outer outer--2"></div>
+                    <div class="leaf leaf--outer outer--3"></div>
+                    <div class="leaf leaf--outer outer--4"></div>
+                    <div class="leaf leaf--outer outer--5"></div>
+                    <div class="leaf leaf--outer outer--6"></div>
+                    <div class="leaf leaf--outer outer--7"></div>
+                    <div class="leaf leaf--outer outer--8"></div>
+                    <div class="leaf leaf--outer outer--9"></div>
+                    <div class="leaf leaf--outer outer--10"></div>
+                    <div class="leaf leaf--outer outer--11"></div>
+                    <div class="leaf leaf--outer outer--12"></div>
+                    <!-- middle ring: 10 petals -->
+                    <div class="leaf leaf--mid mid--1"></div>
+                    <div class="leaf leaf--mid mid--2"></div>
+                    <div class="leaf leaf--mid mid--3"></div>
+                    <div class="leaf leaf--mid mid--4"></div>
+                    <div class="leaf leaf--mid mid--5"></div>
+                    <div class="leaf leaf--mid mid--6"></div>
+                    <div class="leaf leaf--mid mid--7"></div>
+                    <div class="leaf leaf--mid mid--8"></div>
+                    <div class="leaf leaf--mid mid--9"></div>
+                    <div class="leaf leaf--mid mid--10"></div>
+                    <!-- inner ring: 6 petals -->
+                    <div class="leaf leaf--inner inner--1"></div>
+                    <div class="leaf leaf--inner inner--2"></div>
+                    <div class="leaf leaf--inner inner--3"></div>
+                    <div class="leaf leaf--inner inner--4"></div>
+                    <div class="leaf leaf--inner inner--5"></div>
+                    <div class="leaf leaf--inner inner--6"></div>
+                    <div class="leaf leaf--8 flower__fall-down--pink"></div>
+                </div>
+            </div>
+
+            <div class="flower-pp flower-pp--3">
+                <div class="flower_l"></div>
+                <div class="f">
+                    <div class="leaf leaf--1"></div>
+                    <!-- outer ring: 12 petals -->
+                    <div class="leaf leaf--outer outer--1"></div>
+                    <div class="leaf leaf--outer outer--2"></div>
+                    <div class="leaf leaf--outer outer--3"></div>
+                    <div class="leaf leaf--outer outer--4"></div>
+                    <div class="leaf leaf--outer outer--5"></div>
+                    <div class="leaf leaf--outer outer--6"></div>
+                    <div class="leaf leaf--outer outer--7"></div>
+                    <div class="leaf leaf--outer outer--8"></div>
+                    <div class="leaf leaf--outer outer--9"></div>
+                    <div class="leaf leaf--outer outer--10"></div>
+                    <div class="leaf leaf--outer outer--11"></div>
+                    <div class="leaf leaf--outer outer--12"></div>
+                    <!-- middle ring: 10 petals -->
+                    <div class="leaf leaf--mid mid--1"></div>
+                    <div class="leaf leaf--mid mid--2"></div>
+                    <div class="leaf leaf--mid mid--3"></div>
+                    <div class="leaf leaf--mid mid--4"></div>
+                    <div class="leaf leaf--mid mid--5"></div>
+                    <div class="leaf leaf--mid mid--6"></div>
+                    <div class="leaf leaf--mid mid--7"></div>
+                    <div class="leaf leaf--mid mid--8"></div>
+                    <div class="leaf leaf--mid mid--9"></div>
+                    <div class="leaf leaf--mid mid--10"></div>
+                    <!-- inner ring: 6 petals -->
+                    <div class="leaf leaf--inner inner--1"></div>
+                    <div class="leaf leaf--inner inner--2"></div>
+                    <div class="leaf leaf--inner inner--3"></div>
+                    <div class="leaf leaf--inner inner--4"></div>
+                    <div class="leaf leaf--inner inner--5"></div>
+                    <div class="leaf leaf--inner inner--6"></div>
+                    <div class="leaf leaf--8 flower__fall-down--purple"></div>
+                </div>
+            </div>
+            <div class="flower__glass"></div>
+        </div>
+
+        <div class="caption">
+            <p class="prompt">$" ./bloom --variety arabian-night,karma-choc,black-jack</p>
+            <p class="output">&gt; 3 varieties planted, 1 petal wilts per bloom &#127801;</p>
+        </div>
+    </div>
+
+</body>
+
+</html>
