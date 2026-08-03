@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ==== CSS ==== -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <title>Traffic Visualizer — Network Intrusion Replay</title>
+
+    <!-- ==== FONTS ====
+         JetBrains Mono for data/labels (reads as "raw traffic"),
+         Inter for general UI chrome. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- ==== CSV PARSING ====
+         PapaParse loads assets/data/unsw-nb15-sample.csv at runtime.
+         Must load before main.js, which calls Papa.parse() on boot. -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+
+</head>
+
+<body>
+    <!-- ==== HEADER ====
+         Fixed-height strip (flex-shrink:0 in CSS) — brand on the left,
+         live running totals on the right. Numbers here are filled in by
+         main.js as events replay; they start at 0. -->
+    <header>
+        <div class="brand">
+            <span class="prompt">$</span>
+            <div>
+                <h1>traffic-visualizer</h1>
+                <div class="subtitle">network intrusion replay — UNSW-NB15</div>
+            </div>
+        </div>
+        <div class="stat-strip">
+            <div class="stat benign">
+                <div class="num" id="stat-benign">0</div>
+                <div class="lbl">Normal</div>
+            </div>
+            <div class="stat warn">
+                <div class="num" id="stat-warn">0</div>
+                <div class="lbl">Suspicious</div>
+            </div>
+            <div class="stat alert">
+                <div class="num" id="stat-alert">0</div>
+                <div class="lbl">Attack</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==== MAIN LAYOUT ====
+         Three-column grid: filters sidebar | canvas + transport | intel panel.
+         Column widths are defined as fluid minmax() ranges in the CSS so the
+         panels shrink gracefully at smaller widths instead of a hard cutoff
+         that hides a whole panel. Below ~720px it stacks into a single column. -->
+    <div class="layout">
+
+        <!-- ---- LEFT: filters + live distribution ---- -->
+        <aside>
+            <div class="filter-group">
+                <p class="section-label">Attack Category</p>
+                <!-- Populated by main.js: one chip per UNSW-NB15 category,
+                     toggled active/inactive to filter which pulses render. -->
+                <div class="chip-row" id="cat-filters"></div>
+            </div>
+            <div class="filter-group">
+                <p class="section-label">Protocol</p>
+                <!-- Populated by main.js: tcp / udp / icmp toggle chips. -->
+                <div class="protocol-row" id="proto-filters"></div>
+            </div>
+            <div class="filter-group">
+                <p class="section-label">Distribution</p>
+                <!-- Populated by main.js: one bar per category. Bar width
+                     reflects *recent* activity (decays over time) so it stays
+                     visually alive; the number is the all-time running total. -->
+                <div class="histogram" id="histogram"></div>
+            </div>
+            <div class="filter-group">
+                <p class="section-label">Data Source</p>
+                <div class="data-source">
+                    Running on <strong>UNSW-NB15</strong> traffic (falls back to synthetic data
+                    if <strong>assets/data/unsw-nb15-sample.csv</strong> isn't found).
+                </div>
+            </div>
+        </aside>
+
+        <!-- ---- CENTER: the graph itself + playback controls ---- -->
+        <main>
+            <div class="canvas-wrap" id="canvas-wrap">
+                <!-- All rendering (nodes, edges, animated pulses) happens here
+                     via the 2D canvas API in main.js — no SVG/DOM per-packet,
+                     which keeps hundreds of animated pulses cheap to redraw. -->
+                <canvas id="graph"></canvas>
+
+                <!-- Static HUD label, purely decorative/informational. -->
+                <div class="canvas-hud"><span class="live-dot"></span>REPLAYING CAPTURE — click a host to isolate
+                    its traffic</div>
+
+                <!-- Shown only while a host is "isolated" (state.focusNode set).
+                     Toggled via JS class .show; ✕ button clears the focus. -->
+                <div class="focus-banner" id="focus-banner">
+                    <span id="focus-label"></span>
+                    <button id="focus-clear">✕</button>
+                </div>
+
+                <!-- Hover tooltip, positioned dynamically next to whichever
+                     node the mouse is near. Hidden by default (opacity:0). -->
+                <div class="tooltip" id="tooltip"></div>
+            </div>
+
+            <!-- Playback transport: play/pause, scrub bar, speed control.
+                 Mirrors a typical media player, since this is conceptually a
+                 replay of a packet capture rather than a live feed. -->
+            <div class="transport">
+                <button class="play-btn" id="play-btn" aria-label="Play or pause replay">
+                    <!-- Two icons swapped via inline style/JS depending on play state -->
+                    <svg id="icon-play" width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
+                        <path d="M2 1l9 5-9 5V1z" />
+                    </svg>
+                    <svg id="icon-pause" width="12" height="12" viewBox="0 0 12 12" fill="currentColor"
+                        style="display:none">
+                        <path d="M2 1h3v10H2zM7 1h3v10H7z" />
+                    </svg>
+                </button>
+                <div class="scrub-wrap">
+                    <span class="time-lbl" id="time-current">00:00</span>
+                    <!-- Range input drives state.clock directly on input —
+                         see the 'scrub' listener in main.js -->
+                    <input type="range" class="scrub" id="scrub" min="0" max="1000" value="0">
+                    <span class="time-lbl" id="time-total">00:00</span>
+                </div>
+                <select class="speed-select" id="speed-select">
+                    <option value="0.5">0.5×</option>
+                    <option value="1" selected>1×</option>
+                    <option value="2">2×</option>
+                    <option value="4">4×</option>
+                </select>
+            </div>
+        </main>
+
+        <!-- ---- RIGHT: intel panel (top talkers + live event feed) ---- -->
+        <div class="intel">
+            <div class="intel-section">
+                <p class="section-label">Top Talkers</p>
+                <!-- Ranked list of most active hosts, rebuilt by updateTalkers()
+                     in main.js. Clicking an IP isolates that host on the graph. -->
+                <div id="talkers"></div>
+            </div>
+            <div class="intel-section grow">
+                <p class="section-label">Live Feed <button class="clear-btn" id="clear-log">clear</button></p>
+                <!-- Scrolling terminal-style log, newest entry on top
+                     (column-reverse in CSS). Capped at MAX_LOG entries in JS. -->
+                <div id="log"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==== JS ====
+         Everything is in one module-style IIFE — see main.js for the full
+         data-loading, state, and render-loop logic. -->
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

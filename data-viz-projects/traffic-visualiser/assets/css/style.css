@@ -1,0 +1,686 @@
+/* =====================================================================
+   DESIGN TOKENS
+   Terminal / packet-capture aesthetic: near-black background, signal
+   cyan for benign traffic, amber/red for escalating severity. Matches
+   the "$ whoami" terminal motif used elsewhere on the portfolio site.
+   ===================================================================== */
+:root {
+  --bg: #0a0e12; /* page background */
+  --chrome: #131a21; /* header / panel background */
+  --chrome-2: #1c2530; /* chips, tracks, slightly lighter than chrome */
+  --line: #26313d; /* borders / dividers */
+  --text: #e7edf2; /* primary text */
+  --text-dim: #8b98a5; /* secondary text */
+  --text-faint: #556170; /* tertiary / label text */
+  --benign: #5eead4; /* Normal traffic — cyan */
+  --warn: #f5b942; /* Reconnaissance / Analysis / Generic — amber */
+  --alert: #f0555a; /* Exploits / DoS / Backdoor / etc — red */
+  --alert-glow: rgba(240, 85, 90, 0.35);
+  --mono: "JetBrains Mono", monospace; /* data, IPs, timestamps */
+  --sans: "Inter", sans-serif; /* UI chrome, labels */
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* html/body both need an explicit height for the 100vh flex layout below
+   to actually resolve — without this, percentage heights have nothing
+   concrete to size against. */
+html,
+body {
+  height: 100%;
+}
+
+/* Page is locked to exactly one viewport tall, no page-level scrolling.
+   Individual panels (aside, intel, canvas) scroll internally instead —
+   see min-height:0 usage further down, which is what makes that possible
+   inside a flex/grid layout. */
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+::selection {
+  background: var(--alert-glow);
+}
+a {
+  color: inherit;
+}
+
+/* ---------- Header ---------- */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 28px;
+  border-bottom: 1px solid var(--line);
+  background: linear-gradient(180deg, var(--chrome), var(--bg));
+  flex-shrink: 0; /* never compressed by the flex-column body — keeps its natural height */
+}
+
+.brand {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+.brand .prompt {
+  color: var(--benign);
+  font-family: var(--mono);
+  font-size: 14px;
+}
+.brand h1 {
+  font-family: var(--mono);
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+  letter-spacing: 0.02em;
+}
+.brand .subtitle {
+  color: var(--text-faint);
+  font-family: var(--mono);
+  font-size: 12px;
+}
+
+/* Live running totals, top-right of the header */
+.stat-strip {
+  display: flex;
+  gap: 22px;
+}
+.stat {
+  text-align: right;
+}
+.stat .num {
+  font-family: var(--mono);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1;
+  transition: transform 0.15s; /* powers the "bump" pulse below */
+}
+/* Added via JS for a brief moment whenever a stat increments —
+   a quick scale-up gives visual feedback on every new event. */
+.stat .num.bump {
+  transform: scale(1.25);
+}
+.stat .lbl {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-faint);
+  margin-top: 4px;
+}
+.stat.benign .num {
+  color: var(--benign);
+}
+.stat.warn .num {
+  color: var(--warn);
+}
+.stat.alert .num {
+  color: var(--alert);
+}
+
+/* ---------- Layout: filters | canvas | intel panel ---------- */
+/* Fluid column widths via minmax() rather than fixed pixels: as the
+   window narrows, the sidebar and intel panel shrink gradually instead
+   of staying frozen and then abruptly disappearing at a breakpoint. */
+.layout {
+  display: grid;
+  grid-template-columns: minmax(170px, 220px) minmax(320px, 1fr) minmax(
+      220px,
+      300px
+    );
+  flex: 1; /* fill all remaining height under the fixed-height header */
+  min-height: 0; /* required so this can actually shrink within the flex body
+                    instead of growing to fit its content and breaking 100vh */
+}
+
+/* overflow-y:auto + min-height:0 together are what let the sidebar scroll
+   internally if its content (chips, histogram) ever exceeds the viewport,
+   rather than pushing the whole page taller. */
+aside {
+  border-right: 1px solid var(--line);
+  padding: 20px 18px;
+  background: var(--chrome);
+  overflow-y: auto;
+  min-height: 0;
+}
+
+/* Small-caps style label used above every filter/panel section */
+.section-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-faint);
+  margin: 0 0 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between; /* lets a right-aligned action (e.g. "clear") sit inline */
+  align-items: center;
+}
+
+.clear-btn {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--text-faint);
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-transform: none;
+  letter-spacing: 0;
+}
+.clear-btn:hover {
+  color: var(--alert);
+}
+
+.filter-group {
+  margin-bottom: 26px;
+}
+.chip-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Attack-category filter chip. Toggled .active by JS on click; each has
+   a data-cat attribute the CSS below keys off of for the dot color. */
+.chip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 10px;
+  border-radius: 4px;
+  border: 1px solid var(--line);
+  background: var(--chrome-2);
+  font-family: var(--mono);
+  font-size: 12px;
+  cursor: pointer;
+  color: var(--text-dim);
+  transition:
+    border-color 0.15s,
+    color 0.15s,
+    background 0.15s;
+  user-select: none;
+}
+.chip:hover {
+  border-color: var(--text-faint);
+  color: var(--text);
+}
+.chip.active {
+  color: var(--text);
+  background: #202b36;
+  border-color: currentColor;
+}
+.chip .count {
+  margin-left: auto; /* pushes the running count to the right edge of the chip */
+  font-size: 10px;
+  color: var(--text-faint);
+}
+.chip .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--text-faint);
+  flex-shrink: 0;
+}
+/* Severity color-coding per category, matched to SEVERITY map in main.js:
+   benign = cyan, warn = amber, alert = red */
+.chip[data-cat="Normal"] .dot {
+  background: var(--benign);
+}
+.chip[data-cat="Reconnaissance"] .dot,
+.chip[data-cat="Analysis"] .dot,
+.chip[data-cat="Generic"] .dot {
+  background: var(--warn);
+}
+.chip[data-cat="Exploits"] .dot,
+.chip[data-cat="DoS"] .dot,
+.chip[data-cat="Backdoor"] .dot,
+.chip[data-cat="Fuzzers"] .dot {
+  background: var(--alert);
+}
+
+.protocol-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.proto-chip {
+  padding: 5px 9px;
+  font-family: var(--mono);
+  font-size: 11px;
+  border-radius: 4px;
+  border: 1px solid var(--line);
+  background: var(--chrome-2);
+  color: var(--text-dim);
+  cursor: pointer;
+}
+.proto-chip.active {
+  color: var(--text);
+  border-color: var(--text-faint);
+}
+
+/* ---------- Distribution histogram (sidebar) ---------- */
+.histogram {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.hist-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--text-faint);
+}
+.hist-label {
+  width: 78px;
+  flex-shrink: 0;
+  overflow: hidden;
+  text-overflow: ellipsis; /* long category names truncate with … rather than wrapping */
+  white-space: nowrap;
+}
+.hist-track {
+  flex: 1;
+  height: 6px;
+  background: var(--chrome-2);
+  border-radius: 3px;
+  overflow: hidden; /* clips .hist-fill's corners to the track's rounded shape */
+}
+/* IMPORTANT: display:block is required here. .hist-fill is a <span>, and
+   spans are inline by default — inline elements ignore the CSS `width`
+   property entirely per spec, so without this the JS-computed width
+   (set via .style.width in main.js) would silently have no visible effect. */
+.hist-fill {
+  display: block;
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.25s ease-out; /* smooths each bar's width change frame-to-frame */
+}
+.hist-val {
+  width: 22px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.data-source {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-faint);
+  line-height: 1.6;
+  padding: 10px;
+  border: 1px dashed var(--line); /* dashed = "this is a note/config", not a solid UI element */
+  border-radius: 4px;
+}
+.data-source strong {
+  color: var(--text-dim);
+}
+
+/* ---------- Main / Canvas ---------- */
+/* min-height:0 here matters just as much as on aside/.intel: without it,
+   this flex column refuses to shrink below its content's natural height,
+   which breaks the 100vh lock the moment content grows even slightly. */
+main {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+}
+
+/* flex:1 makes this fill all space in `main` not taken by .transport below.
+   position:relative anchors the absolutely-positioned HUD/tooltip/banner. */
+.canvas-wrap {
+  position: relative;
+  flex: 1;
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(94, 234, 212, 0.04),
+      transparent 60%
+    ),
+    var(--bg);
+}
+canvas {
+  display: block; /* removes the small inline-element gap canvas otherwise leaves below itself */
+  width: 100%;
+  height: 100%;
+  cursor: pointer; /* clicking a node isolates it — see canvas click handler in main.js */
+}
+
+.canvas-hud {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-faint);
+  line-height: 1.6;
+  pointer-events: none; /* lets clicks/hover pass through to the canvas underneath */
+}
+.canvas-hud .live-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--alert);
+  margin-right: 6px;
+  animation: pulse 1.4s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.25;
+  }
+}
+
+/* Shown only while a host is isolated — toggled via .show class in JS */
+.focus-banner {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  padding: 6px 12px;
+  border-radius: 4px;
+  background: var(--chrome-2);
+  border: 1px solid var(--benign);
+  color: var(--benign);
+  font-family: var(--mono);
+  font-size: 11px;
+  display: none; /* default hidden; JS adds .show to reveal */
+  align-items: center;
+  gap: 8px;
+}
+.focus-banner.show {
+  display: flex;
+}
+.focus-banner button {
+  background: none;
+  border: none;
+  color: var(--text-faint);
+  cursor: pointer;
+  font-family: var(--mono);
+  font-size: 12px;
+}
+.focus-banner button:hover {
+  color: var(--alert);
+}
+
+/* Hover tooltip — position (top/left) is set inline by JS to track the
+   mouse/node; only opacity/transform are animated here. */
+.tooltip {
+  position: absolute;
+  padding: 8px 10px;
+  background: var(--chrome-2);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text);
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(4px);
+  transition:
+    opacity 0.1s,
+    transform 0.1s;
+  max-width: 220px;
+  line-height: 1.5;
+  z-index: 10; /* sits above the canvas and its HUD elements */
+}
+.tooltip.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+.tooltip .row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+.tooltip .k {
+  color: var(--text-faint);
+}
+
+/* ---------- Transport bar (play/pause, scrub, speed) ---------- */
+.transport {
+  border-top: 1px solid var(--line);
+  background: var(--chrome);
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.play-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: var(--chrome-2);
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: border-color 0.15s;
+}
+.play-btn:hover {
+  border-color: var(--benign);
+}
+.scrub-wrap {
+  flex: 1; /* lets the range input stretch to fill available transport width */
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+/* Custom-styled range input — the default OS slider look is stripped via
+   -webkit-appearance:none so the track/thumb can be themed to match. */
+.scrub {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--line);
+  outline: none;
+  cursor: pointer;
+}
+.scrub::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--benign);
+  border: 2px solid var(--bg); /* creates a ring effect against the track */
+  box-shadow: 0 0 0 1px var(--benign);
+}
+.time-lbl {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-faint);
+  white-space: nowrap;
+  min-width: 60px; /* keeps mm:ss labels from jittering the layout as digits change */
+}
+.speed-select {
+  font-family: var(--mono);
+  font-size: 11px;
+  background: var(--chrome-2);
+  color: var(--text-dim);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 6px 8px;
+  cursor: pointer;
+}
+
+/* ---------- Intel panel (right): Top Talkers + Live Feed ---------- */
+.intel {
+  border-left: 1px solid var(--line);
+  background: var(--chrome);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-height: 0; /* same shrink-to-fit requirement as aside/main above */
+}
+.intel-section {
+  padding: 18px;
+  border-bottom: 1px solid var(--line);
+}
+/* The "Live Feed" section is the one that should expand to fill remaining
+   space and scroll internally — Top Talkers stays a fixed natural height. */
+.intel-section.grow {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.talker-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 0;
+  font-family: var(--mono);
+  font-size: 11px;
+  border-bottom: 1px solid var(--line);
+}
+.talker-row:last-child {
+  border-bottom: none;
+}
+.talker-row .ip {
+  color: var(--text-dim);
+  cursor: pointer; /* clicking an IP here isolates that host — see updateTalkers() in main.js */
+}
+.talker-row .ip:hover {
+  color: var(--benign);
+}
+.talker-row .n {
+  color: var(--text-faint);
+}
+
+/* Live event log. column-reverse means new entries (prepended in JS)
+   visually appear at the top without needing to scroll the container. */
+#log {
+  flex: 1;
+  overflow-y: auto;
+  font-family: var(--mono);
+  font-size: 11px;
+  padding: 12px 18px;
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 4px;
+}
+/* Each entry fades in via the animation below — gives the feed a sense
+   of continuous motion even when several events land in the same frame. */
+.log-entry {
+  display: flex;
+  gap: 6px;
+  color: var(--text-dim);
+  opacity: 0;
+  animation: fadeIn 0.2s ease-out forwards;
+  border-left: 2px solid transparent; /* colored per severity below */
+  padding-left: 6px;
+}
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+.log-entry .t {
+  color: var(--text-faint);
+  flex-shrink: 0;
+}
+.log-entry .arrow {
+  color: var(--text-faint);
+}
+.log-entry.benign {
+  border-left-color: var(--benign);
+}
+.log-entry.warn {
+  border-left-color: var(--warn);
+}
+.log-entry.alert {
+  border-left-color: var(--alert);
+  color: var(
+    --text
+  ); /* alert rows get brighter text too, not just the border accent */
+}
+
+/* Slim custom scrollbar for the log — WebKit only, degrades gracefully
+   to the browser default elsewhere. */
+#log::-webkit-scrollbar {
+  width: 6px;
+}
+#log::-webkit-scrollbar-thumb {
+  background: var(--line);
+  border-radius: 3px;
+}
+
+/* ---------- Responsive: genuine mobile stacking ---------- */
+/* Above 720px, the fluid minmax() grid columns (defined earlier) handle
+   narrowing gracefully on their own — this breakpoint only kicks in once
+   three columns genuinely can't fit side by side anymore. */
+@media (max-width: 720px) {
+  /* On mobile, let the page scroll normally instead of forcing a 100vh
+     lock — a stacked sidebar + canvas + intel panel needs more room than
+     one screen, and cramming it in would crush the canvas down to nothing. */
+  body {
+    height: auto;
+    min-height: 100vh;
+    overflow: visible;
+  }
+  .layout {
+    grid-template-columns: 1fr; /* stack: aside, then main, then intel — in DOM order */
+    min-height: 0;
+  }
+  header {
+    padding: 14px 18px;
+  }
+  aside {
+    border-right: none;
+    border-bottom: 1px solid var(--line);
+    overflow-y: visible;
+    padding: 16px;
+  }
+  .filter-group {
+    margin-bottom: 18px;
+  }
+  /* Fixed, modest height for the canvas rather than a large vh-based one —
+     the graph doesn't need a huge area, and an oversized box just leaves
+     empty space above/below the small circular layout. */
+  main {
+    height: 46vh;
+    min-height: 280px;
+  }
+  .intel {
+    border-left: none;
+    border-top: 1px solid var(--line);
+    max-height: 320px; /* scrolls internally past this rather than growing further */
+  }
+  .intel-section {
+    padding: 14px 16px;
+  }
+  .stat-strip {
+    display: none; /* not enough header width to show these on small screens */
+  }
+}
+
+/* Respect OS-level reduced-motion preference: disable decorative
+   animations (but not the core replay animation itself, which is the
+   whole point of the page). */
+@media (prefers-reduced-motion: reduce) {
+  .canvas-hud .live-dot {
+    animation: none;
+  }
+  .log-entry {
+    animation: none;
+    opacity: 1;
+  }
+}
